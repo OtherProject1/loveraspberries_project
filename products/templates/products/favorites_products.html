@@ -1,0 +1,22 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+<div class="title">Избранное</div>
+
+{% if favorites_products %}
+{% for product in favorites_products %}
+<div>
+    <p>Условно, название товара</p>
+    <p>Условно, фото товара</p>
+    <p>Условно, цена товара</p>
+</div>
+{% endfor %}
+{% else %}
+<div>
+    <h3>Здесь будут отображаться избранные товары</h3>
+    <p>Для добавления товара в избранное, нажмите "Сердечко:D"</p>
+</div>
+{% endif %}
+
+{% endblock %}
