@@ -22,62 +22,71 @@
             <input class="form-control me-2" type="search" placeholder="Найти товары" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Поиск</button>
         </form>
-        <a class="navbar-links" href="#">
-            <figure><img src="{% static 'products/images/header/delivery.png' %}" alt="delivery" width="30"
-                         height="30">
-                <figcaption>Доставки</figcaption>
-            </figure>
-        </a>
-        <a class="navbar-links" href="#">
-            <figure><img src="{% static 'products/images/header/favorites.png' %}" alt="favorites" width="30"
-                         height="30">
-                <figcaption>Избранное</figcaption>
-            </figure>
-        </a>
-        <a class="navbar-links" href="#">
-            <figure><img src="{% static 'products/images/header/profile.png' %}" alt="profile" width="30"
-                         height="30">
-                <figcaption>Профиль</figcaption>
-            </figure>
-        </a>
-        <a class="navbar-links" href="#">
-            <figure><img src="{% static 'products/images/header/basket.png' %}" alt="basket" width="30" height="30">
-                <figcaption>Корзина</figcaption>
-            </figure>
-        </a>
+        {% for item in navbar %}
+            <a class="navbar-links" href={{ item.href }}>
+                <figure><img src="{% static item.img %}" alt={{ item.alt }} width="30"
+                             height="30">
+                    <figcaption>{{ item.title }}</figcaption>
+                </figure>
+            </a>
+        {% endfor %}
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        {# Окно вне холста #} {# В дальнейшем, когда внесем наименование в модели, количество кода сократится #}
+        {# Окно вне холста #}
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
              aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: rgb(219, 214, 213)">Каталог
-                    товаров</h5>
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: rgb(219, 214, 213)">
+                    Каталог товаров
+                </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
             </div>
-
-            {% for elem in categories %}
-                <div class="btn-group dropstart">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" data-bs-display="static">
-                        {{ elem.category }}
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" style="overflow: auto;">
-                        {% for product in elem.products %}
-                            <li><a class="dropdown-item" href="#">{{ product }}</a></li>
-                        {% endfor %}
+            <div class="offcanvas-body">
+                {% for item in categories %}
+                    <ul class="navbar-nav justify-content-center ">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="color: rgb(219, 214, 213)"
+                               data-bs-toggle="offcanvas" data-bs-target={{ item.data }}>
+                                {{ item.category }}
+                            </a>
+                        </li>
                     </ul>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
         {# Дополнительное окно вне холста #}
+        {% for item in categories %}
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id={{ item.id }}
+                    aria-labelledby="offcanvasDarkNavbarLabel2">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel2" style="color: rgb(219, 214, 213)">
+                        {{ item.category }}
+                    </h5>
+                    <button class="btn-close btn-close-white" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                            aria-label="Toggle navigation">
+                    </button>
+                </div>
+                <div class="offcanvas-body">
+                    {% for product in item.products %}
+                        <ul class="navbar-nav justify-content-center ">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ product.url }}" aria-current="page"
+                                   style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas"
+                                   data-bs-target={{ item.data }}>
+                                    {{ product.title }}
+                                </a>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </nav>
 {% block content %} {% endblock %}
 </html>
-
-
-
