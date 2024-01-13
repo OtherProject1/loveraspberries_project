@@ -88,6 +88,71 @@
         {% endfor %}
     </div>
 </nav>
-{% block content %} {% endblock %}
+<section class="body">
+    <div class="container">
+        <div class="row">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+</section>
+
+<footer>
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                {% for foot in footer %}
+                    <div class="col-md-3 col-6">
+                        <h4>{{ foot.title }}</h4>
+                        {% for discr in foot.description %}
+                            <ul class="list-unstyled">
+                                <li><a href="{{ discr.url }}">{{ discr.title }}</a></li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="footer-info">
+                <div class="footer-info-block__left">
+                    <ul class="list-unstyled">
+                        <li class="footer-info-item" data-text="strAddressInfo">ООО «ИМВБРБ», г. Минск, ул. Грушевская
+                            21, помещение 217
+                        </li>
+                        <li class="footer-info-item" data-text="strAddressInfoByUPN">УНП 193630204 (свидетельство о
+                            государственной регистрации юридического лица выдано Минским горисполкомом от 06.06.2022 г.
+                            №0198794)
+                        </li>
+                        <li class="footer-info-item" data-text="strDateOfInclusion">Дата включения сведений об
+                            интернет-магазине в Торговый реестр Республики Беларусь 01.07.2022
+                        </li>
+                        <li class="footer-info-item"><span data-text="strTelephoneToCall">Телефон для связи: </span> <a
+                                data-tag="phoneToCall" data-text="strTelephoneToCallTel" href="tel:+375173886000">+375
+                            17 388 60 00</a></li>
+                        <li class="footer-info-item" data-text="strSchedule">Режим работы: круглосуточно</li>
+                    </ul>
+                </div>
+                <div class="footer-info-block__right">
+                    <ul class="list-unstyled">
+                        <li class="footer-info-item"><span data-text="strConsumerRights">Лицо, уполномоченное продавцом рассматривать обращения покупателей о нарушении их прав, предусмотренных законодательством о защите прав потребителей – Добриян Ольга Викторовна, тел. </span>
+                            <a data-tag="phoneConsumer" data-text="strConsumerRightsTel" href="tel:+375173886022">+375
+                                17 388 60 22</a></li>
+                        <li class="footer-info-item"><span class="footer-info--wrap" data-tag="phoneAdministration"><a
+                                href="tel:+375172639769">+375 17 263 97 69,</a><a href="tel:+375172583082">+375 17 258 30 82</a></span>
+                            <span data-text="strAdministrationInfo">– отдел торговли и услуг администрации Московского района г. Минска</span>
+                        </li>
+                        <li class="footer-info-item" data-tag="strMainDepartment"><span class="footer-info--wrap"
+                                                                                        data-tag="phoneDepartment"><a
+                                href="tel:+375173688049">+375 17 368 80 49</a></span> <span
+                                data-text="strMainDepartment">– уполномоченный по защите прав потребителей</span></li>
+                        <li class="footer-info-item"><span data-text="strProcessingClaims">По оформлению рекламации или возврата, свяжитесь с нами по электронной почте:</span>
+                            <a data-tag="processingClaimsMail" data-text="strProcessingClaimsMail"
+                               href="mailto:sales@wildberries.by">sales@wildberries.by</a></li>
+                        <li class="footer-info-item" data-text="strBookRemarks">Книга замечаний и предложений находится
+                            по адресу: г Минск, ул. Скрыганова, д.6а, помещение 8, офис 22
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
 </html>
-{#Хз слияние не происходило#}
