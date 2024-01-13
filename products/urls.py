@@ -6,5 +6,5 @@ from .views import *
 app_name = 'products'
 
 urlpatterns = [
-    path('profile/favourites_products/', favorities_products, name='favorites'),
+    path('profile/favourites_products/', favourites_products, name='favorites'),
 ]
