@@ -1,0 +1,12 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+{% if is_auth %}
+<div class="title">Профиль пользователя</div>
+<p>Типа тут список с перечеслением разных пунктов</p>
+{% else %}
+<p>Для входа в личный кабинет необходимо авторизоваться</p>
+{% endif %}
+
+{% endblock %}

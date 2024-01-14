@@ -1,5 +1,25 @@
 {% extends 'products/base.html' %}
 
 {% block content %}
-<h1>Main page with some products</h1>
+<div style="text-align: center;">
+    <h1>Main page with some products</h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-6 g-4">
+    {% for card in cards %}
+    <div class="col">
+        <div class="card">
+            <img src="{{ card.image_url }}" class="card-img-top" alt="Image" height="200" width="330">
+            <div class="card-body">
+                <h5 class="card-title">{{ card.price }} BYN</h5>
+                <p class="card-text">{{ card.title }}</p>
+                <!-- <p class="card-text"><small class="text-body-secondary">Последнее обновление 3 мин. назад</small></p> -->
+                <a href="#" class="btn btn-primary">Добавить в корзину</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
 {% endblock content %}
