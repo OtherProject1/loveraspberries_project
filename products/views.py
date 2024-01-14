@@ -4,6 +4,7 @@ from products.categories_list import first_categories, navbar_list, footer_list,
 context = {'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list}
 def home(request):
     context['cards'] = cards
+    context['photos'] = ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png']
     return render(request, 'products/main.html', context)
 
 def favorities_products(request):
