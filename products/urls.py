@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('profile/shopping_cart/', shopping_cart, name='shopping_cart'),
     path('profile/delivery/', delivery, name='delivery'),
+    path('profile/favourites_products/', favourites_products, name='favorites'),
 ]
