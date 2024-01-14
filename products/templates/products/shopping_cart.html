@@ -1,0 +1,12 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+{% if is_auth %}
+<div class="title">Корзина</div>
+<p>Типа тут список с добавленными товарами</p>
+{% else %}
+<p>Для просмотра корзины необходимо авторизоваться</p>
+{% endif %}
+
+{% endblock %}
