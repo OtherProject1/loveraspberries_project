@@ -248,11 +248,11 @@ first_categories = [
 ]
 navbar_list = [
     {'title': 'Доставки', 'img': 'products/images/header/delivery.png', 'alt': 'delivery',
-     'href': 'products:favorites'},
+     'href': 'products:delivery'},
     {'title': 'Избранное', 'img': 'products/images/header/favorites.png', 'alt': 'favorite',
-     'href': 'products:favorites'},
-    {'title': 'Профиль', 'img': 'products/images/header/profile.png', 'alt': 'profile', 'href': 'products:favorites'},
-    {'title': 'Корзина', 'img': 'products/images/header/basket.png', 'alt': 'basket', 'href': 'products:favorites'},
+     'href': 'products:favourites'},
+    {'title': 'Профиль', 'img': 'products/images/header/profile.png', 'alt': 'profile', 'href': 'products:profile'},
+    {'title': 'Корзина', 'img': 'products/images/header/basket.png', 'alt': 'basket', 'href': 'products:shopping_cart'},
 ]
 footer_list = [
     {'title': 'Покупателям',
@@ -272,3 +272,16 @@ footer_list = [
      'description': [{'title': 'Вконтакте', 'url': '#1'}, {'title': 'Одноклассники', 'url': '#2'},
                      {'title': 'YouTube', 'url': '#3'}]}
 ]
+
+
+cards = [{'title': 'Карточка 1', 'image_url': 'media/images/cards/1.jpg', 'price': 10, 'count_of_reviews': 12, 'avg_reviews': 4},
+         {'title': 'Карточка 2', 'image_url': 'media/images/cards/2.jpg', 'price': 101, 'count_of_reviews': 1, 'avg_reviews': 3},
+         {'title': 'Карточка 3', 'image_url': 'media/images/cards/3.jpg', 'price': 32, 'count_of_reviews': 35, 'avg_reviews': 2},
+         {'title': 'Карточка 4', 'image_url': 'media/images/cards/4.jpg', 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
+         {'title': 'Карточка 5', 'image_url': 'media/images/cards/5.jpg', 'price': 19, 'count_of_reviews': 11111, 'avg_reviews': 1.5},
+         {'title': 'Карточка 6', 'image_url': 'media/images/cards/6.jpg', 'price': 999, 'count_of_reviews': 2222, 'avg_reviews': 4.6},
+         {'title': 'Карточка 7', 'image_url': 'media/images/cards/7.png', 'price': 4, 'count_of_reviews': 676767, 'avg_reviews': 4.9},
+         {'title': 'Карточка 8', 'image_url': 'media/images/cards/7.png', 'price': 74, 'count_of_reviews': 234, 'avg_reviews': 1.9},
+         {'title': 'Карточка 9', 'image_url': 'media/images/cards/9.jpg', 'price': 88, 'count_of_reviews': 1, 'avg_reviews': 5},
+         {'title': 'Карточка 10', 'image_url': 'media/images/cards/1.jpg', 'price': 98, 'count_of_reviews': 99, 'avg_reviews': 4.1},
+         ]
