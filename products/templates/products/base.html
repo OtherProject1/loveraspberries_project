@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load static %}
 <html lang="ru">
 <head>
@@ -12,12 +12,14 @@
             crossorigin="anonymous"></script>
     {# Подключение static-files #}
     <link rel="stylesheet" href="{% static 'products/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/payment_methods.css' %}">
     <link rel="shortcut icon" href="{% static 'products/images/header/minilogo.png' %}" type="image/png">
 </head>
-{# Элементы шапки сайта #}
+<body>
 <nav class="navbar bg-dark border-bottom border-body">
     <div class="container-fluid d-flex justify-content-around">
-        <img class="nav-logo" src="{% static 'products/images/header/logo.png' %}" alt="Логотип">
+        <a href="{% url 'home' %}"><img class="nav-logo" src="{% static 'products/images/header/logo.png' %}"
+                                        alt="Логотип"></a>
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Найти товары" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Поиск</button>
@@ -35,7 +37,7 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        {# Окно вне холста #}
+        {# Окно вне холста#}
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
              aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
@@ -58,7 +60,7 @@
                 {% endfor %}
             </div>
         </div>
-        {# Дополнительное окно вне холста #}
+        {# Дополнительное окно вне холста#}
         {% for item in categories %}
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id={{ item.id }}
                     aria-labelledby="offcanvasDarkNavbarLabel2">
@@ -95,7 +97,7 @@
         </div>
     </div>
 </section>
-
+{# Футер #}
 <footer>
     <section class="footer">
         <div class="container">
@@ -104,9 +106,12 @@
                     <div class="col-md-3 col-6">
                         <h4>{{ foot.title }}</h4>
                         {% for discr in foot.description %}
-                            <ul class="list-unstyled">
-                                <li><a href="{{ discr.url }}">{{ discr.title }}</a></li>
-                            </ul>
+                            <div class="description">
+                                <ul class="list-unstyled">
+                                    <li><a href="{% url discr.url %}">{{ discr.title }}</a></li>
+                                </ul>
+                            </div>
+
                         {% endfor %}
                     </div>
                 {% endfor %}
@@ -155,4 +160,5 @@
         </div>
     </section>
 </footer>
+</body>
 </html>

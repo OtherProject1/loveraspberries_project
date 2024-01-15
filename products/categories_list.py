@@ -256,21 +256,21 @@ navbar_list = [
 ]
 footer_list = [
     {'title': 'Покупателям',
-     'description': [{'title': 'Способы оплаты', 'url': '#1'}, {'title': 'Возврат товара', 'url': '#2'},
-                     {'title': 'Правила продажи товаров', 'url': '#3'}, {'title': 'Доставка', 'url': '#4'},
-                     {'title': 'Возврат денежных средств', 'url': '#5'},
-                     {'title': 'Правила пользования торговой площадкой', 'url': '#6'},
-                     {'title': 'Политика обработки персональных данных', 'url': '#7'},
-                     {'title': 'Политика в отношении обработки cookies', 'url': '#8'},
-                     {'title': 'Политика видеонаблюдения', 'url': '#9'}]},
-    {'title': 'Партнерам', 'description': [{'title': 'Продавайте на LoveRuspberry', 'url': '#1'},
-                                           {'title': 'Партнерский пункт выдачи', 'url': '#2'},
-                                           {'title': 'Франшизный пункт выдачи', 'url': '#3'}]},
-    {'title': 'Компания', 'description': [{'title': 'О нас', 'url': '#1'}, {'title': 'Контакты', 'url': '#2'},
-                                          {'title': 'Вакансии', 'url': '#3'}]},
+     'description': [{'title': 'Способы оплаты', 'url': 'products:payment_methods'}, {'title': 'Возврат товара', 'url': 'products:payment_methods'},
+                     {'title': 'Правила продажи товаров', 'url': 'products:payment_methods'}, {'title': 'Доставка', 'url': 'products:payment_methods'},
+                     {'title': 'Возврат денежных средств', 'url': 'products:payment_methods'},
+                     {'title': 'Правила пользования торговой площадкой', 'url': 'products:payment_methods'},
+                     {'title': 'Политика обработки персональных данных', 'url': 'products:payment_methods'},
+                     {'title': 'Политика в отношении обработки cookies', 'url': 'products:payment_methods'},
+                     {'title': 'Политика видеонаблюдения', 'url': 'products:payment_methods'}]},
+    {'title': 'Партнерам', 'description': [{'title': 'Продавайте на LoveRuspberry', 'url': 'products:payment_methods'},
+                                           {'title': 'Партнерский пункт выдачи', 'url': 'products:payment_methods'},
+                                           {'title': 'Франшизный пункт выдачи', 'url': 'products:payment_methods'}]},
+    {'title': 'Компания', 'description': [{'title': 'О нас', 'url': 'products:payment_methods'}, {'title': 'Контакты', 'url': 'products:payment_methods'},
+                                          {'title': 'Вакансии', 'url': 'products:payment_methods'}]},
     {'title': 'Мы в соцсетях',
-     'description': [{'title': 'Вконтакте', 'url': '#1'}, {'title': 'Одноклассники', 'url': '#2'},
-                     {'title': 'YouTube', 'url': '#3'}]}
+     'description': [{'title': 'Вконтакте', 'url': 'products:payment_methods'}, {'title': 'Одноклассники', 'url': 'products:payment_methods'},
+                     {'title': 'YouTube', 'url': 'products:payment_methods'}]}
 ]
 
 
@@ -285,3 +285,16 @@ cards = [{'title': 'Карточка 1', 'images_url': ['media/images/cards/1.jp
          {'title': 'Карточка 9', 'images_url': ['media/images/cards/9.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 88, 'count_of_reviews': 1, 'avg_reviews': 5},
          {'title': 'Карточка 10', 'images_url': ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 98, 'count_of_reviews': 99, 'avg_reviews': 4.1},
          ]
+
+payment_list = [
+    {'img':'products/images/footer/visa.png','alt':'visa'},
+    {'img':'products/images/footer/visa-secure.png','alt':'visa-secure'},
+    {'img':'products/images/footer/mastercard.png','alt':'mastercard'},
+    {'img':'products/images/footer/mastercard-secure.png','alt':'mastercard-secure'},
+    {'img':'products/images/footer/mastercard-securecode.png','alt':'mastercard-securecode'},
+    {'img':'products/images/footer/belkart-slogan.png','alt':'belkart-slogan'},
+    {'img':'products/images/footer/belkart-internet-password.png','alt':'belkart-internet-password'},
+    {'img':'products/images/footer/mir-new.png','alt':'mir-new'},
+    {'img':'products/images/footer/mir-accept.png','alt':'mir-accept'},
+    {'img':'products/images/footer/webpay.png','alt':'webpay'},
+]
