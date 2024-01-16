@@ -3,10 +3,53 @@
 {% block content %}
 
 {% if is_auth %}
-<div class="title">Профиль пользователя</div>
-<p>Типа тут список с перечеслением разных пунктов</p>
+<div style="text-align: center;">
+    <h1>Профиль</h1>
+</div>
+
+<div style="content: center; display: flex; justify-content: center; flex-wrap: wrap;">
+
+    <div class="card text-bg-dark mb-3" style="max-width: 40%; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Имя Фамилия</h5>
+            <p class="card-text">+375 хх ххх-хх-хх</p>
+            <p class="card-text">someone'smail@gmail.com</p>
+            <p>Выйти</p>
+        </div>
+    </div>
+
+    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Доставки</h5>
+            <p class="card-text">Ближайшая не ожидается</p>
+        </div>
+    </div>
+
+    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Мои карты и счета</h5>
+            <p class="card-text">VISA: 1111 11** **** 1234</p>
+        </div>
+    </div>
+
+    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Покупки</h5>
+            <p class="card-text">Сюда добавить товары</p>
+        </div>
+    </div>
+
+    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Избранное</h5>
+            <p class="card-text">У вас пока нет избранных товаров</p>
+        </div>
+    </div>
+</div>
 {% else %}
-<p>Для входа в личный кабинет необходимо авторизоваться</p>
+<div style="text-align: center;">
+    <h1>Для входа в личный кабинет необходимо авторизоваться</h1>
+</div>
 {% endif %}
 
 {% endblock %}
