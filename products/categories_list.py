@@ -274,16 +274,16 @@ footer_list = [
 ]
 
 
-cards = [{'title': 'Карточка 1', 'images_url': ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 10, 'count_of_reviews': 12, 'avg_reviews': 4},
-         {'title': 'Карточка 2', 'images_url': ['media/images/cards/2.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 101, 'count_of_reviews': 1, 'avg_reviews': 3},
-         {'title': 'Карточка 3', 'images_url': ['media/images/cards/3.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 32, 'count_of_reviews': 35, 'avg_reviews': 2},
-         {'title': 'Карточка 4', 'images_url': ['media/images/cards/4.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
-         {'title': 'Карточка 5', 'images_url': ['media/images/cards/5.jpg', 'media/images/cards/2.jpg', 'media/images/cards/1.jpg'], 'price': 19, 'count_of_reviews': 11111, 'avg_reviews': 1.5},
-         {'title': 'Карточка 6', 'images_url': ['media/images/cards/6.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 999, 'count_of_reviews': 2222, 'avg_reviews': 4.6},
-         {'title': 'Карточка 7', 'images_url': ['media/images/cards/7.png', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 4, 'count_of_reviews': 676767, 'avg_reviews': 4.9},
-         {'title': 'Карточка 8', 'images_url': ['media/images/cards/8.png', 'media/images/cards/2.jpg', 'media/images/cards/1.jpg'], 'price': 74, 'count_of_reviews': 234, 'avg_reviews': 1.9},
-         {'title': 'Карточка 9', 'images_url': ['media/images/cards/9.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 88, 'count_of_reviews': 1, 'avg_reviews': 5},
-         {'title': 'Карточка 10', 'images_url': ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 98, 'count_of_reviews': 99, 'avg_reviews': 4.1},
+cards = [{'id': 1, 'title': 'Карточка 1', 'images_url': ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 10, 'count_of_reviews': 12, 'avg_reviews': 4},
+         {'id': 2, 'title': 'Карточка 3', 'images_url': ['media/images/cards/3.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 32, 'count_of_reviews': 35, 'avg_reviews': 2},
+         {'id': 3, 'title': 'Карточка 2', 'images_url': ['media/images/cards/2.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 101, 'count_of_reviews': 1, 'avg_reviews': 3},
+         {'id': 4, 'title': 'Карточка 4', 'images_url': ['media/images/cards/4.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
+         {'id': 5, 'title': 'Карточка 5', 'images_url': ['media/images/cards/5.jpg', 'media/images/cards/2.jpg', 'media/images/cards/1.jpg'], 'price': 19, 'count_of_reviews': 11111, 'avg_reviews': 1.5},
+         {'id': 6, 'title': 'Карточка 6', 'images_url': ['media/images/cards/6.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 999, 'count_of_reviews': 2222, 'avg_reviews': 4.6},
+         {'id': 7, 'title': 'Карточка 7', 'images_url': ['media/images/cards/7.png', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 4, 'count_of_reviews': 676767, 'avg_reviews': 4.9},
+         {'id': 8, 'title': 'Карточка 8', 'images_url': ['media/images/cards/8.png', 'media/images/cards/2.jpg', 'media/images/cards/1.jpg'], 'price': 74, 'count_of_reviews': 234, 'avg_reviews': 1.9},
+         {'id': 9, 'title': 'Карточка 9', 'images_url': ['media/images/cards/9.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 88, 'count_of_reviews': 1, 'avg_reviews': 5},
+         {'id': 10, 'title': 'Карточка 10', 'images_url': ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'], 'price': 98, 'count_of_reviews': 99, 'avg_reviews': 4.1},
          ]
 
 payment_list = [
