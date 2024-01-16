@@ -1,0 +1,15 @@
+.payments {
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 5px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+}
+.payments__item img {
+    padding-right: 20px
+}
+.payments_title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
