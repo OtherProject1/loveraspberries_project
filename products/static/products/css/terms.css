@@ -1,0 +1,9 @@
+.terms-content {
+    margin-top: 50px;
+    font-family: Hauss,sans-serif;
+}
+
+.terms-content a{
+    color: rgb(201, 17, 170);
+    text-decoration-line: underline;
+}

@@ -256,8 +256,8 @@ navbar_list = [
 ]
 footer_list = [
     {'title': 'Покупателям',
-     'description': [{'title': 'Способы оплаты', 'url': 'products:payment_methods'}, {'title': 'Возврат товара', 'url': 'products:payment_methods'},
-                     {'title': 'Правила продажи товаров', 'url': 'products:payment_methods'}, {'title': 'Доставка', 'url': 'products:payment_methods'},
+     'description': [{'title': 'Способы оплаты', 'url': 'products:payment_methods'}, {'title': 'Возврат товара', 'url': 'products:item_return'},
+                     {'title': 'Правила продажи товаров', 'url': 'products:sale_rules'}, {'title': 'Доставка', 'url': 'products:delivery_rules'},
                      {'title': 'Возврат денежных средств', 'url': 'products:payment_methods'},
                      {'title': 'Правила пользования торговой площадкой', 'url': 'products:payment_methods'},
                      {'title': 'Политика обработки персональных данных', 'url': 'products:payment_methods'},

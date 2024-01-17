@@ -1,0 +1,11 @@
+.sale-rules {
+    margin-top: 50px;
+    font-family: Hauss,sans-serif;
+}
+.sale-rules li{
+    margin-top: 15px;
+}
+.sale-rules a{
+    color: rgb(201, 17, 170);
+    text-decoration-line: underline;
+}
