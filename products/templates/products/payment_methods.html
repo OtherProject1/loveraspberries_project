@@ -12,63 +12,68 @@
 </head>
 <body>
 {% block content %}
-    <h1 class="payments_title">Способы оплаты</h1>
-    <h3>Понравившиеся вещи Вы можете оплатить перечисленными ниже способами.</h3>
+    <div class="payment-content">
+    <h1 class="payments_title"><b>Способы оплаты</b></h1>
+    <h3><b>Понравившиеся вещи Вы можете оплатить перечисленными ниже способами.</b></h3>
     <div class="accordion" id="accordion">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                Банковская карта
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-             data-bs-parent="#accordion">
-            <div class="accordion-body">
-                <p>При выборе оплаты заказа с помощью банковской
-                    карты, обработка платежа производится ООО «Компания Электронных Платежей «АССИСТ», ООО «ВЕБ
-                    ПЭЙ»,
-                    ЗАО «Альфа-Банк», которые прошли международную сертификацию.</p>
-                <p>Вход в платежный терминал находится в Вашем Личном кабинете. Оплатить можно только заказы,
-                    сделанные
-                    с регистрацией.</p>
-                <p>Оплата производится через интернет в режиме реального времени непосредственно после оформления
-                    заказа.</p>
-                <p><strong> Мы принимаем платежи с сайта по следующим банковским картам и сервисам:</strong></p>
-                <p>
-                <div class="payments">
-                    {% for item in logo %}
-                        <div class="payments__item">
-                            <img src="{% static item.img %}" alt="{{ item.alt }}" height="25px">
-                        </div>
-                    {% endfor %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    Банковская карта
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <p>При выборе оплаты заказа с помощью банковской
+                        карты, обработка платежа производится ООО «Компания Электронных Платежей «АССИСТ», ООО «ВЕБ
+                        ПЭЙ»,
+                        ЗАО «Альфа-Банк», которые прошли международную сертификацию.</p>
+                    <p>Вход в платежный терминал находится в Вашем Личном кабинете. Оплатить можно только заказы,
+                        сделанные
+                        с регистрацией.</p>
+                    <p>Оплата производится через интернет в режиме реального времени непосредственно после оформления
+                        заказа.</p>
+                    <p><strong> Мы принимаем платежи с сайта по следующим банковским картам и сервисам:</strong></p>
+                    <p>
+                    <div class="payments">
+                        {% for item in logo %}
+                            <div class="payments__item">
+                                <img src="{% static item.img %}" alt="{{ item.alt }}" height="25px">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    </p>
                 </div>
-                </p>
             </div>
         </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Безопасность онлайновых платежей
-            </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-             data-bs-parent="#accordion">
-            <div class="accordion-body">
-                <p>При выборе оплаты заказа с помощью банковской карты, обработка платежа производится ООО «Компания
-                    Электронных Платежей «АССИСТ», ООО «ВЕБ ПЭЙ», ЗАО «Альфа-Банк», которые прошли международную
-                    сертификацию.</p>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Безопасность онлайновых платежей
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                 data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <p>При выборе оплаты заказа с помощью банковской карты, обработка платежа производится ООО «Компания
+                        Электронных Платежей «АССИСТ», ООО «ВЕБ ПЭЙ», ЗАО «Альфа-Банк», которые прошли международную
+                        сертификацию.</p>
 
-                <p>В системе, обеспечивающей безопасность платежей, используется защищённый протокол TLS для передачи
-                    конфиденциальной информации от клиента на сервер и дальнейшей обработки в процессинговом центре.
-                    Кроме того, при обработке платежей по банковским картам, используется безопасная технология
-                    3D-Secure, которую в обязательном порядке требуют международные платёжные системы VISA, MasterCard,
-                    МИР и UnionPay – Интернет Пароль.</p>
+                    <p>В системе, обеспечивающей безопасность платежей, используется защищённый протокол TLS для
+                        передачи
+                        конфиденциальной информации от клиента на сервер и дальнейшей обработки в процессинговом центре.
+                        Кроме того, при обработке платежей по банковским картам, используется безопасная технология
+                        3D-Secure, которую в обязательном порядке требуют международные платёжные системы VISA,
+                        MasterCard,
+                        МИР и UnionPay – Интернет Пароль.</p>
+                </div>
             </div>
         </div>
     </div>
+
 
 {% endblock %}
 

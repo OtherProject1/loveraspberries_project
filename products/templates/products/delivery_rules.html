@@ -1,0 +1,33 @@
+{% extends 'products/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'products/css/delivery_rules.css' %}">
+    <title>Правила продажи товара</title>
+</head>
+<body>
+{% block content %}
+    <div class="delivery">
+        <h1><b>Доставка</b></h1><br>
+        <div ><p><b>Срок доставки с момента оформления заказа составляет
+            <span>3–5</span> дней</b></p>
+            <p>Срок может быть изменен по независящим от компании обстоятельствам согласно <a href="{% url 'products:terms_rules' %}">условиям</a>.
+            </p>
+            <p>Если у Вас есть вопросы по доставке Вашего заказа, свяжитесь с нами по электронной почте: <a
+                    href="mailto:vadimka_loh@gmail.com">vadimka_loh@gmail.com</a></p>
+        </div>
+        <div class="delivery__quantity-pvz quantity-pvz">
+            <h1><b>34737</b></h1>
+            <p>пункта выдачи</p>
+        </div>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>
