@@ -24,9 +24,14 @@
     <div class="container-fluid d-flex justify-content-around">
         <a href="{% url 'home' %}"><img class="nav-logo" src="{% static 'products/images/header/logo.png' %}"
                                         alt="Логотип"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Найти товары" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
+            <button class="btn btn-outline-success" type="submit" >Поиск</button>
         </form>
         {% for item in navbar %}
             <a class="navbar-links" href="{% url item.href %}">
@@ -36,13 +41,9 @@
                 </figure>
             </a>
         {% endfor %}
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
         {# Окно вне холста#}
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
              aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: rgb(219, 214, 213)">
@@ -66,7 +67,7 @@
         </div>
         {# Дополнительное окно вне холста#}
         {% for item in categories %}
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id={{ item.id }}
+            <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id={{ item.id }}
                     aria-labelledby="offcanvasDarkNavbarLabel2">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel2" style="color: rgb(219, 214, 213)">
@@ -115,7 +116,6 @@
                                     <li><a href="{% url discr.url %}">{{ discr.title }}</a></li>
                                 </ul>
                             </div>
-
                         {% endfor %}
                     </div>
                 {% endfor %}

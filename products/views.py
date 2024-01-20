@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards
 
 context = {'title': 'LoveRaspberry', 'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list,
@@ -49,5 +49,17 @@ def sale_rules(request):
 def delivery_rules(request):
     return render(request, 'products/delivery_rules.html', context)
 
+
 def terms_rules(request):
     return render(request, 'products/terms.html', context)
+
+
+def money_return(request):
+    return render(request, 'products/money_return.html', context)
+
+
+def policy(request):
+    return render(request, 'products/policy.html', context)
+
+def sale_on_market(request):
+    redirect("https://seller-auth.wildberries.ru/ru/?redirect_url=https://seller.wildberries.ru/")

@@ -15,4 +15,7 @@ urlpatterns = [
     path('services/sale-rules', views.sale_rules, name='sale_rules'),
     path('services/delivery-rules', views.delivery_rules, name='delivery_rules'),
     path('services/terms', views.terms_rules, name='terms_rules'),
+    path('services/money-return', views.money_return, name='money_return'),
+    path('services/policy-rules', views.policy, name='policy'),
+    path('services/sale-on-market', views.sale_on_market, name='sale_on_market'),
 ]
