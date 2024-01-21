@@ -1,15 +1,5 @@
 {% extends 'products/base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Возврат товара{% endblock %}</title>
-</head>
-<body>
 {% block content %}
     <div class="container content-page">
         <div class="item-return">
@@ -49,7 +39,9 @@
                     Внимание! Требование Покупателя об обмене либо возврате товара подлежит удовлетворению, если Товар
                     не был в употреблении, сохранены его потребительские свойства и имеются доказательства приобретения
                     его у данного продавца. (Ст. 28 Закона РБ О «О защите прав потребителей») Качественные товары, не
-                    подлежащие обмену и возврату, указаны в <a href="https://static-basket-01.wbbasket.ru/vol1/docs/tovary-ne-podlezhaschie-obmenu-i-vozvratu.docx" target="_blank">Перечне</a>,
+                    подлежащие обмену и возврату, указаны в <a
+                        href="https://static-basket-01.wbbasket.ru/vol1/docs/tovary-ne-podlezhaschie-obmenu-i-vozvratu.docx"
+                        target="_blank">Перечне</a>,
                     утвержденном Советом Министров Республики Беларусь от 14 июня 2002 года № 778.
                 </div>
 
@@ -88,6 +80,3 @@
     </div>
 
 {% endblock %}
-
-</body>
-</html>
