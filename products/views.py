@@ -33,35 +33,43 @@ def shopping_cart(request):
 
 def delivery(request):
     context['is_auth'] = True
+    context['is_not_payment'] = True
     context['title'] = 'Доставки'
     return render(request, 'products/delivery.html', context)
 
 
 def payment_methods(request):
+    context['title'] = 'Способы оплаты'
     return render(request, 'products/payment_methods.html', context)
 
 
 def item_return(request):
+    context['title'] = 'Возврат товара'
     return render(request, 'products/item_return.html', context)
 
 
 def sale_rules(request):
+    context['title'] = 'Правила продажи товара'
     return render(request, 'products/sale_rules.html.', context)
 
 
 def delivery_rules(request):
+    context['title'] = 'Правила доставки'
     return render(request, 'products/delivery_rules.html', context)
 
 
 def terms_rules(request):
+    context['title'] = 'Правила пользования торговой площадкой'
     return render(request, 'products/terms.html', context)
 
 
 def money_return(request):
+    context['title'] = 'Возврат денежных средств'
     return render(request, 'products/money_return.html', context)
 
 
 def policy(request):
+    context['title'] = 'Политика обработки персональных данных'
     return render(request, 'products/policy.html', context)
 
 
@@ -86,14 +94,17 @@ def digital(request):
 
 
 def contacts(request):
+    context['title'] = 'Контакты'
     return render(request, 'products/contacts.html', context)
 
 
 def vacancies(request):
+    context['title'] = 'Вакансии'
     return render(request, 'products/vacancies.html', context)
 
 
 def about_us(request):
+    context['title'] = 'О нас'
     return render(request, 'products/about_us.html', context)
 
 def franchisee(request):
