@@ -1,12 +1,36 @@
 {% extends 'products/base.html' %}
-
+{% block title %}Доставки{% endblock %}
 {% block content %}
 
-{% if is_auth %}
-<div class="title">Доставки</div>
-<p>Хз как нам только отслеживать доставки, условно типа создать модель с промежуточными пунктами, где техперсонал будет отмечать инфу, где сейчас товар</p>
-{% else %}
-<p>Для просмотра доставок необходимо авторизоваться</p>
-{% endif %}
+    {% if is_auth %}
+        <div class="nav_delivery">
+            <ul class="title_nav">
+                <li><a href="">Профиль</a></li>
+                <li><a href="">Доставки и покупки</a></li>
+                <li><a href="">Избранное</a></li>
+                <li><a href="">Отзывы</a></li>
+                <li><a href="">Личные данные</a></li>
+            </ul>
+        </div>
+        <div class="delivery">
+            <a href=""><b>Доставки</b></a>
+            <a href=""><b>Покупки</b></a>
+            {% if is_not_payment %}
+                <a class="payments" href="" style="color:#fa2d2d;"><b>Неоплаченные товары</b></a>
+            {% endif %}
+        </div>
+        <div class="receipt">
+            <div class="receipt__left">
+                <p class="alert alert-secondary" role="alert"><b>Получите товары</b><br>
+                   По коду и четырём последним цифрам телефона</p>
+            </div>
+            <div class="receipt__right">
+                <p>Код обновляется каждые 24 часа
+                <p>
+            </div>
+        </div>
+    {% else %}
+        <p>Для просмотра доставок необходимо авторизоваться</p>
+    {% endif %}
 
 {% endblock %}

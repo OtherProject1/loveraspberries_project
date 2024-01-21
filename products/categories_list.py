@@ -259,7 +259,7 @@ footer_list = [
      'description': [{'title': 'Способы оплаты', 'url': 'products:payment_methods'},
                      {'title': 'Возврат товара', 'url': 'products:item_return'},
                      {'title': 'Правила продажи товаров', 'url': 'products:sale_rules'},
-                     {'title': 'Доставка', 'url': 'products:delivery_rules'},
+                     {'title': 'Правила доставки', 'url': 'products:delivery_rules'},
                      {'title': 'Возврат денежных средств', 'url': 'products:money_return'},
                      {'title': 'Правила пользования торговой площадкой', 'url': 'products:terms_rules'},
                      {'title': 'Политика обработки персональных данных', 'url': 'products:policy'},
