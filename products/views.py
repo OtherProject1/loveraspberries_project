@@ -65,3 +65,6 @@ def policy(request):
 
 def sale_on_market(request):
     return redirect("https://seller-auth.wildberries.ru/ru/?redirect_url=https://seller.wildberries.ru/")
+
+def franchisee(request):
+    return render(request, 'products/franchisee.html', context)

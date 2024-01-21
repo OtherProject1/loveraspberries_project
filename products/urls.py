@@ -18,4 +18,5 @@ urlpatterns = [
     path('services/money-return', views.money_return, name='money_return'),
     path('services/policy-rules', views.policy, name='policy'),
     path('services/sale-on-market', views.sale_on_market, name='sale_on_market'),
+    path('services/franchisee/', views.franchisee, name='franchisee'),
 ]

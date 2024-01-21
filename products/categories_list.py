@@ -266,7 +266,7 @@ footer_list = [
                      ]},
     {'title': 'Партнерам', 'description': [{'title': 'Продавайте на LoveRuspberry', 'url': 'products:sale_on_market'},
                                            {'title': 'Партнерский пункт выдачи', 'url': 'products:payment_methods'},
-                                           {'title': 'Франшизный пункт выдачи', 'url': 'products:payment_methods'}]},
+                                           {'title': 'Франшизный пункт выдачи', 'url': 'products:franchisee'}]},
     {'title': 'Проекты LR', 'description': [{'title': 'LR Guru', 'url': 'products:payment_methods'},
                                             {'title': 'Трудоустройство', 'url': 'products:payment_methods'},
                                             {'title': 'Вакансии', 'url': 'products:payment_methods'}]},
