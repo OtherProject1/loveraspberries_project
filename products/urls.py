@@ -18,5 +18,12 @@ urlpatterns = [
     path('services/money-return', views.money_return, name='money_return'),
     path('services/policy-rules', views.policy, name='policy'),
     path('services/sale-on-market', views.sale_on_market, name='sale_on_market'),
+    path('services/point-promo', views.point_promo, name='point_promo'),
+    path('services/guru', views.guru, name='guru'),
+    path('services/all_work', views.all_work, name='all_work'),
+    path('services/digital', views.digital, name='digital'),
+    path('services/contacts', views.contacts, name='contacts'),
+    path('services/vacancies', views.vacancies, name='vacancies'),
+    path('services/about', views.about_us, name='about_us'),
     path('services/franchisee/', views.franchisee, name='franchisee'),
 ]

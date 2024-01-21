@@ -1,0 +1,37 @@
+{% extends 'products/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'products/css/vacancies.css' %}">
+    <title>{% block title %}Вакансии{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+    <div class="content-page">
+        <h1><b>Вакансии</b></h1>
+        <div class="jobs">
+            <p><b>LoveRuspberry</b> — это подпольный интернет-магазин, собранный на коленке с кучей костылей :D.</p>
+            <ul>
+                <li>7 стран присутствия и более 6,3 тыс. собственных пунктов выдачи заказов;</li>
+                <li>27 млн. клиентов и более 750 тыс. ежедневных заказов;</li>
+                <li>8 из 10 заказов доставляются на следующий день;</li>
+                <li>Свыше 40 000 человек в нашей команде.</li>
+            </ul>
+            <p><b>Работа в LR IT</b> — это путь война.</p>
+            <p><b>Мы предлагаем любой вариант сотрудничества:</b> от работы по контракту из любой точки мира до работы в
+                вашей комфортной койке.</p>
+        </div>
+    </div>
+    <div class="jobs__img">
+        <img src="{% static 'products/images/footer/jobs-anywhere.svg' %}" alt="jobs" style="max-width: 400px;">
+    </div>
+
+{% endblock %}
+
+</body>
+</html>
