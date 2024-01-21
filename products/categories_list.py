@@ -321,6 +321,12 @@ favourite_cards = [{'id': 1, 'title': 'Карточка 1 с длинным на
                                    '/media/images/cards/7.png'], 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
                    ]
 
+shopping_cards = [{'id': 1, 'title': 'Карточка 1 с длинным названием', 'image_url': '/media/images/cards/1.jpg', 'price': 10, 'count_of_reviews': 12, 'avg_reviews': 4},
+         {'id': 2, 'title': 'Карточка 3', 'image_url': '/media/images/cards/3.jpg', 'price': 32, 'count_of_reviews': 35, 'avg_reviews': 2},
+         {'id': 3, 'title': 'Карточка 2', 'image_url': '/media/images/cards/2.jpg', 'price': 101, 'count_of_reviews': 1, 'avg_reviews': 3},
+         {'id': 4, 'title': 'Карточка 4', 'image_url': '/media/images/cards/4.jpg', 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
+         ]
+
 payment_list = [
     {'img': 'products/images/footer/visa.png', 'alt': 'visa'},
     {'img': 'products/images/footer/visa-secure.png', 'alt': 'visa-secure'},
