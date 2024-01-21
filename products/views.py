@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards
+from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, shopping_cards
 
 context = {'title': 'LoveRaspberry', 'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list}
@@ -25,6 +25,8 @@ def profile(request):
 
 def shopping_cart(request):
     context['title'] = 'Корзина'
+    context['is_auth'] = True
+    context['shopping_cards'] = shopping_cards
     return render(request, 'products/shopping_cart.html', context)
 
 
