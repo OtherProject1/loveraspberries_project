@@ -1,0 +1,54 @@
+{% extends 'products/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'products/css/about_us.css' %}">
+    <title>{% block title %}О нас{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+    <div class="container content-page">
+        <div class="about-page" data-tag="aboutPage">
+            <div class="top" style="background-image: url({% static 'products/images/footer/background.png' %});">
+                <h1>Интернет-магазин<br>Wildberries</h1>
+                <p>Наша команда стремится к лучшему,<br>чтобы вы были счастливы каждый день!</p>
+            </div>
+            <div class="middle" style="background-image: url({% static 'products/images/footer/clothes.jpg' %});">
+                <h2>О компании</h2>
+                <p>Wildberries - интернет-магазин модной одежды, обуви и аксессуаров!</p>
+                <p>Мы продолжаем развиваться, расширяем свое присутствие и улучшаем<br> наш сервис, чтобы радовать вас
+                    каждый день!</p>
+            </div>
+            <div class="down">
+                <div><br><br>
+                    <h2>О LoveRuspberry</h2>
+                </div>
+                <div>
+                    <h3>Реквизиты</h3>
+                    <ul>
+                        <li><b>Полное наименование:</b> Общество с ограниченной ответственностью «ИМВБРБ»</li>
+                        <li><b>Генеральный директор:</b> Семенков Денис Юрьевич</li>
+                        <li><b>Наименование банка:</b> ЗАО Альфа-Банк</li>
+                        <li><b>УНП:</b> 193630204</li>
+                        <li><b>БИК:</b> ALFABY2X</li>
+                        <li><b>Расчетный счет:</b> BY27ALFA30122C21430010270000</li>
+                        <li><b>Юридический адреc:</b> 220036 г. Минск, ул. Грушевская, д.21 пом.217</li>
+                    </ul>
+                    <p>
+                        <small>Обращаем внимание, что данные реквизиты не предназначены для оплаты заказов <br>
+                            Оплата заказа производится только через Личный кабинет</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+.container_content {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    width: 700px
+
+
+}
+.container_content a {
+    text-decoration-line: underline;
+    color: rgb(201, 17, 170);
+
+}

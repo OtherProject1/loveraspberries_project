@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, shopping_cards
+from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
+    shopping_cards
 
 context = {'title': 'LoveRaspberry', 'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list}
@@ -63,8 +64,37 @@ def money_return(request):
 def policy(request):
     return render(request, 'products/policy.html', context)
 
+
 def sale_on_market(request):
     return redirect("https://seller-auth.wildberries.ru/ru/?redirect_url=https://seller.wildberries.ru/")
+
+
+def point_promo(request):
+    return redirect("https://point-promo.wb.ru/")
+
+
+def guru(request):
+    return redirect("https://guru.wildberries.ru/?utm_source=main_footer")
+
+
+def all_work(request):
+    return redirect("https://vsemrabota.ru/appwb")
+
+
+def digital(request):
+    return redirect("https://digital.wildberries.ru/")
+
+
+def contacts(request):
+    return render(request, 'products/contacts.html', context)
+
+
+def vacancies(request):
+    return render(request, 'products/vacancies.html', context)
+
+
+def about_us(request):
+    return render(request, 'products/about_us.html', context)
 
 def franchisee(request):
     return render(request, 'products/franchisee.html', context)
