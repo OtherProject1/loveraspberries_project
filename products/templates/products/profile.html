@@ -2,54 +2,63 @@
 
 {% block content %}
 
-{% if is_auth %}
-<div style="text-align: center;">
-    <h1>Профиль</h1>
-</div>
-
-<div style="content: center; display: flex; justify-content: center; flex-wrap: wrap;">
-
-    <div class="card text-bg-dark mb-3" style="max-width: 40%; margin: 15px;">
-        <div class="card-body">
-            <h5 class="card-title">Имя Фамилия</h5>
-            <p class="card-text">+375 хх ххх-хх-хх</p>
-            <p class="card-text">someone'smail@gmail.com</p>
-            <p>Выйти</p>
+    {% if is_auth %}
+        <div class="nav_delivery">
+            <ul class="title_nav">
+                <li><a href="{% url 'products:profile' %}"><b>Профиль</b></a></li>
+                <li><a href="{% url 'products:delivery' %}"><b>Доставки и покупки</b></a></li>
+                <li><a href="{% url 'products:favourites' %}"><b>Избранное</b></a></li>
+                <li><a href=""><b>Отзывы</b></a></li>
+                <li><a href=""><b>Личные данные</b></a></li>
+            </ul>
         </div>
-    </div>
-
-    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
-        <div class="card-body">
-            <h5 class="card-title">Доставки</h5>
-            <p class="card-text">Ближайшая не ожидается</p>
+        <div style="text-align: center;">
+            <h1>Профиль</h1>
         </div>
-    </div>
 
-    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
-        <div class="card-body">
-            <h5 class="card-title">Мои карты и счета</h5>
-            <p class="card-text">VISA: 1111 11** **** 1234</p>
-        </div>
-    </div>
+        <div style="content: center; display: flex; justify-content: center; flex-wrap: wrap;">
+            <div class="card text-bg-dark mb-3" style="max-width: 40%; margin: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Имя Фамилия</h5>
+                    <p class="card-text">+375 хх ххх-хх-хх</p>
+                    <p class="card-text">someone'smail@gmail.com</p>
+                    <p>Выйти</p>
+                </div>
+            </div>
 
-    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
-        <div class="card-body">
-            <h5 class="card-title">Покупки</h5>
-            <p class="card-text">Сюда добавить товары</p>
-        </div>
-    </div>
+            <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Доставки</h5>
+                    <p class="card-text">Ближайшая не ожидается</p>
+                </div>
+            </div>
 
-    <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
-        <div class="card-body">
-            <h5 class="card-title">Избранное</h5>
-            <p class="card-text">У вас пока нет избранных товаров</p>
+            <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Мои карты и счета</h5>
+                    <p class="card-text">VISA: 1111 11** **** 1234</p>
+                </div>
+            </div>
+
+            <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Покупки</h5>
+                    <p class="card-text">Сюда добавить товары</p>
+                </div>
+            </div>
+
+            <div class="card text-bg-dark mb-3" style="width: 33%; margin: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Избранное</h5>
+                    <p class="card-text">У вас пока нет избранных товаров</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-{% else %}
-<div style="text-align: center;">
-    <h1>Для входа в личный кабинет необходимо авторизоваться</h1>
-</div>
-{% endif %}
+
+    {% else %}
+        <div style="text-align: center;">
+            <h1>Для входа в личный кабинет необходимо авторизоваться</h1>
+        </div>
+    {% endif %}
 
 {% endblock %}

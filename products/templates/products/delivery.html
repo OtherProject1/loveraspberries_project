@@ -5,32 +5,103 @@
     {% if is_auth %}
         <div class="nav_delivery">
             <ul class="title_nav">
-                <li><a href="">Профиль</a></li>
-                <li><a href="">Доставки и покупки</a></li>
-                <li><a href="">Избранное</a></li>
-                <li><a href="">Отзывы</a></li>
-                <li><a href="">Личные данные</a></li>
+                <li><a href="{% url 'products:profile' %}"><b>Профиль</b></a></li>
+                <li><a href="{% url 'products:delivery' %}"><b>Доставки и покупки</b></a></li>
+                <li><a href="{% url 'products:favourites' %}"><b>Избранное</b></a></li>
+                <li><a href=""><b>Отзывы</b></a></li>
+                <li><a href=""><b>Личные данные</b></a></li>
             </ul>
         </div>
         <div class="delivery">
             <a href=""><b>Доставки</b></a>
             <a href=""><b>Покупки</b></a>
             {% if is_not_payment %}
-                <a class="payments" href="" style="color:#fa2d2d;"><b>Неоплаченные товары</b></a>
+                <a class="payments" href="" style="color:#f65252;"><b>Неоплаченные товары</b></a>
             {% endif %}
         </div>
         <div class="receipt">
-            <div class="receipt__left">
-                <p class="alert alert-secondary" role="alert"><b>Получите товары</b><br>
-                   По коду и четырём последним цифрам телефона</p>
+            <div class="alert alert-secondary" role="alert">
+                <div>
+                    <p><b>Получите товары</b><br>
+                        По коду и четырём последним цифрам телефона</p>
+                </div>
+                <div class="empty">
+
+                </div>
+
+                <div class="receipt__right">
+                    <p class="timedescr">Код обновляется<br> каждые 24 часа</p>
+                </div>
+                <span class="timecode">66458</span>
+
             </div>
-            <div class="receipt__right">
-                <p>Код обновляется каждые 24 часа
-                <p>
+        </div>
+        <div class="content_delivery">
+            <br>
+            <h4><b>Пункт выдачи</b></h4>
+            <p>г. Лунинец (Брестская область), Советская улица, д.18</p>
+            {# Пока что временно поставил карточки #}
+            <div class="row row-cols-auto">
+                {% for card in cards %}
+                    <div class="col" style="cursor: pointer;" onclick="">
+                    <div class="card " style="width: 190px;">
+                        <div id="carousel-{{ card.id }}" class="carousel slide carousel-fade">
+                            <div class="carousel-inner">
+                                {% for image in card.images_url %}
+                                    {% if forloop.first %}
+                                        <div class="carousel-item active">
+                                    {% else %}
+                                        <div class="carousel-item">
+                                    {% endif %}
+                                <img src="{{ image }}" class="d-block w-100 card-img-top" alt="Image" height="200"
+                                     width="330">
+                                <span class="product-card__payment">Не оплачен</span>
+
+                                </div>
+                                {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carousel-{{ card.id }}"
+                                        data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Предыдущий</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carousel-{{ card.id }}"
+                                        data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Следующий</span>
+                                </button>
+                            </div>
+                            <div class="card-body" style="overflow: hidden">
+                                <h5 class="card-title">{{ card.price }} BYN</h5>
+                                <p class="card-text" style="margin-bottom: 0; white-space: nowrap;">{{ card.title }}</p>
+                                <!-- <p class="card-text"><small class="text-body-secondary">Последнее обновление 3 мин. назад</small></p> -->
+                                <div style="display: flex;">
+                                    <div class="star-rating">
+                                        <div class="star"></div>
+                                    </div>
+                                    <div style="font-size: 14px;">{{ card.avg_reviews }} - {{ card.count_of_reviews }}
+                                        отзывов
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                </div>
+
             </div>
+            <br><br>
+            <h5><b>У вас 1 неоплаченный товар</b></h5>
+            <p class="deliveries-item__debt-btn gradient" type="button">К оплате</p>
+            <br><h4><b>Оцените товары</b></h4>
+
         </div>
     {% else %}
         <p>Для просмотра доставок необходимо авторизоваться</p>
     {% endif %}
+
 
 {% endblock %}
