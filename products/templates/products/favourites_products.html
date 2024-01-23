@@ -1,7 +1,15 @@
 {% extends 'products/base.html' %}
 
 {% block content %}
-
+    <div class="nav_delivery">
+        <ul class="title_nav">
+            <li><a href="{% url 'products:profile' %}"><b>Профиль</b></a></li>
+            <li><a href="{% url 'products:delivery' %}"><b>Доставки и покупки</b></a></li>
+            <li><a href="{% url 'products:favourites' %}"><b>Избранное</b></a></li>
+            <li><a href=""><b>Отзывы</b></a></li>
+            <li><a href=""><b>Личные данные</b></a></li>
+        </ul>
+    </div>
     <div style="text-align: center;">
         <h1>Избранное</h1>
     </div>
