@@ -16,7 +16,7 @@
 
     {% if favorites_products %}
         <div class="row row-cols-1 row-cols-md-6 g-4">
-        {% for card in favorites_products %}
+            {% for card in favorites_products %}
             <div class="col" style="cursor: pointer;" onclick="window.location='#';">
             <div class="card">
                 <div id="carousel-{{ card.id }}" class="carousel slide carousel-fade">
@@ -62,7 +62,7 @@
             </div>
 
         {% endfor %}
-    </div>
+        </div>
     {% else %}
         <div>
             <h3>Здесь будут отображаться избранные товары</h3>

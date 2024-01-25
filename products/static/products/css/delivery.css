@@ -8,12 +8,10 @@
 .title_nav {
     margin: 0;
     padding: 4px;
-
 }
 
 .nav_delivery {
     margin-top: 50px;
-
 }
 
 .nav_delivery a {
@@ -48,19 +46,25 @@
     border-radius: 5px;
 }
 
-.delivery a {
+.delivery .active {
     color: black;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 24px;
     padding: 5px 10px 5px 10px;
     background-color: transparent;
-
 }
 
-.delivery a:active {
-    text-decoration-line: underline;
+.delivery .active:visited {
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    padding: 5px 10px 5px 10px;
+    background-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
 }
 
 .delivery {
@@ -111,7 +115,7 @@
     flex-grow: 1;
 }
 
-.deliveries-item__debt-btn {
+.delivery_item_button_pay {
     font-variation-settings: "wght" 550;
     border: none;
     border-radius: 12px;
@@ -125,7 +129,21 @@
     margin-left: 10px;
 }
 
-.gradient  {
+.delivery_item_button_goshop {
+    font-variation-settings: "wght" 550;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    height: 50px;
+    padding: 11px 32px 15px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.gradient {
     font-variation-settings: "wght" 550;
     white-space: nowrap;
     background: linear-gradient(102.42deg, #da15b8 59.69%, #8d06cc);
@@ -146,6 +164,7 @@
     overflow: hidden;
     width: 90px;
 }
+
 .product-card__payment {
     font-variation-settings: "wght" 550;
     letter-spacing: .22px;
@@ -155,4 +174,35 @@
     font-size: 11px;
     font-weight: 400;
     line-height: 10px;
+}
+
+#notpay {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.delivery_lower {
+    margin-left: 10px;
+    color: #9797af;
+    line-height: 1;
+    font-variation-settings: "wght" 550;
+}
+
+.rating:hover i.far.fa-star {
+    color: yellow;
+    font-size: 20px;
+    content: "\f005";
+    border: none;
+    background-color: white;
+}
+
+.rating {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.list-group-item-action {
+    width: 20px;
+    text-align: inherit;
 }
