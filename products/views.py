@@ -3,7 +3,7 @@ from products.categories_list import first_categories, navbar_list, footer_list,
     shopping_cards
 
 context = {'title': 'LoveRaspberry', 'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list,
-           'logo': payment_list}
+           'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards}
 
 
 def home(request):
@@ -33,7 +33,7 @@ def shopping_cart(request):
 
 def delivery(request):
     context['is_auth'] = True
-    context['is_not_payment'] = True
+    context['is_not_payment'] = False
     context['title'] = 'Доставки'
     return render(request, 'products/delivery.html', context)
 
@@ -106,6 +106,7 @@ def vacancies(request):
 def about_us(request):
     context['title'] = 'О нас'
     return render(request, 'products/about_us.html', context)
+
 
 def franchisee(request):
     return render(request, 'products/franchisee.html', context)
