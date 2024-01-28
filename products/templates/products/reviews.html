@@ -1,0 +1,75 @@
+{% extends 'products/base.html' %}
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+
+{% if is_auth %}
+<div class="nav_delivery">
+    <ul class="title_nav">
+        <li><a href="{% url 'products:profile' %}" class="nav"><b>Профиль</b></a></li>
+        <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
+        </li>
+        <li><a href="{% url 'products:favourites' %}" class="nav"><b>Избранное</b></a></li>
+        <li><a href="{% url 'products:reviews' %}" class="nav"><b>Отзывы</b></a></li>
+        <li><a href="" class="nav"><b>Личные данные</b></a></li>
+    </ul>
+</div>
+
+<div>
+    <h4>Оцените товары</h4>
+    <div style="display: flex; position: relative;">
+        {% for card in bought_cards|slice:"5" %}
+        <div style="margin: 10px; border-radius: 10px;">
+            <img src="{{ card.images_url.0 }}" alt="image" height="180" width="180" style="border-radius: 10px;">
+            <div style="position: absolute; bottom: 10px;">
+                <fieldset class="rating" style="background-color: rgba(143, 143, 143, 0.7); border-radius: 10px;">
+                    <input type="radio" id="card{{card.id}}star5" name="rating" value="5" /><label class="full"
+                        for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="card{{card.id}}star4" name="rating" value="4" /><label class="full"
+                        for="star4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="card{{card.id}}star3" name="rating" value="3" /><label class="full"
+                        for="star3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="card{{card.id}}star2" name="rating" value="2" /><label class="full"
+                        for="star2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="card{{card.id}}star1" name="rating" value="1" /><label class="full"
+                        for="star1" title="Sucks big time - 1 star"></label>
+                </fieldset>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div>
+    <h4>Отзывы</h4>
+    <div style="display: flex; flex-wrap: wrap;">
+        {% for review in reviews %}
+        <div class="card" style="background-color: rgba(143, 143, 143, 0.2); margin: 10px; border-radius: 20px; max-width: 500px;">
+            <div class="card-body">
+                <div style="display: flex; margin-bottom: 10px;">
+                    <img src="{{review.image_url}}" alt="image" width="40" height="40" style="border-radius: 10px;">
+                    <div>
+                        <h5 class="card-title" style="margin: 0;"><a href="#" style="color: black;">{{ review.title }}</a></h5>
+                        <p style="margin: 0; color: gray;">Shopname</p>
+                    </div>
+                </div>
+                <div>
+                    {% for star in review.stars %}
+                    <div class="star-rating">
+                        <div class="star"></div>
+                    </div>
+                    {% endfor %}
+                    {{ review.date }}
+                    <p class="card-text">{{ review.review }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% else %}
+<p>Для просмотра страницы необходимо авторизоваться</p>
+{% endif %}
+
+
+{% endblock %}
