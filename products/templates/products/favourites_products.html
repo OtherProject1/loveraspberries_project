@@ -1,13 +1,14 @@
 {% extends 'products/base.html' %}
 
 {% block content %}
-    <div class="nav_delivery">
+    <div class="nav_favourite">
         <ul class="title_nav">
-            <li><a href="{% url 'products:profile' %}"><b>Профиль</b></a></li>
-            <li><a href="{% url 'products:delivery' %}"><b>Доставки и покупки</b></a></li>
-            <li><a href="{% url 'products:favourites' %}"><b>Избранное</b></a></li>
-            <li><a href=""><b>Отзывы</b></a></li>
-            <li><a href=""><b>Личные данные</b></a></li>
+            <li><a href="{% url 'products:profile' %}" class="nav profile"><b>Профиль</b></a></li>
+            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
+            </li>
+            <li><a href="{% url 'products:favourites' %}" class="nav favourite"><b>Избранное</b></a></li>
+            <li><a href="" class="nav"><b>Отзывы</b></a></li>
+            <li><a href="" class="nav"><b>Личные данные</b></a></li>
         </ul>
     </div>
     <div style="text-align: center;">
@@ -16,7 +17,7 @@
 
     {% if favorites_products %}
         <div class="row row-cols-1 row-cols-md-6 g-4">
-            {% for card in favorites_products %}
+        {% for card in favorites_products %}
             <div class="col" style="cursor: pointer;" onclick="window.location='#';">
             <div class="card">
                 <div id="carousel-{{ card.id }}" class="carousel slide carousel-fade">
@@ -62,7 +63,7 @@
             </div>
 
         {% endfor %}
-        </div>
+    </div>
     {% else %}
         <div>
             <h3>Здесь будут отображаться избранные товары</h3>

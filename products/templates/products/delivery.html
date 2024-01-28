@@ -5,16 +5,17 @@
     {% if is_auth %}
         <div class="nav_delivery">
             <ul class="title_nav">
-                <li><a href="{% url 'products:profile' %}"><b>Профиль</b></a></li>
-                <li><a href="{% url 'products:delivery' %}"><b>Доставки и покупки</b></a></li>
-                <li><a href="{% url 'products:favourites' %}"><b>Избранное</b></a></li>
-                <li><a href=""><b>Отзывы</b></a></li>
-                <li><a href=""><b>Личные данные</b></a></li>
+                <li><a href="{% url 'products:profile' %}" class="nav"><b>Профиль</b></a></li>
+                <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
+                </li>
+                <li><a href="{% url 'products:favourites' %}" class="nav"><b>Избранное</b></a></li>
+                <li><a href="" class="nav"><b>Отзывы</b></a></li>
+                <li><a href="" class="nav"><b>Личные данные</b></a></li>
             </ul>
         </div>
         <div class="delivery">
-            <a href="{% url 'products:delivery' %}" class="delivery_link active"><b>Доставки</b></a>
-            <a href="{% url 'products:delivery' %}" class="delivery_link active"><b>Покупки</b></a>
+            <a href="{% url 'products:delivery' %}" class="link_delivery"><b>Доставки</b></a>
+            <a href="{% url 'products:history' %}" class="link_purchases"><b>Покупки</b></a>
             {% if is_not_payment %}
                 <a class="payments" href="" style="color:#f65252;"><b>Неоплаченные товары</b></a>
             {% endif %}
@@ -42,7 +43,7 @@
                 <h4><b>Пункт выдачи</b></h4>
                 <p>г. Лунинец (Брестская область), Советская улица, д.18</p>
                 {# Пока что временно поставил карточки #}
-                <div class="row row-cols-auto">
+                <div class="row row-cols-auto g-4">
                     {% for card in bought_cards %}
                         <div class="col" style="cursor: pointer;" onclick="">
                         <div class="card " style="width: 190px;">
@@ -180,18 +181,23 @@
                         </li>
                     </ul> -->
                     <fieldset class="rating">
-                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="star5" name="rating" value="5"/><label class="full" for="star5"
+                                                                                       title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4"/><label class="full" for="star4"
+                                                                                       title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3"/><label class="full" for="star3"
+                                                                                       title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2"/><label class="full" for="star2"
+                                                                                       title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1"/><label class="full" for="star1"
+                                                                                       title="Sucks big time - 1 star"></label>
                     </fieldset>
                 </div>
             </div>
         </div>
         <h4 style="margin-top: 50px"><b>Возможно, вас заинтересует</b></h4>
         <div class="row row-cols-1 row-cols-md-6 g-4" style="margin-top:0">
-            {% for card in payment_list %}
+        {% for card in payment_list %}
             <div class="col" style="cursor: pointer;" onclick="window.location='#';">
             <div class="card">
                 <div id="carousel-{{ card.id }}" class="carousel slide carousel-fade">
@@ -237,7 +243,7 @@
             </div>
 
         {% endfor %}
-        </div>
+    </div>
     {% else %}
         <p>Для просмотра доставок необходимо авторизоваться</p>
     {% endif %}

@@ -10,6 +10,7 @@ urlpatterns = [
     path('profile/favourites_products/', favourites_products, name='favourites'),
     path('profile/shopping_cart/', shopping_cart, name='shopping_cart'),
     path('profile/delivery/', delivery, name='delivery'),
+    path('profile/history/', history, name='history'),
     path('services/payment-methods', views.payment_methods, name='payment_methods'),
     path('services/item-return', views.item_return, name='item_return'),
     path('services/sale-rules', views.sale_rules, name='sale_rules'),

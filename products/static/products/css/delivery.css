@@ -14,7 +14,7 @@
     margin-top: 50px;
 }
 
-.nav_delivery a {
+.nav_delivery .nav:not(.delivery_and_purchases) {
     color: black;
     text-align: center;
     text-decoration: none;
@@ -26,16 +26,12 @@
     border-radius: 5px;
 }
 
-.nav_delivery a:link {
+.nav_delivery .nav:not(.delivery_and_purchases):hover {
+    color: rgb(201, 17, 170);
+}
+
+.nav_delivery .delivery_and_purchases {
     color: black;
-}
-
-.nav_delivery a:hover {
-    color: rgb(201, 17, 170);
-}
-
-.nav_delivery a:active {
-    color: rgb(201, 17, 170);
     background-color: rgb(244, 244, 248);
     border: none;
     text-align: center;
@@ -46,16 +42,7 @@
     border-radius: 5px;
 }
 
-.delivery .active {
-    color: black;
-    text-align: center;
-    display: inline-block;
-    font-size: 24px;
-    padding: 5px 10px 5px 10px;
-    background-color: transparent;
-}
-
-.delivery .active:visited {
+.delivery .link_delivery {
     color: black;
     text-align: center;
     display: inline-block;
@@ -67,9 +54,19 @@
     text-decoration-thickness: 2px;
 }
 
+.delivery .link_purchases {
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    padding: 5px 10px 5px 10px;
+    background-color: transparent;
+}
+
 .delivery {
     font-variation-settings: "wght" 550;
     margin-top: 17px;
+    margin-right: 20px;
     font-size: 24px;
     font-weight: 400;
     line-height: 1.33333;
@@ -209,41 +206,50 @@
 
 /****** Style Star Rating Widget *****/
 
-.rating { 
+.rating {
     margin: 0;
     padding: 0;
     border: none;
     float: left;
 }
 
-.rating > input { display: none; } 
-.rating > label:before { 
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
+.rating > input {
+    display: none;
+}
+
+.rating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
 }
 
 
-.rating > .half:before { 
-  content: "\f006";
-  font-size: 0;
-  position: absolute;
+.rating > .half:before {
+    content: "\f006";
+    font-size: 0;
+    position: absolute;
 }
 
-.rating > label { 
-  color: #ddd; 
- float: right; 
+.rating > label {
+    color: #ddd;
+    float: right;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating:not(:checked) > label:hover ~ label {
+    color: #FFD700;
+}
+
+/* hover previous stars in list */
 
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+.rating > input:checked ~ label:hover ~ label {
+    color: #FFED85;
+}

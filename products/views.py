@@ -33,9 +33,15 @@ def shopping_cart(request):
 
 def delivery(request):
     context['is_auth'] = True
-    context['is_not_payment'] = False
+    context['is_not_payment'] = True
     context['title'] = 'Доставки'
     return render(request, 'products/delivery.html', context)
+
+
+def history(request):
+    context['title'] = 'Покупки'
+    context['is_auth'] = True
+    return render(request, 'products/history.html', context)
 
 
 def payment_methods(request):
