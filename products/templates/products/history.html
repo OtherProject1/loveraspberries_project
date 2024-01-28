@@ -2,59 +2,39 @@
 {% block title %}Покупки{% endblock %}
 {% block content %}
 
-    {% if is_auth %}
-        <div class="nav_delivery">
-            <ul class="title_nav">
-                <li><a href="{% url 'products:profile' %}" class="nav"><b>Профиль</b></a></li>
-                <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
-                </li>
-                <li><a href="{% url 'products:favourites' %}" class="nav"><b>Избранное</b></a></li>
-                <li><a href="" class="nav"><b>Отзывы</b></a></li>
-                <li><a href="" class="nav"><b>Личные данные</b></a></li>
-            </ul>
-        </div>
-        <div class="history">
-            <a href="{% url 'products:delivery' %}" class="link_delivery"><b>Доставки</b></a>
-            <a href="{% url 'products:history' %}" class="link_purchases"><b>Покупки</b></a>
-        </div>
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#AllProducts"
-                    aria-expanded="true" aria-controls="AllProducts">Все
-            </button>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#DeliveryProducts"
-                    aria-expanded="false" aria-controls="DeliveryProducts">Полученные
-            </button>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#CancelledProducts"
-                    aria-expanded="false" aria-controls="collapseExample">Отмененные
-            </button>
-        </div>
+{% if is_auth %}
+<div class="nav_delivery">
+    <ul class="title_nav">
+        <li><a href="{% url 'products:profile' %}" class="nav"><b>Профиль</b></a></li>
+        <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
+        </li>
+        <li><a href="{% url 'products:favourites' %}" class="nav"><b>Избранное</b></a></li>
+        <li><a href="" class="nav"><b>Отзывы</b></a></li>
+        <li><a href="" class="nav"><b>Личные данные</b></a></li>
+    </ul>
+</div>
+<div class="history">
+    <a href="{% url 'products:delivery' %}" class="link_delivery"><b>Доставки</b></a>
+    <a href="{% url 'products:history' %}" class="link_purchases"><b>Покупки</b></a>
+</div>
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+    <button name="AllProducts" class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="false">Все
+    </button>
+    <button name="ReceivedProducts" class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="false">Полученные
+    </button>
+    <button name="CancelledProducts" class="btn btn-primary" type="button" aria-expanded="false">Отмененные
+    </button>
+</div>
 
-        <div class="collapse show" id="AllProducts">
-            <div class="card card-body">
-                Все товары
-            </div>
-        </div>
-        <div class="collapse" id="DeliveryProducts">
-            <div class="card card-body">
-                Полученные
-            </div>
-        </div>
-        <div class="collapse" id="CancelledProducts">
-            <div class="card card-body">
-                Отмененные
-            </div>
-        </div>
+<div class="collapse show">
+    <div class="card card-body">
+        Все товары
+    </div>
+</div>
 
-
-
-
-
-
-
-    {% else %}
-        <p>Для просмотра доставок необходимо авторизоваться</p>
-    {% endif %}
+{% else %}
+<p>Для просмотра доставок необходимо авторизоваться</p>
+{% endif %}
 
 
 {% endblock %}
