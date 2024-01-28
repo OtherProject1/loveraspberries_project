@@ -44,6 +44,11 @@ def history(request):
     return render(request, 'products/history.html', context)
 
 
+def details(request):
+    context['title'] = 'Личные данные'
+    return render(request, 'products/details.html', context)
+
+
 def payment_methods(request):
     context['title'] = 'Способы оплаты'
     return render(request, 'products/payment_methods.html', context)

@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="{% static 'products/css/history.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/profile.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/favourite.css' %}">
-    <link rel="" href="{% static 'products/css/favourite.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/details.css' %}">
+
     <link rel="shortcut icon" href="{% static 'products/images/header/minilogo.png' %}" type="image/png">
 </head>
 <body>
@@ -39,8 +40,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Найти товары" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
+            <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search" style="width: 400px;">
+            <button type="submit" class="btn btn-light"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         {% for item in navbar %}
             <a class="navbar-links" href="{% url item.href %}">

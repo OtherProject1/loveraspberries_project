@@ -1,0 +1,82 @@
+{% extends 'products/base.html' %}
+{% block title %}Личные данные{% endblock %}
+{% block content %}
+    <div class="nav_delivery">
+        <ul class="title_nav">
+            <li><a href="{% url 'products:profile' %}" class="nav"><b>Профиль</b></a></li>
+            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
+            </li>
+            <li><a href="{% url 'products:favourites' %}" class="nav"><b>Избранное</b></a></li>
+            <li><a href="{% url 'products:reviews' %}" class="nav"><b>Отзывы</b></a></li>
+            <li><a href="{% url 'products:details' %}" class="nav"><b>Личные данные</b></a></li>
+        </ul>
+    </div>
+    <div class="delivery">
+        <a href="{% url 'products:details' %}" class="link_delivery"><b>Личные данные</b></a>
+    </div>
+    <div class="container-fluid">
+        <div class="personal-body">
+            <form class="row">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="validationDefault01" class="form-label">Имя</label>
+                        <input type="text" class="form-control-label" id="validationDefault01" value="Иван" required>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="validationDefault02" class="form-label">Фамилия</label>
+                        <input type="text" class="form-control-label" id="validationDefault02" value="Иванов" required>
+                    </div>
+                    <div class="col">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group"
+                             style="width: 150px">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                                   checked>
+                            <label class="btn btn-outline-secondary" for="btnradio1">Муж</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio2">Жен</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="validationDefault03" class="form-label">Отчество</label>
+                        <input type="text" class="form-control-label" id="validationDefault03" value="Иванович"
+                               required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="validationDefault03" class="form-label">Телефон</label>
+                        <input type="text" class="form-control-label" id="validationDefault03"
+                               placeholder="+375331111111"
+                               aria-label="readonly input example" readonly>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="validationDefault02" class="form-label">Эл. почта</label>
+                        <input type="email" class="form-control-label" id="validationDefault02"
+                               aria-describedby="emailHelp">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-5">
+                        <button class="delivery_item_button_pay gradient" type="submit" style="width: 250px; height: 35px">Сохранить изменения</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="mycards" style="margin-top: 30px; margin-left: 10px">
+        <p id="mycards-title"><b>Мои карты и счета</b></p>
+        <div class="card text-bg-light mb-3" style="width: 300px; height: 180px">
+            <div class="card-body">
+                <div><span><img src="\static\products\images\footer\visa.png" alt="image" height="23"
+                                width="36"></span></div><br>
+                <span><b>1234 56** **** 7890</b></span>
+                <p>Основная карта</p>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
