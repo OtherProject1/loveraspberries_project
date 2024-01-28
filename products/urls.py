@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path
-from products import views
 from .views import *
 
 app_name = 'products'
@@ -12,20 +11,21 @@ urlpatterns = [
     path('profile/delivery/', delivery, name='delivery'),
     path('profile/history/', history, name='history'),
     path('profile/reviews/', reviews, name='reviews'),
-    path('services/payment-methods', views.payment_methods, name='payment_methods'),
-    path('services/item-return', views.item_return, name='item_return'),
-    path('services/sale-rules', views.sale_rules, name='sale_rules'),
-    path('services/delivery-rules', views.delivery_rules, name='delivery_rules'),
-    path('services/terms', views.terms_rules, name='terms_rules'),
-    path('services/money-return', views.money_return, name='money_return'),
-    path('services/policy-rules', views.policy, name='policy'),
-    path('services/sale-on-market', views.sale_on_market, name='sale_on_market'),
-    path('services/point-promo', views.point_promo, name='point_promo'),
-    path('services/guru', views.guru, name='guru'),
-    path('services/all_work', views.all_work, name='all_work'),
-    path('services/digital', views.digital, name='digital'),
-    path('services/contacts', views.contacts, name='contacts'),
-    path('services/vacancies', views.vacancies, name='vacancies'),
-    path('services/about', views.about_us, name='about_us'),
-    path('services/franchisee/', views.franchisee, name='franchisee'),
+    path('profile/details/', details, name='details'),
+    path('services/payment-methods', payment_methods, name='payment_methods'),
+    path('services/item-return', item_return, name='item_return'),
+    path('services/sale-rules', sale_rules, name='sale_rules'),
+    path('services/delivery-rules', delivery_rules, name='delivery_rules'),
+    path('services/terms', terms_rules, name='terms_rules'),
+    path('services/money-return', money_return, name='money_return'),
+    path('services/policy-rules', policy, name='policy'),
+    path('services/sale-on-market', sale_on_market, name='sale_on_market'),
+    path('services/point-promo', point_promo, name='point_promo'),
+    path('services/guru', guru, name='guru'),
+    path('services/all_work', all_work, name='all_work'),
+    path('services/digital', digital, name='digital'),
+    path('services/contacts', contacts, name='contacts'),
+    path('services/vacancies', vacancies, name='vacancies'),
+    path('services/about', about_us, name='about_us'),
+    path('services/franchisee/', franchisee, name='franchisee'),
 ]
