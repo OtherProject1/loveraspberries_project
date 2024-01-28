@@ -276,7 +276,7 @@ footer_list = [
 ]
 
 cards = [{'id': 1, 'title': 'Карточка 1 с длинным названием',
-          'images_url': ['media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'],
+          'images_url': ['/media/images/cards/1.jpg', 'media/images/cards/2.jpg', 'media/images/cards/7.png'],
           'price': 10, 'count_of_reviews': 12, 'avg_reviews': 4},
          {'id': 2, 'title': 'Карточка 3',
           'images_url': ['/media/images/cards/3.jpg', '/media/images/cards/2.jpg', '/media/images/cards/7.png'],
@@ -338,4 +338,12 @@ payment_list = [
     {'img': 'products/images/footer/mir-new.png', 'alt': 'mir-new'},
     {'img': 'products/images/footer/mir-accept.png', 'alt': 'mir-accept'},
     {'img': 'products/images/footer/webpay.png', 'alt': 'webpay'},
+]
+
+user_reviews = [
+    {'id': 1, 'title': 'Карточка 1 с длинным названием', 'image_url': '/media/images/cards/1.jpg', 'stars': range(5), 'review': 'Очень хорошо чистит трубы', 'date': '28 янв.'},
+    {'id': 2, 'title': 'Карточка 2', 'image_url': '/media/images/cards/2.jpg', 'stars': range(2), 'review': 'Плохо чистит трубы', 'date': '23 янв.'},
+    {'id': 3, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': 'Добрый день! Спасибо за покупку! Очень рады, что Вам понравился ночник Луна. Пользуйтесь с удовольствием! С уважением и наилучшими пожеланиями, Magic Blanc!', 'date': '1 янв. 2022 г.'},
+    {'id': 4, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': '', 'date': '1 янв. 2022 г.'},
+    {'id': 5, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': 'Добрый день! Спасибо за покупку! Очень рады, что Вам понравился ночник Луна. Пользуйтесь с удовольствием! С уважением и наилучшими пожеланиями, Magic Blanc!', 'date': '1 янв. 2022 г.'},
 ]

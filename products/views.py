@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
-    shopping_cards
+    shopping_cards, user_reviews
 
 context = {'title': 'LoveRaspberry', 'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards}
@@ -116,3 +116,8 @@ def about_us(request):
 
 def franchisee(request):
     return render(request, 'products/franchisee.html', context)
+
+def reviews(request):
+    context['is_auth'] = True
+    context['reviews'] = user_reviews
+    return render(request, 'products/reviews.html', context)
