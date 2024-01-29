@@ -13,6 +13,16 @@
     margin-top: 20px
 }
 
+.col-sm-3-name {
+    flex: 0 0 auto;
+    width: 18%;
+}
+
+.col-sm-3-surname {
+    flex: 0 0 auto;
+    width: 18%;
+}
+
 .form-control-label {
     background-color: #0000;
     border: 0;
@@ -27,9 +37,22 @@
     position: relative;
 }
 
-.card-body p {
+.offcanvas-body .form-label {
+    margin-top: 5px;
+}
+
+.offcanvas-body .button-submit {
+    text-align: center;
+    margin-top: 270px;
+}
+
+.offcanvas-body .button-submit .delivery_item_button_submit {
+    width: 100%;
+}
+
+#mycards-header {
     color: #00bf59;
-    margin-top: 50px;
+    margin-top: 60px;
     margin-left: auto;
     padding-bottom: 0;
     padding-right: 0;
@@ -39,8 +62,29 @@
     display: block;
     text-align: end;
 }
-#mycards-title{
-    color: black;
-    font-size:24px;
 
+#mycards-title {
+    color: black;
+    font-size: 24px;
+
+}
+
+.delivery_item_button_submit {
+    font-variation-settings: "wght" 550;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    height: 50px;
+    padding: 11px 32px 15px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.item-payments {
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 16px;
+    display: flex;
 }
