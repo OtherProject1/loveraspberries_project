@@ -45,3 +45,7 @@
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
 }
+
+.add_to_favourite:hover {
+    transform: scale(1.2);
+}
