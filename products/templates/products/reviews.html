@@ -22,7 +22,8 @@
         <div style="margin: 10px; border-radius: 10px;">
             <img src="{{ card.images_url.0 }}" alt="image" height="180" width="180" style="border-radius: 10px;">
             <div style="position: absolute; bottom: 10px;">
-                <fieldset class="rating" style="background-color: rgba(143, 143, 143, 0.7); border-radius: 10px;">
+                <fieldset class="rating" style="background-color: rgba(143, 143, 143, 0.7); border-radius: 10px;"
+                    data-bs-toggle="offcanvas" data-bs-target="#Review" aria-controls="NewReview">
                     <input type="radio" id="card{{card.id}}star5" name="rating" value="5" /><label class="full"
                         for="star5" title="Awesome - 5 stars"></label>
                     <input type="radio" id="card{{card.id}}star4" name="rating" value="4" /><label class="full"
@@ -36,6 +37,52 @@
                 </fieldset>
             </div>
         </div>
+        {# выпадающее поле для написания отзыва #}
+        <div class="offcanvas offcanvas-end " tabindex="-1" id="Review" aria-labelledby="ReviewLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="ReviewLabel"><b>Отзыв о товаре</b></h5>
+                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Закрыть"></button>
+            </div>
+            <div class="offcanvas-body" style="display: block;">
+                <div style="display: flex;">
+                    <img src="{{ card.images_url.0 }}" alt="image" width="90" height="120" style="border-radius: 10px;">
+                    <h5 style="margin-left: 10px;">Saler &#8226; {{ card.title }}</h5>
+                </div>
+                <div style="margin-top: 10px;">
+                    <h4>Оценка</h4>
+                    <div>
+                        <fieldset class="rating">
+                            <input type="radio" id="card{{card.id}}star5" name="rating" value="5" /><label class="full"
+                                for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="card{{card.id}}star4" name="rating" value="4" /><label class="full"
+                                for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="card{{card.id}}star3" name="rating" value="3" /><label class="full"
+                                for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="card{{card.id}}star2" name="rating" value="2" /><label class="full"
+                                for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="card{{card.id}}star1" name="rating" value="1" /><label class="full"
+                                for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div style="height: 50px;"></div>
+                <div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label"><h4 style="color: black;">Комментарий</h4></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Впечатления, пожелания, проблемы"></textarea>
+                    </div>
+                </div>
+                <div class="row button-submit">
+                    <div class="col">
+                        {# Изменить положение кнопки#}
+                        <button class="delivery_item_button_submit gradient" type="submit">Оставить отзыв</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         {% endfor %}
     </div>
 </div>
@@ -43,12 +90,15 @@
     <h4>Отзывы</h4>
     <div style="display: flex; flex-wrap: wrap;">
         {% for review in reviews %}
-        <div class="card" style="background-color: rgba(143, 143, 143, 0.2); margin: 10px; border-radius: 20px; max-width: 500px;">
+        <div class="card"
+            style="background-color: rgba(143, 143, 143, 0.2); margin: 10px; border-radius: 20px; max-width: 500px;">
             <div class="card-body">
                 <div style="display: flex; margin-bottom: 10px;">
                     <img src="{{review.image_url}}" alt="image" width="40" height="40" style="border-radius: 10px;">
                     <div>
-                        <h5 class="card-title" style="margin: 0;"><a href="#" style="color: black;">{{ review.title }}</a></h5>
+                        <h5 class="card-title" style="margin: 0;">
+                            <a href="#" style="color: black;">{{ review.title }}</a>
+                        </h5>
                         <p style="margin: 0; color: gray;">Shopname</p>
                     </div>
                 </div>
