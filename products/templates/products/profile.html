@@ -25,7 +25,7 @@
                                      style="border-radius: 100; margin-right: 10px;">
                             </div>
                             <div>
-                                <a href="#" style="color: black;">
+                                <a href="{% url 'products:details' %}" style="color: black;">
                                     <h5 class="card-title">Имя Фамилия</h5>
                                 </a>
                                 <p style="margin-bottom: 0;">+375 29 292-92-92</p>
@@ -46,7 +46,8 @@
             <div class="card text-bg-light mb-3" style="width: 30%; margin: 15px;">
                 <div class="card-body" style="display: flex;">
                     <div style="flex-grow: 1;">
-                        <h5 class="card-title">Доставки</h5>
+                        <a href="{% url 'products:delivery' %}" style="color:#000000"><h5 class="card-title">
+                            Доставки</h5></a>
                         <p class="card-text">Ближайшая не ожидается</p>
                     </div>
                     <div style="padding: 20px;">
@@ -74,7 +75,8 @@
 
             <div class="card text-bg-light mb-3" style="width: 30%; margin: 15px;">
                 <div class="card-body">
-                    <h5 class="card-title">Мои карты и счета</h5>
+                    <a href="{% url 'products:details' %}" style="color: black"><h5 class="card-title">Мои карты и
+                        счета</h5></a>
                     <div><span><img src="\static\products\images\footer\visa.png" alt="image" height="23"
                                     width="36"></span><span>1234 56** **** 7890</span></div>
                 </div>
@@ -84,7 +86,8 @@
                 <div class="card-body">
                     <div>
                         <a href="#" style="color: black;">
-                            <h5 class="card-title">Покупки</h5>
+                            <a href="{% url 'products:history' %}" style="color: black"><h5 class="card-title">
+                                Покупки</h5></a>
                         </a>
                     </div>
                     <div>
@@ -114,7 +117,8 @@
                 <div class="card-body">
                     <div>
                         <a href="#" style="color: black;">
-                            <h5 class="card-title">Избранное</h5>
+                            <a href="{% url 'products:favourites' %}" style="color: black"><h5 class="card-title">
+                                Избранное</h5></a>
                         </a>
                     </div>
                     <div>
