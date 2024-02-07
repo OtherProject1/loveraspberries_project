@@ -12,6 +12,7 @@ class Category_admin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     ordering = ('name',)
+    prepopulated_fields = {'slug': ['name', ]}
 
 
 @admin.register(SubCategory)
@@ -19,3 +20,5 @@ class Subcategory_admin(admin.ModelAdmin):
     list_display = ('name', 'category_id',)
     search_fields = ('name', 'category_id',)
     ordering = ('name', 'category_id',)
+    prepopulated_fields = {'slug': ['name', ]}
+

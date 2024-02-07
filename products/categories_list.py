@@ -1,5 +1,5 @@
 first_categories = [
-    {'category': 'Женщинам', 'data': '#women', 'id': 'women',
+    {'category': 'Женщины', 'data': '#women', 'id': 'women',
      'products': [{'title': 'Блузки и рубашки', 'url': '#1'},
                   {'title': 'Брюки', 'url': '#2'},
                   {'title': 'Верхняя одежда', 'url': '#3'},
