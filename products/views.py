@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
+from .models import Category
 
-context = {'title': 'LoveRaspberry', 'categories': first_categories, 'navbar': navbar_list, 'footer': footer_list,
+context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards}
 
 
