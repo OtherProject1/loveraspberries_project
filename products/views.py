@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
-from .models import Category
+from .models import Category, SubCategory
 
 context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards}
@@ -11,6 +11,13 @@ def home(request):
     context['cards'] = cards
     context['title'] = 'LoveRaspberry'
     return render(request, 'products/main.html', context)
+
+
+def catalog(request, catalog_slug):
+    catalog_slug = get_object_or_404(SubCategory, slug=catalog_slug)
+    context['title'] = catalog_slug.name
+    context['catalog'] = catalog_slug
+    return render(request, 'products/catalog.html', context)
 
 
 def favourites_products(request):
@@ -122,6 +129,7 @@ def about_us(request):
 
 def franchisee(request):
     return render(request, 'products/franchisee.html', context)
+
 
 def reviews(request):
     context['is_auth'] = True
