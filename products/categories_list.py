@@ -56,7 +56,7 @@ first_categories = [
                   {'title': 'Офис', 'url': '#22'}, {'title': 'Пляжная одежда', 'url': '#23'},
                   {'title': 'Религиозная', 'url': '#24'}, {'title': 'Свадьба', 'url': '#25'},
                   {'title': 'Спецодежда и СИЗы', 'url': '#26'}, {'title': 'Подарки мужчинам', 'url': '#27'}]},
-    {'category': 'Дом,', 'data': '#house', 'id': 'house',
+    {'category': 'Дом', 'data': '#house', 'id': 'house',
      'products': [{'title': 'Ванная', 'url': '#1'}, {'title': 'Кухня', 'url': '#2'},
                   {'title': 'Предметы интерьера', 'url': '#3'}, {'title': 'Спальня', 'url': '#4'},
                   {'title': 'Гостиная', 'url': '#5'}, {'title': 'Детская', 'url': '#6'},
@@ -271,8 +271,8 @@ footer_list = [
                                             {'title': 'Трудоустройство', 'url': 'products:all_work'},
                                             {'title': 'Цифровые товары', 'url': 'products:digital'}]},
     {'title': 'Компания', 'description': [{'title': 'О нас', 'url': 'products:about_us'},
-                                           {'title': 'Контакты', 'url': 'products:contacts'},
-                                           {'title': 'Вакансии', 'url': 'products:vacancies'}]},
+                                          {'title': 'Контакты', 'url': 'products:contacts'},
+                                          {'title': 'Вакансии', 'url': 'products:vacancies'}]},
 ]
 
 cards = [{'id': 1, 'title': 'Карточка 1 с длинным названием',
@@ -321,11 +321,16 @@ favourite_cards = [{'id': 1, 'title': 'Карточка 1 с длинным на
                                    '/media/images/cards/7.png'], 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
                    ]
 
-shopping_cards = [{'id': 1, 'title': 'Карточка 1 с длинным названием', 'image_url': '/media/images/cards/1.jpg', 'price': 10, 'count_of_reviews': 12, 'avg_reviews': 4},
-         {'id': 2, 'title': 'Карточка 3', 'image_url': '/media/images/cards/3.jpg', 'price': 32, 'count_of_reviews': 35, 'avg_reviews': 2},
-         {'id': 3, 'title': 'Карточка 2', 'image_url': '/media/images/cards/2.jpg', 'price': 101, 'count_of_reviews': 1, 'avg_reviews': 3},
-         {'id': 4, 'title': 'Карточка 4', 'image_url': '/media/images/cards/4.jpg', 'price': 66, 'count_of_reviews': 88, 'avg_reviews': 1},
-         ]
+shopping_cards = [
+    {'id': 1, 'title': 'Карточка 1 с длинным названием', 'image_url': '/media/images/cards/1.jpg', 'price': 10,
+     'count_of_reviews': 12, 'avg_reviews': 4},
+    {'id': 2, 'title': 'Карточка 3', 'image_url': '/media/images/cards/3.jpg', 'price': 32, 'count_of_reviews': 35,
+     'avg_reviews': 2},
+    {'id': 3, 'title': 'Карточка 2', 'image_url': '/media/images/cards/2.jpg', 'price': 101, 'count_of_reviews': 1,
+     'avg_reviews': 3},
+    {'id': 4, 'title': 'Карточка 4', 'image_url': '/media/images/cards/4.jpg', 'price': 66, 'count_of_reviews': 88,
+     'avg_reviews': 1},
+    ]
 
 payment_list = [
     {'img': 'products/images/footer/visa.png', 'alt': 'visa'},
@@ -341,9 +346,16 @@ payment_list = [
 ]
 
 user_reviews = [
-    {'id': 1, 'title': 'Карточка 1 с длинным названием', 'image_url': '/media/images/cards/1.jpg', 'stars': range(5), 'review': 'Очень хорошо чистит трубы', 'date': '28 янв.'},
-    {'id': 2, 'title': 'Карточка 2', 'image_url': '/media/images/cards/2.jpg', 'stars': range(2), 'review': 'Плохо чистит трубы', 'date': '23 янв.'},
-    {'id': 3, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': 'Добрый день! Спасибо за покупку! Очень рады, что Вам понравился ночник Луна. Пользуйтесь с удовольствием! С уважением и наилучшими пожеланиями, Magic Blanc!', 'date': '1 янв. 2022 г.'},
-    {'id': 4, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': '', 'date': '1 янв. 2022 г.'},
-    {'id': 5, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': 'Добрый день! Спасибо за покупку! Очень рады, что Вам понравился ночник Луна. Пользуйтесь с удовольствием! С уважением и наилучшими пожеланиями, Magic Blanc!', 'date': '1 янв. 2022 г.'},
+    {'id': 1, 'title': 'Карточка 1 с длинным названием', 'image_url': '/media/images/cards/1.jpg', 'stars': range(5),
+     'review': 'Очень хорошо чистит трубы', 'date': '28 янв.'},
+    {'id': 2, 'title': 'Карточка 2', 'image_url': '/media/images/cards/2.jpg', 'stars': range(2),
+     'review': 'Плохо чистит трубы', 'date': '23 янв.'},
+    {'id': 3, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4),
+     'review': 'Добрый день! Спасибо за покупку! Очень рады, что Вам понравился ночник Луна. Пользуйтесь с удовольствием! С уважением и наилучшими пожеланиями, Magic Blanc!',
+     'date': '1 янв. 2022 г.'},
+    {'id': 4, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4), 'review': '',
+     'date': '1 янв. 2022 г.'},
+    {'id': 5, 'title': 'Карточка 3', 'image_url': '/media/images/cards/2.jpg', 'stars': range(4),
+     'review': 'Добрый день! Спасибо за покупку! Очень рады, что Вам понравился ночник Луна. Пользуйтесь с удовольствием! С уважением и наилучшими пожеланиями, Magic Blanc!',
+     'date': '1 янв. 2022 г.'},
 ]

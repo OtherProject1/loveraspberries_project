@@ -40,7 +40,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <form class="d-flex" role="search">
-            <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search" style="width: 320px;">
+            <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search"
+                   style="width: 320px;">
             <button type="submit" class="btn btn-light"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         {% for item in navbar %}
@@ -66,7 +67,7 @@
                 {% for item in categories %}
                     <ul class="navbar-nav justify-content-center ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#" style="color: rgb(219, 214, 213)"
+                            <a class="nav-link active" aria-current="page" href="" style="color: rgb(219, 214, 213)"
                                data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
                                 {{ item.name }}
                             </a>
@@ -92,7 +93,7 @@
                     {% for product in item.subcategory_set.all %}
                         <ul class="navbar-nav justify-content-center ">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ product.slug }}" aria-current="page"
+                                <a class="nav-link active" href="{{ product.get_absolute_url }}" aria-current="page"
                                    style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas"
                                    data-bs-target={{ item.slug }}>
                                     {{ product.name }}

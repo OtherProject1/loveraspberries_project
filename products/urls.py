@@ -29,3 +29,4 @@ urlpatterns = [
     path('services/about', about_us, name='about_us'),
     path('services/franchisee/', franchisee, name='franchisee'),
 ]
+
