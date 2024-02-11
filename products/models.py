@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
-
 # class SlugMixin:
 # def save(self, *args, **kwargs):
 # self.slug = translit_to_eng(f'{self.name}-{self.pk}')
@@ -25,15 +24,15 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=128)
-    category_id = models.ForeignKey(to=Category, on_delete=models.PROTECT)
+    category = models.ForeignKey(to=Category, on_delete=models.PROTECT)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     def __str__(self):
-        return self.category_id.name
+        return self.name
 
     def save(self, *args, **kwargs):
         self.slug = pytils.translit.slugify(f'{self.category_id.name}-{self.name}')
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('catalog', kwargs={'catalog_slug': self.slug})
+        return reverse('catalog', kwargs={'subcategory_slug': self.slug})
