@@ -1,0 +1,27 @@
+.catalog_content .btn-secondary {
+    --bs-btn-color: black;
+    --bs-btn-bg: none;
+    --bs-btn-border-color: none;
+}
+
+.catalog_content .btn.show {
+    --bs-btn-color: black;
+    --bs-btn-bg: none;
+    --bs-btn-border-color: none;
+    background-color: white;
+    color: black;
+}
+
+.catalog_content .btn:hover {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.dropdown ul a {
+    font-size: 15px;
+}
+
+.dropdown-menu {
+    column-count: 2;
+}

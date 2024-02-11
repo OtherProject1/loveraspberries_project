@@ -3,7 +3,8 @@ from products.categories_list import first_categories, navbar_list, footer_list,
     shopping_cards, user_reviews
 from .models import Category, SubCategory
 
-context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'navbar': navbar_list, 'footer': footer_list,
+context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
+           'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards}
 
 
@@ -13,10 +14,10 @@ def home(request):
     return render(request, 'products/main.html', context)
 
 
-def catalog(request, catalog_slug):
-    catalog_slug = get_object_or_404(SubCategory, slug=catalog_slug)
-    context['title'] = catalog_slug.name
-    context['catalog'] = catalog_slug
+def catalog(request, subcategory_slug):
+    subcategory_slug = get_object_or_404(SubCategory, slug=subcategory_slug)
+    context['subcategory'] = subcategory_slug.name
+    context['category'] = subcategory_slug.category
     return render(request, 'products/catalog.html', context)
 
 

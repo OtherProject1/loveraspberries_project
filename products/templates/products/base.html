@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{% static 'products/css/profile.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/favourite.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/catalog.css' %}">
 
     <link rel="shortcut icon" href="{% static 'products/images/header/minilogo.png' %}" type="image/png">
 </head>
@@ -67,7 +68,7 @@
                 {% for item in categories %}
                     <ul class="navbar-nav justify-content-center ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="" style="color: rgb(219, 214, 213)"
+                            <a class="nav-link active" aria-current="page" href="{{ item.slug }}" style="color: rgb(219, 214, 213)"
                                data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
                                 {{ item.name }}
                             </a>
