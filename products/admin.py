@@ -1,5 +1,5 @@
 from django.contrib import admin
-from products.models import Category, SubCategory
+from products.models import Category, SubCategory, Product
 
 
 # Register your models here.
@@ -22,3 +22,8 @@ class Subcategory_admin(admin.ModelAdmin):
     ordering = ('name', 'category_id',)
     prepopulated_fields = {'slug': ['name', ]}
 
+
+@admin.register(Product)
+class Product_admin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'quantity', 'subcategory', 'rating', 'review')
+    prepopulated_fields = {'slug': ['name', ]}

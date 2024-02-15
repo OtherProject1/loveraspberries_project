@@ -31,8 +31,23 @@ class SubCategory(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = pytils.translit.slugify(f'{self.category_id.name}-{self.name}')
+        self.slug = pytils.translit.slugify(f'{self.category.name}-{self.name}')
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('catalog', kwargs={'subcategory_slug': self.slug})
+
+
+class Product(models.Model):
+    name = models.CharField(max_length=128)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField()
+    quantity = models.PositiveIntegerField(default=0)
+    image = models.ImageField(upload_to='products_images')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    subcategory = models.ForeignKey(to=SubCategory, on_delete=models.PROTECT)
+    rating = models.DecimalField(max_digits=2, decimal_places=1, )
+    review = models.PositiveIntegerField(default=0)
+    # details = models.PositiveIntegerField(default=0) для отображения количества полей характеристики
+
+

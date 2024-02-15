@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
 from .models import Category, SubCategory
+from django.views.generic.list import ListView
+from .mixins import BaseMixin
+from products.models import Product
 
 context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
            'navbar': navbar_list, 'footer': footer_list,
@@ -14,11 +17,27 @@ def home(request):
     return render(request, 'products/main.html', context)
 
 
-def catalog(request, subcategory_slug):
-    subcategory_slug = get_object_or_404(SubCategory, slug=subcategory_slug)
-    context['subcategory'] = subcategory_slug.name
-    context['category'] = subcategory_slug.category
-    return render(request, 'products/catalog.html', context)
+class CatalogListView(BaseMixin, ListView):
+    model = Product
+    template_name = 'products/catalog.html'
+
+    # Для отображения категории товара
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CatalogListView, self).get_context_data()
+        subcategory_slug = get_object_or_404(SubCategory, slug=self.kwargs.get('subcategory_slug'))
+        context['title'] = subcategory_slug.name
+        context['subcategory'] = subcategory_slug
+        context['category'] = subcategory_slug.category
+        return context
+
+    # Для отображения самого товара
+    def get_queryset(self):
+        queryset = super(CatalogListView, self).get_queryset()
+        subcategory_slug = self.kwargs.get('subcategory_slug')
+        # Получаем id категории
+        subcategory = SubCategory.objects.get(slug=subcategory_slug)
+        subcategory_id = subcategory.id
+        return queryset.filter(subcategory_id=subcategory_id) if subcategory_slug else queryset
 
 
 def favourites_products(request):
