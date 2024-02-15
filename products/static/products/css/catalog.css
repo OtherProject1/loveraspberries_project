@@ -25,3 +25,17 @@
 .dropdown-menu {
     column-count: 2;
 }
+
+.btn-primary-link {
+    background-color: #9a10f0;
+    color: white;
+    border: 2px solid;
+    text-align: center;
+}
+
+.col .btn:hover {
+    background-color: #b84af6;
+    color: white;
+    border: 2px solid;
+    text-align: center;
+}
