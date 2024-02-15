@@ -43,11 +43,16 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     quantity = models.PositiveIntegerField(default=0)
-    image = models.ImageField(upload_to='products_images')
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     subcategory = models.ForeignKey(to=SubCategory, on_delete=models.PROTECT)
     rating = models.DecimalField(max_digits=2, decimal_places=1, )
     review = models.PositiveIntegerField(default=0)
+
     # details = models.PositiveIntegerField(default=0) для отображения количества полей характеристики
+    def __str__(self):
+        return self.name
 
 
+class ProductImages(models.Model):
+    product = models.ForeignKey(to=Product, on_delete=models.PROTECT, related_name='images')
+    image = models.ImageField(upload_to='products_images')
