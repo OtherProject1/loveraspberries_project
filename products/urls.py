@@ -28,5 +28,6 @@ urlpatterns = [
     path('services/vacancies', vacancies, name='vacancies'),
     path('services/about', about_us, name='about_us'),
     path('services/franchisee/', franchisee, name='franchisee'),
-]
 
+
+]

@@ -15,7 +15,6 @@
                 {% endfor %}
             </ul>
             <h2 style="margin-left: 10px"><b>{{ subcategory }}</b></h2>
-
             <div class="row row-cols-auto" style="margin-top: 30px">
                 {% for product in object_list %}
                     <div class="col" style="cursor: pointer; margin-bottom: 20px;">
@@ -26,16 +25,20 @@
                             <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
                                 <div class="carousel-inner">
                                     {% for image in product.images.all %}
-                                        <div class="carousel-item active">
-                                            <div class="image-wrapper">
-                                                <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
-                                                     style="border-radius: 10px; width: 330px;"
-                                                     alt="Image">
+                                        {% if image %}
+                                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                                <div class="image-wrapper">
+                                                    <a href="{{ product.get_absolute_url }}">
+                                                        <img src="{{ image.image.url }}"
+                                                             class="d-block w-100 card-img-top"
+                                                             style="border-radius: 10px; width: 330px;"
+                                                             alt="Image">
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
-
                                 <button class="carousel-control-prev" type="button"
                                         data-bs-target="#carousel-{{ product.id }}"
                                         data-bs-slide="prev">
@@ -53,7 +56,7 @@
                                  style="overflow: hidden; padding-top: 5px; padding-bottom: 0px; padding-left: 0; margin-top: 0;">
                                 <h5 class="card-title"
                                     style="font-size: 24px; margin-top: 10px">
-                                    <b>{{ product.price }}</b></h5>
+                                    <b>{{ product.price }} р.</b></h5>
                                 <p style="margin: 0; font-size: small;"><small><b>Завтра</b></small></p>
                                 <p class="card-text" style="margin-bottom: 0; white-space: nowrap; margin-top: 3px;">
                                     <span class="blur" style="width: 250px">{{ product.name }}</span>
@@ -69,12 +72,9 @@
                                 </div>
                             </div>
                         </div>
-
                         <a class="btn btn-primary-link"
                            onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
                            value="Нажми на меня!"/>В корзину</a>
-
-
                     </div>
                 {% endfor %}
             </div>
