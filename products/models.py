@@ -52,6 +52,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('product_page', kwargs={'subcategory_slug': self.subcategory.slug, 'product_id': self.pk})
+
 
 class ProductImages(models.Model):
     product = models.ForeignKey(to=Product, on_delete=models.PROTECT, related_name='images')

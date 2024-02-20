@@ -1,8 +1,10 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
 from .models import Category, SubCategory
 from django.views.generic.list import ListView
+from django.views.generic.base import TemplateView
 from .mixins import BaseMixin
 from products.models import Product
 
@@ -38,6 +40,14 @@ class CatalogListView(BaseMixin, ListView):
         subcategory = SubCategory.objects.get(slug=subcategory_slug)
         subcategory_id = subcategory.id
         return queryset.filter(subcategory_id=subcategory_id) if subcategory_slug else queryset
+
+
+def product_page(request, subcategory_slug, product_id):
+    product = Product.objects.get(id=product_id)
+    slug = SubCategory.objects.get(slug=subcategory_slug)
+    context['product'] = product
+    context['subcategory'] = slug
+    return render(request, 'products/product.html', context)
 
 
 def favourites_products(request):
