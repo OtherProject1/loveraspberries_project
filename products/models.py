@@ -35,7 +35,7 @@ class SubCategory(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('catalog', kwargs={'subcategory_slug': self.slug})
+        return reverse('products:catalog', kwargs={'subcategory_slug': self.slug})
 
 
 class Product(models.Model):
@@ -53,7 +53,7 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('product_page', kwargs={'subcategory_slug': self.subcategory.slug, 'product_id': self.pk})
+        return reverse('products:product_page', kwargs={'subcategory_slug': self.subcategory.slug, 'product_id': self.pk})
 
 
 class ProductImages(models.Model):
