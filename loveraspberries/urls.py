@@ -24,9 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('', include('products.urls', namespace='products')),
-    path('catalog/<slug:subcategory_slug>/', CatalogListView.as_view(), name='catalog'),
-    path('catalog/<slug:subcategory_slug>/<int:product_id>', product_page, name='product_page')
-
 ]
 
 if settings.DEBUG:

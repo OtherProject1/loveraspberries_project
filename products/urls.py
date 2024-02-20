@@ -5,6 +5,8 @@ from .views import *
 app_name = 'products'
 
 urlpatterns = [
+    path('catalog/<slug:subcategory_slug>/', CatalogListView.as_view(), name='catalog'),
+    path('catalog/<slug:subcategory_slug>/<int:product_id>', product_page, name='product_page'),
     path('profile/', profile, name='profile'),
     path('profile/favourites_products/', favourites_products, name='favourites'),
     path('profile/shopping_cart/', shopping_cart, name='shopping_cart'),
@@ -28,6 +30,4 @@ urlpatterns = [
     path('services/vacancies', vacancies, name='vacancies'),
     path('services/about', about_us, name='about_us'),
     path('services/franchisee/', franchisee, name='franchisee'),
-
-
 ]
