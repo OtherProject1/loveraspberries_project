@@ -18,6 +18,17 @@ def home(request):
     context['title'] = 'LoveRaspberry'
     return render(request, 'products/main.html', context)
 
+class MainView(BaseMixin, ListView):
+    model = Product
+    template_name = 'products/main.html'
+
+    # Для отображения категории товара
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(MainView, self).get_context_data()
+        context['title'] = 'LoveRaspberry'
+        return context
+
+
 def product_page(request, subcategory_slug, product_id):
     product = Product.objects.get(id=product_id)
     slug = SubCategory.objects.get(slug=subcategory_slug)
