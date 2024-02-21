@@ -1,10 +1,5 @@
 from django.contrib import admin
-from products.models import Category, SubCategory, Product, ProductImages
-
-
-# Register your models here.
-
-# admin.site.register(Category)
+from products.models import *
 
 
 @admin.register(Category)
@@ -27,16 +22,29 @@ class ProductImagesInline(admin.TabularInline):
     model = ProductImages
 
 
+class ProductDetailsInline(admin.TabularInline):
+    model = ProductDetail
+
+
 @admin.register(Product)
-class Product_admin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'quantity', 'subcategory', 'rating', 'review')
     prepopulated_fields = {'slug': ['name', ]}
     inlines = [
         ProductImagesInline,
+        ProductDetailsInline,
     ]
 
 
+@admin.register(Details)
+class DetailsAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+    list_display_links = ('name', )
+
+
+
+
 @admin.register(ProductImages)
-class ProductImages_admin(admin.ModelAdmin):
+class ProductImagesAdmin(admin.ModelAdmin):
     list_display = ('product', 'image')
     fields = ('product', 'image',)

@@ -1,76 +1,90 @@
 {% extends 'products/base.html' %}
 {% block content %}
-    <div class="catalog_content" style="margin-top: 50px">
-        <div class="dropdown product" style="margin-left: 0">
-            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                {{ subcategory.category }}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                {% for product in subcategory.category.subcategory_set.all %}
-                    <li><a class="dropdown-item" href="{{ product.get_absolute_url }}">{{ product.name }} </a></li>
-                {% endfor %}
-            </ul>
-            <span> {{ subcategory }}</span>
-            <div class="vendor" style="display: flex; justify-content: end; align-items: center;">
-                <div>
-                    <span data-text="strProductCodeShort">Арт.</span>
-                    <span id="myInput" style="margin-right: 10px;">{{ product.id }}</span>
-                </div>
-                <div>
-                    <i class="fa-regular fa-copy"></i>
-                </div>
+<div class="catalog_content" style="margin-top: 50px">
+    <div class="dropdown product" style="margin-left: 0">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            {{ subcategory.category }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {% for product in subcategory.category.subcategory_set.all %}
+            <li><a class="dropdown-item" href="{{ product.get_absolute_url }}">{{ product.name }} </a></li>
+            {% endfor %}
+        </ul>
+        <span> {{ subcategory }}</span>
+        <div class="vendor" style="display: flex; justify-content: end; align-items: center;">
+            <div>
+                <span data-text="strProductCodeShort">Арт.</span>
+                <span id="myInput" style="margin-right: 10px;">{{ product.id }}</span>
             </div>
-            <div class="row row-cols-auto" style="margin-top: 30px">
-                <div class="col" style="cursor: pointer; margin-bottom: 20px;">
-                    <div class="card border-0" style="width: 500px; height: 700px">
-                        <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
-                            <div class="carousel-inner">
-                                {% for image in product.images.all %}
-                                    {% if image %}
-                                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                            <div class="image-wrapper">
-                                                <a href="">
-                                                    <img src="{{ image.image.url }}"
-                                                         class="d-block w-100 card-img-top"
-                                                         style="border-radius: 10px; width: 330px;"
-                                                         alt="Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carousel-{{ product.id }}"
-                                    data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Предыдущий</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carousel-{{ product.id }}"
-                                    data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Следующий</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="cursor: pointer; margin-bottom: 20px;">
-                    <div class="card border-0">
-                        <div class="carousel-inner">
-                            <p>{{ product }}</p>
-                            <i class="fa-solid fa-star fa-sm"></i> {{ product.rating }} &#8226;
-                            <i class="fa-regular fa-comments"></i> {{ product.review }}
-                        </div>
-                    </div>
-                </div>
-
-
+            <div>
+                <i class="fa-regular fa-copy"></i>
             </div>
         </div>
-
+        <div class="row row-cols-auto" style="margin-top: 30px">
+            <div class="col" style="margin-bottom: 20px;">
+                <div class="card border-0" style="width: 500px; height: 700px">
+                    <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
+                        <div class="carousel-inner">
+                            {% for image in product.images.all %}
+                            {% if image %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="image-wrapper">
+                                    <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
+                                        style="border-radius: 10px; width: 330px;" alt="Image">
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ product.id }}"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Предыдущий</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ product.id }}"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Следующий</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="margin-bottom: 20px;">
+                <div class="card border-0">
+                    <div class="carousel-inner">
+                        <h3>{{ product }}</h3>
+                        <i class="fa-solid fa-star fa-sm"></i> {{ product.rating }} &#8226;
+                        <i class="fa-regular fa-comments"></i> {{ product.review }}
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="margin-bottom: 20px; ">
+                <div class="card border-0">
+                    <a href="#addtofavourites">
+                        <i class="fa-regular fa-heart fa-2xl add_to_favourite"
+                            style="color: rgb(51, 56, 124); position: absolute; top: 20px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
+                    <div class="card-body"
+                        style="overflow: hidden; padding-top: 5px; padding-bottom: 0px; padding-left: 0; margin-top: 0;">
+                        <h5 class="card-title" style="font-size: 34px; margin-top: 10px">
+                            <b>{{ product.price }} р.</b>
+                        </h5>
+                        <p style="margin: 0;"><b>Доставим послезавтра</b></p>
+                    </div>
+                </div>
+                <a class="btn btn-primary-link" style="display: block;  background-color: rgb(51, 56, 124);"
+                    onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
+                    value="Нажми на меня!"/>В корзину</a>
+                <div style="display: flex;">
+                    <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
+                                class="fa-solid fa-star fa-sm"></i>{{ product.rating }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+</div>
 
 
 {% endblock content %}

@@ -59,3 +59,25 @@ class Product(models.Model):
 class ProductImages(models.Model):
     product = models.ForeignKey(to=Product, on_delete=models.PROTECT, related_name='images')
     image = models.ImageField(upload_to='products_images')
+
+
+class CategoryDetails(models.Model):
+    name = models.CharField(max_length=128)
+
+
+class Details(models.Model):
+    '''Info about all details, which user choose for yourseld product'''
+    name = models.CharField(max_length=128)
+    category = models.ForeignKey(to=CategoryDetails, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Характеристика'
+        verbose_name_plural = 'Характеристики'
+
+class ProductDetail(models.Model):
+    detail = models.ForeignKey(to=Details, on_delete=models.SET_NULL, null=True, related_name='product_details')
+    product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='details')
+    description = models.CharField(max_length=255)
