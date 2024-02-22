@@ -35,7 +35,7 @@
 <nav class="navbar bg-dark border-bottom border-body">
     <div class="container-fluid d-flex justify-content-around">
         <a href="{% url 'products:home' %}"><img class="nav-logo" src="{% static 'products/images/header/logo.png' %}"
-                                        alt="Логотип"></a>
+                                                 alt="Логотип"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                 aria-label="Toggle navigation">
@@ -58,7 +58,9 @@
                 <figcaption>Избранное</figcaption>
             </figure>
         </a>
-        <a class="navbar-links" href="{% url 'products:profile' %}" data-bs-toggle="modal"
+
+        <a class="navbar-links" href="{% url 'products:profile' %}" {% if not request.user.is_authenticated %}
+           data-bs-toggle="modal" {% endif %}
            data-bs-target="#exampleModalToggle">
             <figure>
                 <img src="{% static 'products/images/header/profile.png' %}" alt="profile" width="30" height="30">

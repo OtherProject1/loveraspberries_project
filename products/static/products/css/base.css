@@ -136,15 +136,15 @@ span.blur::after {
     width: 300px;
     border: 1px solid;
     border-radius: 5px;
-    background-color: #fff;
-    color: black
+    background-color: #212529;
+    color: #fff
 }
 
 .modal-footer .login-button:hover {
     width: 300px;
     border: 1px solid;
     border-radius: 5px;
-    background-color: #212529;
+    background-color: #1c505b;
     color: #fff;
 }
 
