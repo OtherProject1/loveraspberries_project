@@ -1,0 +1,4398 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add sub category",
+      "content_type": 7,
+      "codename": "add_subcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change sub category",
+      "content_type": 7,
+      "codename": "change_subcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete sub category",
+      "content_type": 7,
+      "codename": "delete_subcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view sub category",
+      "content_type": 7,
+      "codename": "view_subcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add category",
+      "content_type": 8,
+      "codename": "add_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change category",
+      "content_type": 8,
+      "codename": "change_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete category",
+      "content_type": 8,
+      "codename": "delete_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view category",
+      "content_type": 8,
+      "codename": "view_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add product",
+      "content_type": 9,
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change product",
+      "content_type": 9,
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete product",
+      "content_type": 9,
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view product",
+      "content_type": 9,
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add product images",
+      "content_type": 10,
+      "codename": "add_productimages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change product images",
+      "content_type": 10,
+      "codename": "change_productimages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete product images",
+      "content_type": 10,
+      "codename": "delete_productimages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view product images",
+      "content_type": 10,
+      "codename": "view_productimages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add details",
+      "content_type": 11,
+      "codename": "add_details"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change details",
+      "content_type": 11,
+      "codename": "change_details"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete details",
+      "content_type": 11,
+      "codename": "delete_details"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view details",
+      "content_type": 11,
+      "codename": "view_details"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add product detail",
+      "content_type": 12,
+      "codename": "add_productdetail"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change product detail",
+      "content_type": 12,
+      "codename": "change_productdetail"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete product detail",
+      "content_type": 12,
+      "codename": "delete_productdetail"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view product detail",
+      "content_type": 12,
+      "codename": "view_productdetail"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add category details",
+      "content_type": 13,
+      "codename": "add_categorydetails"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change category details",
+      "content_type": 13,
+      "codename": "change_categorydetails"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete category details",
+      "content_type": 13,
+      "codename": "delete_categorydetails"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view category details",
+      "content_type": 13,
+      "codename": "view_categorydetails"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "products",
+      "model": "subcategory"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "products",
+      "model": "category"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "products",
+      "model": "product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "products",
+      "model": "productimages"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "products",
+      "model": "details"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "products",
+      "model": "productdetail"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "products",
+      "model": "categorydetails"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "6cfuzo29mx4ixeakm16b2wcghid2ngd9",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAUBf-FtSEF5FGX7vsNhPtAqgaS0q6M_65NutDtmZnzEjFta4lb5yXOJC5Ci9PvBgkfXHdA91RvTWKr6zKD3BV50C6nRvy8Hu7fQUm9fOtBaRzBAmYw4DCAddqNiZg55yFYk30gtOQVKeWJdbag4WwcWA86KfH-AAn1OLw:1rdENg:DY3oj-3vH_cCOgZMqzgQCEhtCtRqqVMtZXMKPfE4GpE",
+      "expire_date": "2024-03-07T19:05:16.568Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "di77llqdinom8kdeko6q74ywk8reyufl",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQAP-FsyHs9rHg0Xu_gSywSNWUpLQn47-bJj3odWYyb-V534rfm6x-TuqqQF1-WeD4lOUQ6cHLvepYl22dgz4Sfdqmp5rkdTvbv0HhVo4tjQkBxUAyCLnDYaQMtusRIw_ZBSFHbCyHSGRD5wBsRu7Fie3Jsfp8AbkoNxg:1rX6Bg:XhZOyOHzgqCT3JjC_kPaNoJLPfVD-2wZyQLhdT1qXn4",
+      "expire_date": "2024-02-19T21:07:32.132Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "ods0kazblpp13dengooth1zyrfhj71z5",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAUBf-FtSEF5FGX7vsNhPtAqgaS0q6M_65NutDtmZnzEjFta4lb5yXOJC5Ci9PvBgkfXHdA91RvTWKr6zKD3BV50C6nRvy8Hu7fQUm9fOtBaRzBAmYw4DCAddqNiZg55yFYk30gtOQVKeWJdbag4WwcWA86KfH-AAn1OLw:1rcXsN:2rxV3f1HnA_KHtl1zhN1Ull6d8NiIygVK4wNSDFhSrA",
+      "expire_date": "2024-03-05T21:42:07.194Z"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 25,
+    "fields": {
+      "name": "Женщинам",
+      "slug": "zhenschinyi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 26,
+    "fields": {
+      "name": "Обувь",
+      "slug": "obuv"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 27,
+    "fields": {
+      "name": "Детям",
+      "slug": "detyam"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 28,
+    "fields": {
+      "name": "Мужчинам",
+      "slug": "muzhchinam"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 29,
+    "fields": {
+      "name": "Дом",
+      "slug": "dom"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 30,
+    "fields": {
+      "name": "Новый год",
+      "slug": "novyij-god"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 31,
+    "fields": {
+      "name": "Красота",
+      "slug": "krasota"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 32,
+    "fields": {
+      "name": "Аксессуары",
+      "slug": "aksessuaryi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 33,
+    "fields": {
+      "name": "Электроника",
+      "slug": "elektronika"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 34,
+    "fields": {
+      "name": "Игрушки",
+      "slug": "igrushki"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 35,
+    "fields": {
+      "name": "Мебель",
+      "slug": "mebel"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 36,
+    "fields": {
+      "name": "Товары для взрослых",
+      "slug": "tovaryi-dlya-vzroslyih"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 37,
+    "fields": {
+      "name": "Продукты",
+      "slug": "produktyi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 38,
+    "fields": {
+      "name": "Бытовая техника",
+      "slug": "byitovaya-tehnika"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 39,
+    "fields": {
+      "name": "Зоотовары",
+      "slug": "zootovaryi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 40,
+    "fields": {
+      "name": "Спорт",
+      "slug": "sport"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 41,
+    "fields": {
+      "name": "Автотовары",
+      "slug": "avtotovaryi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 42,
+    "fields": {
+      "name": "Книги",
+      "slug": "knigi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 43,
+    "fields": {
+      "name": "Для ремонта",
+      "slug": "dlya-remonta"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 44,
+    "fields": {
+      "name": "Сад и дача",
+      "slug": "sad-i-dacha"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 45,
+    "fields": {
+      "name": "Здоровье",
+      "slug": "zdorove"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 46,
+    "fields": {
+      "name": "Канцтовары",
+      "slug": "kantstovaryi"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 47,
+    "fields": {
+      "name": "Акции",
+      "slug": "aktsii"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Блузки и рубашки",
+      "category": 25,
+      "slug": "zhenschinyi-bluzki-i-rubashki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Брюки",
+      "category": 25,
+      "slug": "zhenschinyi-bryuki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Верхняя одежда",
+      "category": 25,
+      "slug": "zhenschinyi-verhnyaya-odezhda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 4,
+    "fields": {
+      "name": "Джемперы, водолазки и кардиганы",
+      "category": 25,
+      "slug": "zhenschinyi-dzhemperyi-vodolazki-i-kardiganyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 5,
+    "fields": {
+      "name": "Джинсы",
+      "category": 25,
+      "slug": "zhenschinyi-dzhinsyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 6,
+    "fields": {
+      "name": "Комбинезоны",
+      "category": 25,
+      "slug": "zhenschinyi-kombinezonyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 7,
+    "fields": {
+      "name": "Костюмы",
+      "category": 25,
+      "slug": "zhenschinyi-kostyumyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 8,
+    "fields": {
+      "name": "Лонгсливы",
+      "category": 25,
+      "slug": "zhenschinyi-longslivyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 9,
+    "fields": {
+      "name": "Пиджаки, жилеты и жакеты",
+      "category": 25,
+      "slug": "zhenschinyi-pidzhaki-zhiletyi-i-zhaketyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 10,
+    "fields": {
+      "name": "Платья и сарафаны",
+      "category": 25,
+      "slug": "zhenschinyi-platya-i-sarafanyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 11,
+    "fields": {
+      "name": "Толстовки, свитшоты и худи",
+      "category": 25,
+      "slug": "zhenschinyi-tolstovki-svitshotyi-i-hudi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 12,
+    "fields": {
+      "name": "Туники",
+      "category": 25,
+      "slug": "zhenschinyi-tuniki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 13,
+    "fields": {
+      "name": "Футболки и топы",
+      "category": 25,
+      "slug": "zhenschinyi-futbolki-i-topyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 14,
+    "fields": {
+      "name": "Халаты",
+      "category": 25,
+      "slug": "zhenschinyi-halatyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 15,
+    "fields": {
+      "name": "Шорты",
+      "category": 25,
+      "slug": "zhenschinyi-shortyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 16,
+    "fields": {
+      "name": "Юбки",
+      "category": 25,
+      "slug": "zhenschinyi-yubki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 17,
+    "fields": {
+      "name": "Белье",
+      "category": 25,
+      "slug": "zhenschinyi-bele"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 18,
+    "fields": {
+      "name": "Большие размеры",
+      "category": 25,
+      "slug": "zhenschinyi-bolshie-razmeryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 19,
+    "fields": {
+      "name": "Будущие мамы",
+      "category": 25,
+      "slug": "zhenschinyi-buduschie-mamyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 20,
+    "fields": {
+      "name": "Для высоких",
+      "category": 25,
+      "slug": "zhenschinyi-dlya-vyisokih"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 21,
+    "fields": {
+      "name": "Для невысоких",
+      "category": 25,
+      "slug": "zhenschinyi-dlya-nevyisokih"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 22,
+    "fields": {
+      "name": "Одежда для дома",
+      "category": 25,
+      "slug": "zhenschinyi-odezhda-dlya-doma"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 23,
+    "fields": {
+      "name": "Офис",
+      "category": 25,
+      "slug": "zhenschinyi-ofis"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 24,
+    "fields": {
+      "name": "Пляжная мода",
+      "category": 25,
+      "slug": "zhenschinyi-plyazhnaya-moda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 25,
+    "fields": {
+      "name": "Религиозная",
+      "category": 25,
+      "slug": "zhenschinyi-religioznaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 26,
+    "fields": {
+      "name": "Свадьба",
+      "category": 25,
+      "slug": "zhenschinyi-svadba"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 27,
+    "fields": {
+      "name": "Спецодежда и СИЗы",
+      "category": 25,
+      "slug": "zhenschinyi-spetsodezhda-i-sizyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 28,
+    "fields": {
+      "name": "Подарки женщинам",
+      "category": 25,
+      "slug": "zhenschinyi-podarki-zhenschinam"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 29,
+    "fields": {
+      "name": "Детская",
+      "category": 26,
+      "slug": "obuv-detskaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 30,
+    "fields": {
+      "name": "Для новорожденных",
+      "category": 26,
+      "slug": "obuv-dlya-novorozhdennyih"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 31,
+    "fields": {
+      "name": "Женская",
+      "category": 26,
+      "slug": "obuv-zhenskaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 32,
+    "fields": {
+      "name": "Мужская",
+      "category": 26,
+      "slug": "obuv-muzhskaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 33,
+    "fields": {
+      "name": "Ортопедическая обувь",
+      "category": 26,
+      "slug": "obuv-ortopedicheskaya-obuv"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 34,
+    "fields": {
+      "name": "Аксессуары для обуви",
+      "category": 26,
+      "slug": "obuv-aksessuaryi-dlya-obuvi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 35,
+    "fields": {
+      "name": "Для девочек",
+      "category": 27,
+      "slug": "detyam-dlya-devochek"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 36,
+    "fields": {
+      "name": "Для мальчиков",
+      "category": 27,
+      "slug": "detyam-dlya-malchikov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 37,
+    "fields": {
+      "name": "Для новорожденных",
+      "category": 27,
+      "slug": "detyam-dlya-novorozhdennyih"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 38,
+    "fields": {
+      "name": "Детская электроника",
+      "category": 27,
+      "slug": "detyam-detskaya-elektronika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 39,
+    "fields": {
+      "name": "Конструкторы",
+      "category": 27,
+      "slug": "detyam-konstruktoryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 40,
+    "fields": {
+      "name": "Детский транспорт",
+      "category": 27,
+      "slug": "detyam-detskij-transport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 41,
+    "fields": {
+      "name": "Детское питание",
+      "category": 27,
+      "slug": "detyam-detskoe-pitanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 42,
+    "fields": {
+      "name": "Религиозная одежда",
+      "category": 27,
+      "slug": "detyam-religioznaya-odezhda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 43,
+    "fields": {
+      "name": "Товары для малыша",
+      "category": 27,
+      "slug": "detyam-tovaryi-dlya-malyisha"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 44,
+    "fields": {
+      "name": "Подгузники",
+      "category": 27,
+      "slug": "detyam-podguzniki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 45,
+    "fields": {
+      "name": "Подарки детям",
+      "category": 27,
+      "slug": "detyam-podarki-detyam"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 46,
+    "fields": {
+      "name": "Брюки",
+      "category": 28,
+      "slug": "muzhchinam-bryuki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 47,
+    "fields": {
+      "name": "Верхняя одежда",
+      "category": 28,
+      "slug": "muzhchinam-verhnyaya-odezhda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 48,
+    "fields": {
+      "name": "Джемперы, водолазки и кардиганы",
+      "category": 28,
+      "slug": "muzhchinam-dzhemperyi-vodolazki-i-kardiganyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 49,
+    "fields": {
+      "name": "Джинсы",
+      "category": 28,
+      "slug": "muzhchinam-dzhinsyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 50,
+    "fields": {
+      "name": "Комбинезоны и полукомбинезоны",
+      "category": 28,
+      "slug": "muzhchinam-kombinezonyi-i-polukombinezonyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 51,
+    "fields": {
+      "name": "Костюмы",
+      "category": 28,
+      "slug": "muzhchinam-kostyumyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 52,
+    "fields": {
+      "name": "Лонгсливы",
+      "category": 28,
+      "slug": "muzhchinam-longslivyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 53,
+    "fields": {
+      "name": "Майки",
+      "category": 28,
+      "slug": "muzhchinam-majki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 54,
+    "fields": {
+      "name": "Пиджаки, жилеты и жакеты",
+      "category": 28,
+      "slug": "muzhchinam-pidzhaki-zhiletyi-i-zhaketyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 55,
+    "fields": {
+      "name": "Пижамы",
+      "category": 28,
+      "slug": "muzhchinam-pizhamyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 56,
+    "fields": {
+      "name": "Рубашки",
+      "category": 28,
+      "slug": "muzhchinam-rubashki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 57,
+    "fields": {
+      "name": "Толстовки, свитшоты и худи",
+      "category": 28,
+      "slug": "muzhchinam-tolstovki-svitshotyi-i-hudi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 58,
+    "fields": {
+      "name": "Футболки",
+      "category": 28,
+      "slug": "muzhchinam-futbolki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 59,
+    "fields": {
+      "name": "Футболки-поло",
+      "category": 28,
+      "slug": "muzhchinam-futbolki-polo"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 60,
+    "fields": {
+      "name": "Халаты",
+      "category": 28,
+      "slug": "muzhchinam-halatyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 61,
+    "fields": {
+      "name": "Шорты",
+      "category": 28,
+      "slug": "muzhchinam-shortyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 62,
+    "fields": {
+      "name": "Белье",
+      "category": 28,
+      "slug": "muzhchinam-bele"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 63,
+    "fields": {
+      "name": "Большие размеры",
+      "category": 28,
+      "slug": "muzhchinam-bolshie-razmeryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 64,
+    "fields": {
+      "name": "Для высоких",
+      "category": 28,
+      "slug": "muzhchinam-dlya-vyisokih"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 65,
+    "fields": {
+      "name": "Для невысоких",
+      "category": 28,
+      "slug": "muzhchinam-dlya-nevyisokih"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 66,
+    "fields": {
+      "name": "Одежда для дома",
+      "category": 28,
+      "slug": "muzhchinam-odezhda-dlya-doma"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 67,
+    "fields": {
+      "name": "Офис",
+      "category": 28,
+      "slug": "muzhchinam-ofis"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 68,
+    "fields": {
+      "name": "Пляжная одежда",
+      "category": 28,
+      "slug": "muzhchinam-plyazhnaya-odezhda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 69,
+    "fields": {
+      "name": "Религиозная",
+      "category": 28,
+      "slug": "muzhchinam-religioznaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 70,
+    "fields": {
+      "name": "Свадьба",
+      "category": 28,
+      "slug": "muzhchinam-svadba"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 71,
+    "fields": {
+      "name": "Спецодежда и СИЗы",
+      "category": 28,
+      "slug": "muzhchinam-spetsodezhda-i-sizyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 72,
+    "fields": {
+      "name": "Подарки мужчинам",
+      "category": 28,
+      "slug": "muzhchinam-podarki-muzhchinam"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 73,
+    "fields": {
+      "name": "Ванная",
+      "category": 29,
+      "slug": "dom-vannaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 74,
+    "fields": {
+      "name": "Кухня",
+      "category": 29,
+      "slug": "dom-kuhnya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 75,
+    "fields": {
+      "name": "Предметы интерьера",
+      "category": 29,
+      "slug": "dom-predmetyi-interera"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 76,
+    "fields": {
+      "name": "Спальня",
+      "category": 29,
+      "slug": "dom-spalnya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 77,
+    "fields": {
+      "name": "Гостиная",
+      "category": 29,
+      "slug": "dom-gostinaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 78,
+    "fields": {
+      "name": "Детская",
+      "category": 29,
+      "slug": "dom-detskaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 79,
+    "fields": {
+      "name": "Досуг и творчество",
+      "category": 29,
+      "slug": "dom-dosug-i-tvorchestvo"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 80,
+    "fields": {
+      "name": "Все для праздника",
+      "category": 29,
+      "slug": "dom-vse-dlya-prazdnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 81,
+    "fields": {
+      "name": "Зеркала",
+      "category": 29,
+      "slug": "dom-zerkala"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 82,
+    "fields": {
+      "name": "Коврики",
+      "category": 29,
+      "slug": "dom-kovriki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 83,
+    "fields": {
+      "name": "Кронштейны",
+      "category": 29,
+      "slug": "dom-kronshtejnyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 84,
+    "fields": {
+      "name": "Освещение",
+      "category": 29,
+      "slug": "dom-osveschenie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 85,
+    "fields": {
+      "name": "Для курения",
+      "category": 29,
+      "slug": "dom-dlya-kureniya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 86,
+    "fields": {
+      "name": "Отдых на природе",
+      "category": 29,
+      "slug": "dom-otdyih-na-prirode"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 87,
+    "fields": {
+      "name": "Парфюмерия для дома",
+      "category": 29,
+      "slug": "dom-parfyumeriya-dlya-doma"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 88,
+    "fields": {
+      "name": "Прихожая",
+      "category": 29,
+      "slug": "dom-prihozhaya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 89,
+    "fields": {
+      "name": "Религия, эзотерика",
+      "category": 29,
+      "slug": "dom-religiya-ezoterika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 90,
+    "fields": {
+      "name": "Сувенирная продукция",
+      "category": 29,
+      "slug": "dom-suvenirnaya-produktsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 91,
+    "fields": {
+      "name": "Хозяйственные товары",
+      "category": 29,
+      "slug": "dom-hozyajstvennyie-tovaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 92,
+    "fields": {
+      "name": "Хранение вещей",
+      "category": 29,
+      "slug": "dom-hranenie-veschej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 93,
+    "fields": {
+      "name": "Цветы, вазы и кашпо",
+      "category": 29,
+      "slug": "dom-tsvetyi-vazyi-i-kashpo"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 94,
+    "fields": {
+      "name": "Шторы",
+      "category": 29,
+      "slug": "dom-shtoryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 95,
+    "fields": {
+      "name": "Вечерний образ",
+      "category": 30,
+      "slug": "novyij-god-vechernij-obraz"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 96,
+    "fields": {
+      "name": "Праздничная обувь",
+      "category": 30,
+      "slug": "novyij-god-prazdnichnaya-obuv"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 97,
+    "fields": {
+      "name": "Наряды для детей",
+      "category": 30,
+      "slug": "novyij-god-naryadyi-dlya-detej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 98,
+    "fields": {
+      "name": "Карнавальные товары",
+      "category": 30,
+      "slug": "novyij-god-karnavalnyie-tovaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 99,
+    "fields": {
+      "name": "Елки",
+      "category": 30,
+      "slug": "novyij-god-elki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 100,
+    "fields": {
+      "name": "Новогодний декор",
+      "category": 30,
+      "slug": "novyij-god-novogodnij-dekor"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 101,
+    "fields": {
+      "name": "Новогодние книги",
+      "category": 30,
+      "slug": "novyij-god-novogodnie-knigi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 102,
+    "fields": {
+      "name": "Открытки",
+      "category": 30,
+      "slug": "novyij-god-otkryitki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 103,
+    "fields": {
+      "name": "Подарки",
+      "category": 30,
+      "slug": "novyij-god-podarki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 104,
+    "fields": {
+      "name": "Подарочная упаковка",
+      "category": 30,
+      "slug": "novyij-god-podarochnaya-upakovka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 105,
+    "fields": {
+      "name": "Праздничный стол",
+      "category": 30,
+      "slug": "novyij-god-prazdnichnyij-stol"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 106,
+    "fields": {
+      "name": "Продукты",
+      "category": 30,
+      "slug": "novyij-god-produktyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 107,
+    "fields": {
+      "name": "Свечи и подсвечники",
+      "category": 30,
+      "slug": "novyij-god-svechi-i-podsvechniki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 108,
+    "fields": {
+      "name": "Символ года",
+      "category": 30,
+      "slug": "novyij-god-simvol-goda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 109,
+    "fields": {
+      "name": "Аксессуары",
+      "category": 31,
+      "slug": "krasota-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 110,
+    "fields": {
+      "name": "Волосы",
+      "category": 31,
+      "slug": "krasota-volosyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 111,
+    "fields": {
+      "name": "Аптечная косметика",
+      "category": 31,
+      "slug": "krasota-aptechnaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 112,
+    "fields": {
+      "name": "Детская декоративная косметика",
+      "category": 31,
+      "slug": "krasota-detskaya-dekorativnaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 113,
+    "fields": {
+      "name": "Для загара",
+      "category": 31,
+      "slug": "krasota-dlya-zagara"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 114,
+    "fields": {
+      "name": "Для мам и малышей",
+      "category": 31,
+      "slug": "krasota-dlya-mam-i-malyishej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 115,
+    "fields": {
+      "name": "Израильская косметика",
+      "category": 31,
+      "slug": "krasota-izrailskaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 116,
+    "fields": {
+      "name": "Инструменты для парикмахеров",
+      "category": 31,
+      "slug": "krasota-instrumentyi-dlya-parikmaherov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 117,
+    "fields": {
+      "name": "Корейские бренды",
+      "category": 31,
+      "slug": "krasota-korejskie-brendyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 118,
+    "fields": {
+      "name": "Косметические аппараты и аксессуары",
+      "category": 31,
+      "slug": "krasota-kosmeticheskie-apparatyi-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 119,
+    "fields": {
+      "name": "Крымская косметика",
+      "category": 31,
+      "slug": "krasota-kryimskaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 120,
+    "fields": {
+      "name": "Макияж",
+      "category": 31,
+      "slug": "krasota-makiyazh"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 121,
+    "fields": {
+      "name": "Мужская линия",
+      "category": 31,
+      "slug": "krasota-muzhskaya-liniya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 122,
+    "fields": {
+      "name": "Наборы для ухода",
+      "category": 31,
+      "slug": "krasota-naboryi-dlya-uhoda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 123,
+    "fields": {
+      "name": "Ногти",
+      "category": 31,
+      "slug": "krasota-nogti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 124,
+    "fields": {
+      "name": "Органическая косметика",
+      "category": 31,
+      "slug": "krasota-organicheskaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 125,
+    "fields": {
+      "name": "Парфюмерия",
+      "category": 31,
+      "slug": "krasota-parfyumeriya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 126,
+    "fields": {
+      "name": "Подарочные наборы",
+      "category": 31,
+      "slug": "krasota-podarochnyie-naboryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 127,
+    "fields": {
+      "name": "Профессиональная косметика",
+      "category": 31,
+      "slug": "krasota-professionalnaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 128,
+    "fields": {
+      "name": "Средства личной гигиены",
+      "category": 31,
+      "slug": "krasota-sredstva-lichnoj-gigienyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 129,
+    "fields": {
+      "name": "Гигиена полости рта",
+      "category": 31,
+      "slug": "krasota-gigiena-polosti-rta"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 130,
+    "fields": {
+      "name": "Уход за кожей",
+      "category": 31,
+      "slug": "krasota-uhod-za-kozhej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 131,
+    "fields": {
+      "name": "Аксессуары для волос",
+      "category": 32,
+      "slug": "aksessuaryi-aksessuaryi-dlya-volos"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 132,
+    "fields": {
+      "name": "Аксессуары для одежды",
+      "category": 32,
+      "slug": "aksessuaryi-aksessuaryi-dlya-odezhdyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 133,
+    "fields": {
+      "name": "Бижутерия",
+      "category": 32,
+      "slug": "aksessuaryi-bizhuteriya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 134,
+    "fields": {
+      "name": "Веера",
+      "category": 32,
+      "slug": "aksessuaryi-veera"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 135,
+    "fields": {
+      "name": "Галстуки и бабочки",
+      "category": 32,
+      "slug": "aksessuaryi-galstuki-i-babochki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 136,
+    "fields": {
+      "name": "Головные уборы",
+      "category": 32,
+      "slug": "aksessuaryi-golovnyie-uboryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 137,
+    "fields": {
+      "name": "Зеркальца",
+      "category": 32,
+      "slug": "aksessuaryi-zerkaltsa"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 138,
+    "fields": {
+      "name": "Зонты",
+      "category": 32,
+      "slug": "aksessuaryi-zontyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 139,
+    "fields": {
+      "name": "Кошельки и кредитницы",
+      "category": 32,
+      "slug": "aksessuaryi-koshelki-i-kreditnitsyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 140,
+    "fields": {
+      "name": "Маски для сна",
+      "category": 32,
+      "slug": "aksessuaryi-maski-dlya-sna"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 141,
+    "fields": {
+      "name": "Носовые платки",
+      "category": 32,
+      "slug": "aksessuaryi-nosovyie-platki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 142,
+    "fields": {
+      "name": "Очки и футляры",
+      "category": 32,
+      "slug": "aksessuaryi-ochki-i-futlyaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 143,
+    "fields": {
+      "name": "Перчатки и варежки",
+      "category": 32,
+      "slug": "aksessuaryi-perchatki-i-varezhki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 144,
+    "fields": {
+      "name": "Платки и шарфы",
+      "category": 32,
+      "slug": "aksessuaryi-platki-i-sharfyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 145,
+    "fields": {
+      "name": "Религиозные",
+      "category": 32,
+      "slug": "aksessuaryi-religioznyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 146,
+    "fields": {
+      "name": "Ремни и пояса",
+      "category": 32,
+      "slug": "aksessuaryi-remni-i-poyasa"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 147,
+    "fields": {
+      "name": "Сумки и рюкзаки",
+      "category": 32,
+      "slug": "aksessuaryi-sumki-i-ryukzaki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 148,
+    "fields": {
+      "name": "Часы и ремешки",
+      "category": 32,
+      "slug": "aksessuaryi-chasyi-i-remeshki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 149,
+    "fields": {
+      "name": "Чемоданы и защита багажа",
+      "category": 32,
+      "slug": "aksessuaryi-chemodanyi-i-zaschita-bagazha"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 150,
+    "fields": {
+      "name": "Автоэлектроника и навигация",
+      "category": 33,
+      "slug": "elektronika-avtoelektronika-i-navigatsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 151,
+    "fields": {
+      "name": "Гарнитуры и наушники",
+      "category": 33,
+      "slug": "elektronika-garnituryi-i-naushniki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 152,
+    "fields": {
+      "name": "Детская электроника",
+      "category": 33,
+      "slug": "elektronika-detskaya-elektronika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 153,
+    "fields": {
+      "name": "Игровые консоли и игры",
+      "category": 33,
+      "slug": "elektronika-igrovyie-konsoli-i-igryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 154,
+    "fields": {
+      "name": "Кабели и зарядные устройства",
+      "category": 33,
+      "slug": "elektronika-kabeli-i-zaryadnyie-ustrojstva"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 155,
+    "fields": {
+      "name": "Музыка и видео",
+      "category": 33,
+      "slug": "elektronika-muzyika-i-video"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 156,
+    "fields": {
+      "name": "Ноутбуки и компьютеры",
+      "category": 33,
+      "slug": "elektronika-noutbuki-i-kompyuteryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 157,
+    "fields": {
+      "name": "Офисная техника",
+      "category": 33,
+      "slug": "elektronika-ofisnaya-tehnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 158,
+    "fields": {
+      "name": "Развлечения и гаджеты",
+      "category": 33,
+      "slug": "elektronika-razvlecheniya-i-gadzhetyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 159,
+    "fields": {
+      "name": "Сетевое оборудование",
+      "category": 33,
+      "slug": "elektronika-setevoe-oborudovanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 160,
+    "fields": {
+      "name": "Системы безопасности",
+      "category": 33,
+      "slug": "elektronika-sistemyi-bezopasnosti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 161,
+    "fields": {
+      "name": "Смартфоны и телефоны",
+      "category": 33,
+      "slug": "elektronika-smartfonyi-i-telefonyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 162,
+    "fields": {
+      "name": "Смарт-часы и браслеты",
+      "category": 33,
+      "slug": "elektronika-smart-chasyi-i-brasletyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 163,
+    "fields": {
+      "name": "Солнечные электростанции и комплектующие",
+      "category": 33,
+      "slug": "elektronika-solnechnyie-elektrostantsii-i-komplektuyuschie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 164,
+    "fields": {
+      "name": "ТВ, аудио, фото, видео техника",
+      "category": 33,
+      "slug": "elektronika-tv-audio-foto-video-tehnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 165,
+    "fields": {
+      "name": "Торговое оборудование",
+      "category": 33,
+      "slug": "elektronika-torgovoe-oborudovanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 166,
+    "fields": {
+      "name": "Умный дом",
+      "category": 33,
+      "slug": "elektronika-umnyij-dom"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 167,
+    "fields": {
+      "name": "Электротранспорт и аксессуары",
+      "category": 33,
+      "slug": "elektronika-elektrotransport-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 168,
+    "fields": {
+      "name": "Антистресс",
+      "category": 34,
+      "slug": "igrushki-antistress"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 169,
+    "fields": {
+      "name": "Для малышей",
+      "category": 34,
+      "slug": "igrushki-dlya-malyishej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 170,
+    "fields": {
+      "name": "Для песочницы",
+      "category": 34,
+      "slug": "igrushki-dlya-pesochnitsyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 171,
+    "fields": {
+      "name": "Игровые комплексы",
+      "category": 34,
+      "slug": "igrushki-igrovyie-kompleksyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 172,
+    "fields": {
+      "name": "Игровые наборы",
+      "category": 34,
+      "slug": "igrushki-igrovyie-naboryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 173,
+    "fields": {
+      "name": "Игрушечное оружие и аксессуары",
+      "category": 34,
+      "slug": "igrushki-igrushechnoe-oruzhie-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 174,
+    "fields": {
+      "name": "Игрушечный транспорт",
+      "category": 34,
+      "slug": "igrushki-igrushechnyij-transport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 175,
+    "fields": {
+      "name": "Игрушки для ванной",
+      "category": 34,
+      "slug": "igrushki-igrushki-dlya-vannoj"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 176,
+    "fields": {
+      "name": "Интерактивные",
+      "category": 34,
+      "slug": "igrushki-interaktivnyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 177,
+    "fields": {
+      "name": "Кинетический песок",
+      "category": 34,
+      "slug": "igrushki-kineticheskij-pesok"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 178,
+    "fields": {
+      "name": "Конструкторы",
+      "category": 34,
+      "slug": "igrushki-konstruktoryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 179,
+    "fields": {
+      "name": "Конструкторы LEGO",
+      "category": 34,
+      "slug": "igrushki-konstruktoryi-lego"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 180,
+    "fields": {
+      "name": "Куклы и аксессуары",
+      "category": 34,
+      "slug": "igrushki-kuklyi-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 181,
+    "fields": {
+      "name": "Музыкальные",
+      "category": 34,
+      "slug": "igrushki-muzyikalnyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 182,
+    "fields": {
+      "name": "Мыльные пузыри",
+      "category": 34,
+      "slug": "igrushki-myilnyie-puzyiri"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 183,
+    "fields": {
+      "name": "Мягкие игрушки",
+      "category": 34,
+      "slug": "igrushki-myagkie-igrushki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 184,
+    "fields": {
+      "name": "Наборы для опытов",
+      "category": 34,
+      "slug": "igrushki-naboryi-dlya-opyitov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 185,
+    "fields": {
+      "name": "Настольные игры",
+      "category": 34,
+      "slug": "igrushki-nastolnyie-igryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 186,
+    "fields": {
+      "name": "Радиоуправляемые",
+      "category": 34,
+      "slug": "igrushki-radioupravlyaemyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 187,
+    "fields": {
+      "name": "Развивающие игрушки",
+      "category": 34,
+      "slug": "igrushki-razvivayuschie-igrushki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 188,
+    "fields": {
+      "name": "Сборные модели",
+      "category": 34,
+      "slug": "igrushki-sbornyie-modeli"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 189,
+    "fields": {
+      "name": "Спортивные игры",
+      "category": 34,
+      "slug": "igrushki-sportivnyie-igryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 190,
+    "fields": {
+      "name": "Сюжетно-ролевые игры",
+      "category": 34,
+      "slug": "igrushki-syuzhetno-rolevyie-igryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 191,
+    "fields": {
+      "name": "Творчество и рукоделие",
+      "category": 34,
+      "slug": "igrushki-tvorchestvo-i-rukodelie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 192,
+    "fields": {
+      "name": "Фигурки и роботы",
+      "category": 34,
+      "slug": "igrushki-figurki-i-robotyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 193,
+    "fields": {
+      "name": "Бескаркасная мебель",
+      "category": 35,
+      "slug": "mebel-beskarkasnaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 194,
+    "fields": {
+      "name": "Детская мебель",
+      "category": 35,
+      "slug": "mebel-detskaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 195,
+    "fields": {
+      "name": "Диваны и кресла",
+      "category": 35,
+      "slug": "mebel-divanyi-i-kresla"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 196,
+    "fields": {
+      "name": "Столы и стулья",
+      "category": 35,
+      "slug": "mebel-stolyi-i-stulya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 197,
+    "fields": {
+      "name": "Компьютерная и геймерская мебель",
+      "category": 35,
+      "slug": "mebel-kompyuternaya-i-gejmerskaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 198,
+    "fields": {
+      "name": "Мебель для гостиной",
+      "category": 35,
+      "slug": "mebel-mebel-dlya-gostinoj"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 199,
+    "fields": {
+      "name": "Мебель для кухни",
+      "category": 35,
+      "slug": "mebel-mebel-dlya-kuhni"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 200,
+    "fields": {
+      "name": "Мебель для прихожей",
+      "category": 35,
+      "slug": "mebel-mebel-dlya-prihozhej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 201,
+    "fields": {
+      "name": "Мебель для спальни",
+      "category": 35,
+      "slug": "mebel-mebel-dlya-spalni"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 202,
+    "fields": {
+      "name": "Гардеробная мебель",
+      "category": 35,
+      "slug": "mebel-garderobnaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 203,
+    "fields": {
+      "name": "Офисная мебель",
+      "category": 35,
+      "slug": "mebel-ofisnaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 204,
+    "fields": {
+      "name": "Торговая мебель",
+      "category": 35,
+      "slug": "mebel-torgovaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 205,
+    "fields": {
+      "name": "Зеркала",
+      "category": 35,
+      "slug": "mebel-zerkala"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 206,
+    "fields": {
+      "name": "Мебельная фурнитура",
+      "category": 35,
+      "slug": "mebel-mebelnaya-furnitura"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 207,
+    "fields": {
+      "name": "Белье и аксессуары",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-bele-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 208,
+    "fields": {
+      "name": "Игры и сувениры",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-igryi-i-suveniryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 209,
+    "fields": {
+      "name": "Интимная косметика",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-intimnaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 210,
+    "fields": {
+      "name": "Интимная съедобная косметика",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-intimnaya-sedobnaya-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 211,
+    "fields": {
+      "name": "Презервативы и лубриканты",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-prezervativyi-i-lubrikantyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 212,
+    "fields": {
+      "name": "Секс игрушки",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-seks-igrushki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 213,
+    "fields": {
+      "name": "Фетиш и БДСМ",
+      "category": 36,
+      "slug": "tovaryi-dlya-vzroslyih-fetish-i-bdsm"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 214,
+    "fields": {
+      "name": "Вкусные подарки",
+      "category": 37,
+      "slug": "produktyi-vkusnyie-podarki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 215,
+    "fields": {
+      "name": "Подарочные наборы продуктов",
+      "category": 37,
+      "slug": "produktyi-podarochnyie-naboryi-produktov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 216,
+    "fields": {
+      "name": "Чай и кофе",
+      "category": 37,
+      "slug": "produktyi-chaj-i-kofe"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 217,
+    "fields": {
+      "name": "Сладости и хлебобулочные изделия",
+      "category": 37,
+      "slug": "produktyi-sladosti-i-hlebobulochnyie-izdeliya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 218,
+    "fields": {
+      "name": "Бакалея",
+      "category": 37,
+      "slug": "produktyi-bakaleya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 219,
+    "fields": {
+      "name": "Детское питание",
+      "category": 37,
+      "slug": "produktyi-detskoe-pitanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 220,
+    "fields": {
+      "name": "Добавки пищевые",
+      "category": 37,
+      "slug": "produktyi-dobavki-pischevyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 221,
+    "fields": {
+      "name": "Здоровое питание",
+      "category": 37,
+      "slug": "produktyi-zdorovoe-pitanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 222,
+    "fields": {
+      "name": "Мясная продукция",
+      "category": 37,
+      "slug": "produktyi-myasnaya-produktsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 223,
+    "fields": {
+      "name": "Молочные продукты",
+      "category": 37,
+      "slug": "produktyi-molochnyie-produktyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 224,
+    "fields": {
+      "name": "Напитки",
+      "category": 37,
+      "slug": "produktyi-napitki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 225,
+    "fields": {
+      "name": "Снеки",
+      "category": 37,
+      "slug": "produktyi-sneki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 226,
+    "fields": {
+      "name": "Смеси для десертов",
+      "category": 37,
+      "slug": "produktyi-smesi-dlya-desertov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 227,
+    "fields": {
+      "name": "Фрукты и ягоды",
+      "category": 37,
+      "slug": "produktyi-fruktyi-i-yagodyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 228,
+    "fields": {
+      "name": "Овощи",
+      "category": 37,
+      "slug": "produktyi-ovoschi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 229,
+    "fields": {
+      "name": "Климатическая техника",
+      "category": 38,
+      "slug": "byitovaya-tehnika-klimaticheskaya-tehnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 230,
+    "fields": {
+      "name": "Красота и здоровье",
+      "category": 38,
+      "slug": "byitovaya-tehnika-krasota-i-zdorove"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 231,
+    "fields": {
+      "name": "Садовая техника",
+      "category": 38,
+      "slug": "byitovaya-tehnika-sadovaya-tehnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 232,
+    "fields": {
+      "name": "Техника для дома",
+      "category": 38,
+      "slug": "byitovaya-tehnika-tehnika-dlya-doma"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 233,
+    "fields": {
+      "name": "Техника для кухни",
+      "category": 38,
+      "slug": "byitovaya-tehnika-tehnika-dlya-kuhni"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 234,
+    "fields": {
+      "name": "Крупная бытовая техника",
+      "category": 38,
+      "slug": "byitovaya-tehnika-krupnaya-byitovaya-tehnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 235,
+    "fields": {
+      "name": "Для кошек",
+      "category": 39,
+      "slug": "zootovaryi-dlya-koshek"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 236,
+    "fields": {
+      "name": "Для собак",
+      "category": 39,
+      "slug": "zootovaryi-dlya-sobak"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 237,
+    "fields": {
+      "name": "Для птиц",
+      "category": 39,
+      "slug": "zootovaryi-dlya-ptits"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 238,
+    "fields": {
+      "name": "Для грызунов и хорьков",
+      "category": 39,
+      "slug": "zootovaryi-dlya-gryizunov-i-horkov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 239,
+    "fields": {
+      "name": "Для лошадей",
+      "category": 39,
+      "slug": "zootovaryi-dlya-loshadej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 240,
+    "fields": {
+      "name": "Аквариумистика",
+      "category": 39,
+      "slug": "zootovaryi-akvariumistika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 241,
+    "fields": {
+      "name": "Террариумистика",
+      "category": 39,
+      "slug": "zootovaryi-terrariumistika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 242,
+    "fields": {
+      "name": "Фермерство",
+      "category": 39,
+      "slug": "zootovaryi-fermerstvo"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 243,
+    "fields": {
+      "name": "Корм и лакомства",
+      "category": 39,
+      "slug": "zootovaryi-korm-i-lakomstva"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 244,
+    "fields": {
+      "name": "Аксессуары для кормления",
+      "category": 39,
+      "slug": "zootovaryi-aksessuaryi-dlya-kormleniya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 245,
+    "fields": {
+      "name": "Лотки и наполнители",
+      "category": 39,
+      "slug": "zootovaryi-lotki-i-napolniteli"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 246,
+    "fields": {
+      "name": "Когтеточки и домики",
+      "category": 39,
+      "slug": "zootovaryi-kogtetochki-i-domiki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 247,
+    "fields": {
+      "name": "Транспортировка",
+      "category": 39,
+      "slug": "zootovaryi-transportirovka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 248,
+    "fields": {
+      "name": "Амуниция и дрессировка",
+      "category": 39,
+      "slug": "zootovaryi-amunitsiya-i-dressirovka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 249,
+    "fields": {
+      "name": "Игрушки",
+      "category": 39,
+      "slug": "zootovaryi-igrushki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 250,
+    "fields": {
+      "name": "Груминг и уход",
+      "category": 39,
+      "slug": "zootovaryi-gruming-i-uhod"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 251,
+    "fields": {
+      "name": "Одежда",
+      "category": 39,
+      "slug": "zootovaryi-odezhda"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 252,
+    "fields": {
+      "name": "Ветаптека",
+      "category": 39,
+      "slug": "zootovaryi-vetapteka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 253,
+    "fields": {
+      "name": "Фитнес и тренажеры",
+      "category": 40,
+      "slug": "sport-fitnes-i-trenazheryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 254,
+    "fields": {
+      "name": "Велоспорт",
+      "category": 40,
+      "slug": "sport-velosport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 255,
+    "fields": {
+      "name": "Йога, пилатес",
+      "category": 40,
+      "slug": "sport-joga-pilates"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 256,
+    "fields": {
+      "name": "Охота и рыбалка",
+      "category": 40,
+      "slug": "sport-ohota-i-ryibalka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 257,
+    "fields": {
+      "name": "Самокаты, ролики, скейтборды",
+      "category": 40,
+      "slug": "sport-samokatyi-roliki-skejtbordyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 258,
+    "fields": {
+      "name": "Туризм, походы",
+      "category": 40,
+      "slug": "sport-turizm-pohodyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 259,
+    "fields": {
+      "name": "Бег, ходьба",
+      "category": 40,
+      "slug": "sport-beg-hodba"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 260,
+    "fields": {
+      "name": "Командные виды спорта",
+      "category": 40,
+      "slug": "sport-komandnyie-vidyi-sporta"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 261,
+    "fields": {
+      "name": "Водные виды спорта",
+      "category": 40,
+      "slug": "sport-vodnyie-vidyi-sporta"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 262,
+    "fields": {
+      "name": "Зимние виды спорта",
+      "category": 40,
+      "slug": "sport-zimnie-vidyi-sporta"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 263,
+    "fields": {
+      "name": "Поддержка и восстановление",
+      "category": 40,
+      "slug": "sport-podderzhka-i-vosstanovlenie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 264,
+    "fields": {
+      "name": "Спортивное питание и косметика",
+      "category": 40,
+      "slug": "sport-sportivnoe-pitanie-i-kosmetika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 265,
+    "fields": {
+      "name": "Бадминтон, теннис",
+      "category": 40,
+      "slug": "sport-badminton-tennis"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 266,
+    "fields": {
+      "name": "Бильярд, гольф, дартс, метание ножей",
+      "category": 40,
+      "slug": "sport-bilyard-golf-darts-metanie-nozhej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 267,
+    "fields": {
+      "name": "Единоборства",
+      "category": 40,
+      "slug": "sport-edinoborstva"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 268,
+    "fields": {
+      "name": "Конный спорт",
+      "category": 40,
+      "slug": "sport-konnyij-sport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 269,
+    "fields": {
+      "name": "Мотоспорт",
+      "category": 40,
+      "slug": "sport-motosport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 270,
+    "fields": {
+      "name": "Оборудование для сдачи нормативов",
+      "category": 40,
+      "slug": "sport-oborudovanie-dlya-sdachi-normativov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 271,
+    "fields": {
+      "name": "Парусный спорт",
+      "category": 40,
+      "slug": "sport-parusnyij-sport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 272,
+    "fields": {
+      "name": "Скалолазание, альпинизм",
+      "category": 40,
+      "slug": "sport-skalolazanie-alpinizm"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 273,
+    "fields": {
+      "name": "Страйкбол и пейнтбол",
+      "category": 40,
+      "slug": "sport-strajkbol-i-pejntbol"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 274,
+    "fields": {
+      "name": "Танцы, гимнастика",
+      "category": 40,
+      "slug": "sport-tantsyi-gimnastika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 275,
+    "fields": {
+      "name": "Для детей",
+      "category": 40,
+      "slug": "sport-dlya-detej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 276,
+    "fields": {
+      "name": "Для женщин",
+      "category": 40,
+      "slug": "sport-dlya-zhenschin"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 277,
+    "fields": {
+      "name": "Для мужчин",
+      "category": 40,
+      "slug": "sport-dlya-muzhchin"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 278,
+    "fields": {
+      "name": "Спортивная обувь",
+      "category": 40,
+      "slug": "sport-sportivnaya-obuv"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 279,
+    "fields": {
+      "name": "Товары для самообороны",
+      "category": 40,
+      "slug": "sport-tovaryi-dlya-samooboronyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 280,
+    "fields": {
+      "name": "Электроника",
+      "category": 40,
+      "slug": "sport-elektronika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 281,
+    "fields": {
+      "name": "Запчасти на легковые автомобили",
+      "category": 41,
+      "slug": "avtotovaryi-zapchasti-na-legkovyie-avtomobili"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 282,
+    "fields": {
+      "name": "Масла и жидкости",
+      "category": 41,
+      "slug": "avtotovaryi-masla-i-zhidkosti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 283,
+    "fields": {
+      "name": "Автокосметика и автохимия",
+      "category": 41,
+      "slug": "avtotovaryi-avtokosmetika-i-avtohimiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 284,
+    "fields": {
+      "name": "Краски и грунтовки",
+      "category": 41,
+      "slug": "avtotovaryi-kraski-i-gruntovki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 285,
+    "fields": {
+      "name": "Автоэлектроника и навигация",
+      "category": 41,
+      "slug": "avtotovaryi-avtoelektronika-i-navigatsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 286,
+    "fields": {
+      "name": "Аксессуары в салон и багажник",
+      "category": 41,
+      "slug": "avtotovaryi-aksessuaryi-v-salon-i-bagazhnik"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 287,
+    "fields": {
+      "name": "Коврики",
+      "category": 41,
+      "slug": "avtotovaryi-kovriki"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 288,
+    "fields": {
+      "name": "Внешний тюнинг",
+      "category": 41,
+      "slug": "avtotovaryi-vneshnij-tyuning"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 289,
+    "fields": {
+      "name": "Другие аксессуары и доп. оборудование",
+      "category": 41,
+      "slug": "avtotovaryi-drugie-aksessuaryi-i-dop-oborudovanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 290,
+    "fields": {
+      "name": "Шины и диски колесные",
+      "category": 41,
+      "slug": "avtotovaryi-shinyi-i-diski-kolesnyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 291,
+    "fields": {
+      "name": "Инструменты",
+      "category": 41,
+      "slug": "avtotovaryi-instrumentyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 292,
+    "fields": {
+      "name": "Мойки высокого давления и аксессуары",
+      "category": 41,
+      "slug": "avtotovaryi-mojki-vyisokogo-davleniya-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 293,
+    "fields": {
+      "name": "Мототовары",
+      "category": 41,
+      "slug": "avtotovaryi-mototovaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 294,
+    "fields": {
+      "name": "OFFroad",
+      "category": 41,
+      "slug": "avtotovaryi-offroad"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 295,
+    "fields": {
+      "name": "Запчасти на силовую технику",
+      "category": 41,
+      "slug": "avtotovaryi-zapchasti-na-silovuyu-tehniku"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 296,
+    "fields": {
+      "name": "Запчасти для лодок и катеров",
+      "category": 41,
+      "slug": "avtotovaryi-zapchasti-dlya-lodok-i-katerov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 297,
+    "fields": {
+      "name": "Художественная литература",
+      "category": 42,
+      "slug": "knigi-hudozhestvennaya-literatura"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 298,
+    "fields": {
+      "name": "Комиксы и манга",
+      "category": 42,
+      "slug": "knigi-komiksyi-i-manga"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 299,
+    "fields": {
+      "name": "Книги для детей",
+      "category": 42,
+      "slug": "knigi-knigi-dlya-detej"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 300,
+    "fields": {
+      "name": "Воспитание и развитие ребенка",
+      "category": 42,
+      "slug": "knigi-vospitanie-i-razvitie-rebenka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 301,
+    "fields": {
+      "name": "Образование",
+      "category": 42,
+      "slug": "knigi-obrazovanie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 302,
+    "fields": {
+      "name": "Самообразование и развитие",
+      "category": 42,
+      "slug": "knigi-samoobrazovanie-i-razvitie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 303,
+    "fields": {
+      "name": "Бизнес и менеджмент",
+      "category": 42,
+      "slug": "knigi-biznes-i-menedzhment"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 304,
+    "fields": {
+      "name": "Хобби и досуг",
+      "category": 42,
+      "slug": "knigi-hobbi-i-dosug"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 305,
+    "fields": {
+      "name": "Астрология и эзотерика",
+      "category": 42,
+      "slug": "knigi-astrologiya-i-ezoterika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 306,
+    "fields": {
+      "name": "Дом, сад и огород",
+      "category": 42,
+      "slug": "knigi-dom-sad-i-ogorod"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 307,
+    "fields": {
+      "name": "Красота, здоровье и спорт",
+      "category": 42,
+      "slug": "knigi-krasota-zdorove-i-sport"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 308,
+    "fields": {
+      "name": "Научно-популярная литература",
+      "category": 42,
+      "slug": "knigi-nauchno-populyarnaya-literatura"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 309,
+    "fields": {
+      "name": "Интернет и технологии",
+      "category": 42,
+      "slug": "knigi-internet-i-tehnologii"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 310,
+    "fields": {
+      "name": "Литературоведение и публицистика",
+      "category": 42,
+      "slug": "knigi-literaturovedenie-i-publitsistika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 311,
+    "fields": {
+      "name": "Историческая и военная литература",
+      "category": 42,
+      "slug": "knigi-istoricheskaya-i-voennaya-literatura"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 312,
+    "fields": {
+      "name": "Философия",
+      "category": 42,
+      "slug": "knigi-filosofiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 313,
+    "fields": {
+      "name": "Религия",
+      "category": 42,
+      "slug": "knigi-religiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 314,
+    "fields": {
+      "name": "Политика и право",
+      "category": 42,
+      "slug": "knigi-politika-i-pravo"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 315,
+    "fields": {
+      "name": "Букинистика",
+      "category": 42,
+      "slug": "knigi-bukinistika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 316,
+    "fields": {
+      "name": "Книги на иностранных языках",
+      "category": 42,
+      "slug": "knigi-knigi-na-inostrannyih-yazyikah"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 317,
+    "fields": {
+      "name": "Плакаты",
+      "category": 42,
+      "slug": "knigi-plakatyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 318,
+    "fields": {
+      "name": "Календари",
+      "category": 42,
+      "slug": "knigi-kalendari"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 319,
+    "fields": {
+      "name": "Коллекционные издания",
+      "category": 42,
+      "slug": "knigi-kollektsionnyie-izdaniya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 320,
+    "fields": {
+      "name": "Репринтные издания",
+      "category": 42,
+      "slug": "knigi-reprintnyie-izdaniya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 321,
+    "fields": {
+      "name": "Мультимедиа",
+      "category": 42,
+      "slug": "knigi-multimedia"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 322,
+    "fields": {
+      "name": "Аудиокниги",
+      "category": 42,
+      "slug": "knigi-audioknigi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 323,
+    "fields": {
+      "name": "Двери, окна и фурнитура",
+      "category": 43,
+      "slug": "dlya-remonta-dveri-okna-i-furnitura"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 324,
+    "fields": {
+      "name": "Инструменты и оснастка",
+      "category": 43,
+      "slug": "dlya-remonta-instrumentyi-i-osnastka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 325,
+    "fields": {
+      "name": "Отделочные материалы",
+      "category": 43,
+      "slug": "dlya-remonta-otdelochnyie-materialyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 326,
+    "fields": {
+      "name": "Электрика",
+      "category": 43,
+      "slug": "dlya-remonta-elektrika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 327,
+    "fields": {
+      "name": "Лакокрасочные материалы",
+      "category": 43,
+      "slug": "dlya-remonta-lakokrasochnyie-materialyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 328,
+    "fields": {
+      "name": "Сантехника, отопление и газоснабжение",
+      "category": 43,
+      "slug": "dlya-remonta-santehnika-otoplenie-i-gazosnabzhenie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 329,
+    "fields": {
+      "name": "Вентиляция",
+      "category": 43,
+      "slug": "dlya-remonta-ventilyatsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 330,
+    "fields": {
+      "name": "Крепеж",
+      "category": 43,
+      "slug": "dlya-remonta-krepezh"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 331,
+    "fields": {
+      "name": "Стройматериалы",
+      "category": 43,
+      "slug": "dlya-remonta-strojmaterialyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 332,
+    "fields": {
+      "name": "Растения, семена и грунты",
+      "category": 44,
+      "slug": "sad-i-dacha-rasteniya-semena-i-gruntyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 333,
+    "fields": {
+      "name": "Горшки, опоры и все для рассады",
+      "category": 44,
+      "slug": "sad-i-dacha-gorshki-oporyi-i-vse-dlya-rassadyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 334,
+    "fields": {
+      "name": "Удобрения, химикаты и средства защиты",
+      "category": 44,
+      "slug": "sad-i-dacha-udobreniya-himikatyi-i-sredstva-zaschityi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 335,
+    "fields": {
+      "name": "Товары для бани и сауны",
+      "category": 44,
+      "slug": "sad-i-dacha-tovaryi-dlya-bani-i-saunyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 336,
+    "fields": {
+      "name": "Грили, мангалы и барбекю",
+      "category": 44,
+      "slug": "sad-i-dacha-grili-mangalyi-i-barbekyu"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 337,
+    "fields": {
+      "name": "Теплицы, парники, укрывной материал",
+      "category": 44,
+      "slug": "sad-i-dacha-teplitsyi-parniki-ukryivnoj-material"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 338,
+    "fields": {
+      "name": "Мойки высокого давления и аксессуары",
+      "category": 44,
+      "slug": "sad-i-dacha-mojki-vyisokogo-davleniya-i-aksessuaryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 339,
+    "fields": {
+      "name": "Садовая техника",
+      "category": 44,
+      "slug": "sad-i-dacha-sadovaya-tehnika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 340,
+    "fields": {
+      "name": "Садовый инструмент",
+      "category": 44,
+      "slug": "sad-i-dacha-sadovyij-instrument"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 341,
+    "fields": {
+      "name": "Полив и водоснабжение",
+      "category": 44,
+      "slug": "sad-i-dacha-poliv-i-vodosnabzhenie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 342,
+    "fields": {
+      "name": "Товары для кемпинга, пикника и отдыха",
+      "category": 44,
+      "slug": "sad-i-dacha-tovaryi-dlya-kempinga-piknika-i-otdyiha"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 343,
+    "fields": {
+      "name": "Садовый декор",
+      "category": 44,
+      "slug": "sad-i-dacha-sadovyij-dekor"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 344,
+    "fields": {
+      "name": "Садовая мебель",
+      "category": 44,
+      "slug": "sad-i-dacha-sadovaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 345,
+    "fields": {
+      "name": "Надувная мебель",
+      "category": 44,
+      "slug": "sad-i-dacha-naduvnaya-mebel"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 346,
+    "fields": {
+      "name": "Дачные умывальники, души и туалеты",
+      "category": 44,
+      "slug": "sad-i-dacha-dachnyie-umyivalniki-dushi-i-tualetyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 347,
+    "fields": {
+      "name": "Бассейны",
+      "category": 44,
+      "slug": "sad-i-dacha-bassejnyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 348,
+    "fields": {
+      "name": "Защита от насекомых и грызунов",
+      "category": 44,
+      "slug": "sad-i-dacha-zaschita-ot-nasekomyih-i-gryizunov"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 349,
+    "fields": {
+      "name": "Дезинфекция, стерилизация и утилизация",
+      "category": 45,
+      "slug": "zdorove-dezinfektsiya-sterilizatsiya-i-utilizatsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 350,
+    "fields": {
+      "name": "Ухо, горло, нос",
+      "category": 45,
+      "slug": "zdorove-uho-gorlo-nos"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 351,
+    "fields": {
+      "name": "Контрацептивы и лубриканты",
+      "category": 45,
+      "slug": "zdorove-kontratseptivyi-i-lubrikantyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 352,
+    "fields": {
+      "name": "Маски защитные",
+      "category": 45,
+      "slug": "zdorove-maski-zaschitnyie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 353,
+    "fields": {
+      "name": "Медицинские изделия",
+      "category": 45,
+      "slug": "zdorove-meditsinskie-izdeliya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 354,
+    "fields": {
+      "name": "Медицинские приборы",
+      "category": 45,
+      "slug": "zdorove-meditsinskie-priboryi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 355,
+    "fields": {
+      "name": "Оздоровление",
+      "category": 45,
+      "slug": "zdorove-ozdorovlenie"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 356,
+    "fields": {
+      "name": "Оптика",
+      "category": 45,
+      "slug": "zdorove-optika"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 357,
+    "fields": {
+      "name": "Сиропы и бальзамы",
+      "category": 45,
+      "slug": "zdorove-siropyi-i-balzamyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 358,
+    "fields": {
+      "name": "Уход за полостью рта",
+      "category": 45,
+      "slug": "zdorove-uhod-za-polostyu-rta"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 359,
+    "fields": {
+      "name": "Анатомические модели",
+      "category": 46,
+      "slug": "kantstovaryi-anatomicheskie-modeli"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 360,
+    "fields": {
+      "name": "Бумажная продукция",
+      "category": 46,
+      "slug": "kantstovaryi-bumazhnaya-produktsiya"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 361,
+    "fields": {
+      "name": "Карты и глобусы",
+      "category": 46,
+      "slug": "kantstovaryi-kartyi-i-globusyi"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 362,
+    "fields": {
+      "name": "Офисные принадлежности",
+      "category": 46,
+      "slug": "kantstovaryi-ofisnyie-prinadlezhnosti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 363,
+    "fields": {
+      "name": "Письменные принадлежности",
+      "category": 46,
+      "slug": "kantstovaryi-pismennyie-prinadlezhnosti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 364,
+    "fields": {
+      "name": "Рисование и лепка",
+      "category": 46,
+      "slug": "kantstovaryi-risovanie-i-lepka"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 365,
+    "fields": {
+      "name": "Счетный материал",
+      "category": 46,
+      "slug": "kantstovaryi-schetnyij-material"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 366,
+    "fields": {
+      "name": "Торговые принадлежности",
+      "category": 46,
+      "slug": "kantstovaryi-torgovyie-prinadlezhnosti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 367,
+    "fields": {
+      "name": "Чертежные принадлежности",
+      "category": 46,
+      "slug": "kantstovaryi-chertezhnyie-prinadlezhnosti"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 368,
+    "fields": {
+      "name": "Товары с местного склада",
+      "category": 47,
+      "slug": "aktsii-tovaryi-s-mestnogo-sklada"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 369,
+    "fields": {
+      "name": "Скидки до -90%",
+      "category": 47,
+      "slug": "aktsii-skidki-do-90"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 370,
+    "fields": {
+      "name": "Клиентские дни",
+      "category": 47,
+      "slug": "aktsii-klientskie-dni"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Блузка школьная с коротким рукавом",
+      "price": "30.61",
+      "description": "Эта стильная блузка с короткими рукавами – идеальное решение для любой женщины и девушки, которая хочет выглядеть модно и элегантно. Стильная белая рубашка летняя имеет очень красивый воротничок стойку и супатную застежку. Соблазнительная блузка школьная для девочки из мягкой эластичной вискозы, благодаря своему белому цвету, она подойдет для различных случаев – как школьная девочкам подросткам или на работу в офис, так и для праздничных мероприятий и вечеринок. Наденьте ее на новый год и вы привлечете восторженные взгляды на любом празднике. Эта модель может стать основой не только делового, но и вечернего гардероба. Отлично подойдет для лета, осени и весны - многие предпочитают блузки повседневные на каждый день. Кроме того, длинные рукава на резинке отличный выбор для прохладной осенней погоды на вечер, а также дополнительный комфорт и защита от ветра. А пышный объем придает блузе особый шарм и делает ее модной и актуальной. Рубашка с объемными рукавами доступна в больших размерах, включая оверсайз. Можно выбрать подходящий размер для любой фигуры и любого роста девушек. Без пуговиц однотонная красивая модель с рукавами фонариками.Одним из главных преимуществ этого изделия является ее универсальный крой и воротник стойка, что позволяет носить ее в школу под пиджак. Также блуза не имеет пуговиц и дает еще больше свободы в выборе стиля. Можно выделить, что такая модель станет мусульманской одеждой.Это базовая летняя легкая вещь как для повседневной носки, так и на деловые встречи и корпоративы, на выпускной. На конференцию или вечерняя. Шифоновая, атласная и шелковая нарядная. Классно подходит в качестве подарка для любимой на День Рождения или нг. Подойдет для беременных и женщин с большими размерами.Кроме того, блуска oversize иногда продается со скидками, а это делает ее еще более доступной и недорогой. Покупайте по акции дешевые на подростков и взрослых изделия из нашего магазина.",
+      "quantity": 123,
+      "slug": "bluzka-shkolnaya-s-korotkim-rukavom",
+      "subcategory": 1,
+      "rating": "4.5",
+      "review": 3425
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "name": "Блузка нарядная с длинным рукавом",
+      "price": "55.48",
+      "description": "Праздничная женская блузка бренда Chiffon станет идеальным выбором для вечерних и праздничных мероприятий!\r\n\r\nЭта кофта выполнена из приятной к телу трикотажной ткани лапша в рубчик. Длинные прозрачные широкие рукава фонариком добавляют блузе изысканности и романтичности, а широкий вырез подчеркнет вашу грудь и декольте, делая образ более сексуальным и привлекательным. Благодаря своему стильному дизайну и превосходному качеству, она будет выглядеть безупречно как на больших, так и на маленьких размерах.\r\n\r\nОбтягивающая модель блузы и объемный и пышный фасон рукава позволит вам чувствовать себя комфортно и уверенно на любом мероприятии. Она идеально подойдет как для офисной среды и под брюки, так и для вечеринок и торжественных случаев.\r\n\r\nНе упускайте возможность приобрести стильную блузу Chiffon и подчеркнуть свою индивидуальность и женственность!",
+      "quantity": 340,
+      "slug": "bluzka-naryadnaya-s-dlinnym-rukavom",
+      "subcategory": 1,
+      "rating": "4.5",
+      "review": 12
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "name": "Кружевная блузка с длинным рукавом фонарик",
+      "price": "54.16",
+      "description": "СТИРКА ТОЛЬКО РУЧНАЯ !!!Классическая блузка рубашка от стильного бренда <<UNIFIED>>- базовый предмет гардероба для любой уважающей себя девушки. Широкие рукава фонарик с пышной тонкой сеточкой фатин наполнят ваш образ сексуальностью и элегантностью. Длинные рукава защитят от холода, даже в самую пасмурную погоду. Существует масса вариантов, как и с чем сочетать блузу. Благодаря однотонному цвету сможете комбинировать с любыми брюками. Поверьте вы будете самой яркой леди на корпоративе. Дизайнерским оригинальным решением был ажурный узор на шее, который выделяет вашу утонченность, при этом в сочетании с цепью из повседневного лука вы перевоплотитесь в вечерний. Эта модная блузка красивая новинка удивит любую модницу, девушку подростка. Ведь так хочется быть нарядной, даже в школьной форме. В наше время важно научиться покупать одежду на любой сезон. В апрель наденете блузку под пиджак, а летом легкий, воздушный крой не заставит вас чувствовать дискомфорт. Большой размерный ряд порадуют полных женщин. Винтажный стиль с широкими вставками подчеркнет ваши достоинства фигуры. На любой праздник будьте неотразимы.",
+      "quantity": 0,
+      "slug": "kruzhevnaya-bluzka-s-dlinnym-rukavom-fonarik",
+      "subcategory": 1,
+      "rating": "4.4",
+      "review": 10
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 1,
+    "fields": {
+      "product": 5,
+      "image": "products_images/1_tnRVLpS.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 2,
+    "fields": {
+      "product": 5,
+      "image": "products_images/1_X9ube0Y.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 3,
+    "fields": {
+      "product": 5,
+      "image": "products_images/3_dbokPiA.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 4,
+    "fields": {
+      "product": 5,
+      "image": "products_images/4_01J5WWj.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "image": "products_images/5_DSewxft.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 6,
+    "fields": {
+      "product": 6,
+      "image": "products_images/3_1.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 7,
+    "fields": {
+      "product": 6,
+      "image": "products_images/5_2.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 8,
+    "fields": {
+      "product": 6,
+      "image": "products_images/2_Fie7hQs.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 9,
+    "fields": {
+      "product": 6,
+      "image": "products_images/1_q4ZNAgc.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 10,
+    "fields": {
+      "product": 7,
+      "image": "products_images/4_1.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 11,
+    "fields": {
+      "product": 7,
+      "image": "products_images/5_3.webp"
+    }
+  },
+  {
+    "model": "products.productimages",
+    "pk": 12,
+    "fields": {
+      "product": 7,
+      "image": "products_images/1_1_rS70eTT.webp"
+    }
+  },
+  {
+    "model": "products.details",
+    "pk": 1,
+    "fields": {
+      "name": "Цвет",
+      "category": null
+    }
+  },
+  {
+    "model": "products.details",
+    "pk": 2,
+    "fields": {
+      "name": "Размер",
+      "category": null
+    }
+  },
+  {
+    "model": "products.details",
+    "pk": 3,
+    "fields": {
+      "name": "Сезон",
+      "category": null
+    }
+  },
+  {
+    "model": "products.details",
+    "pk": 4,
+    "fields": {
+      "name": "Состав",
+      "category": null
+    }
+  },
+  {
+    "model": "products.details",
+    "pk": 5,
+    "fields": {
+      "name": "Страна производства",
+      "category": null
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 1,
+    "fields": {
+      "detail": 1,
+      "product": 7,
+      "description": "Синий"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 2,
+    "fields": {
+      "detail": 2,
+      "product": 7,
+      "description": "26"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 3,
+    "fields": {
+      "detail": 3,
+      "product": 7,
+      "description": "Зима"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 4,
+    "fields": {
+      "detail": 5,
+      "product": 7,
+      "description": "Махачкала"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 5,
+    "fields": {
+      "detail": 1,
+      "product": 6,
+      "description": "Красный"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 6,
+    "fields": {
+      "detail": 2,
+      "product": 6,
+      "description": "31"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 7,
+    "fields": {
+      "detail": 2,
+      "product": 6,
+      "description": "33"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 8,
+    "fields": {
+      "detail": 2,
+      "product": 6,
+      "description": "35"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 9,
+    "fields": {
+      "detail": 1,
+      "product": 5,
+      "description": "Белый"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 10,
+    "fields": {
+      "detail": 1,
+      "product": 5,
+      "description": "Черный"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 11,
+    "fields": {
+      "detail": 2,
+      "product": 5,
+      "description": "31"
+    }
+  },
+  {
+    "model": "products.productdetail",
+    "pk": 12,
+    "fields": {
+      "detail": 2,
+      "product": 5,
+      "description": "32"
+    }
+  }
+]

@@ -66,7 +66,7 @@ class CategoryDetails(models.Model):
 
 
 class Details(models.Model):
-    '''Info about all details, which user choose for yourseld product'''
+    '''Info about all details, which users choose for yourseld product'''
     name = models.CharField(max_length=128)
     category = models.ForeignKey(to=CategoryDetails, on_delete=models.SET_NULL, null=True)
 
