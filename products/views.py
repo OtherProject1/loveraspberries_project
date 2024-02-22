@@ -29,18 +29,15 @@ class MainView(BaseMixin, ListView):
         return context
 
 
-def product_page(request, subcategory_slug, product_id):
-    product = Product.objects.get(id=product_id)
-    slug = SubCategory.objects.get(slug=subcategory_slug)
-    context['product'] = product
-    context['subcategory'] = slug
-    return render(request, 'products/product.html', context)
-
-
 class ProductDetail(BaseMixin, DetailView):
     model = Product
     template_name = 'products/product.html'
-    slug_url_kwarg = ''
+    pk_url_kwarg = 'product_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
+        return context
 
 
 class CatalogListView(BaseMixin, ListView):

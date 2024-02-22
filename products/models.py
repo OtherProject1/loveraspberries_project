@@ -64,6 +64,9 @@ class ProductImages(models.Model):
 class CategoryDetails(models.Model):
     name = models.CharField(max_length=128)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Details(models.Model):
     '''Info about all details, which users choose for yourseld product'''

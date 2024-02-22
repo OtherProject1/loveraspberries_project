@@ -3,7 +3,7 @@ from products.models import *
 
 
 @admin.register(Category)
-class Category_admin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     ordering = ('name',)
@@ -11,7 +11,7 @@ class Category_admin(admin.ModelAdmin):
 
 
 @admin.register(SubCategory)
-class Subcategory_admin(admin.ModelAdmin):
+class SubcategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'category_id',)
     search_fields = ('name', 'category_id',)
     ordering = ('name', 'category_id',)
@@ -20,7 +20,6 @@ class Subcategory_admin(admin.ModelAdmin):
 
 class ProductImagesInline(admin.TabularInline):
     model = ProductImages
-
 
 class ProductDetailsInline(admin.TabularInline):
     model = ProductDetail
@@ -42,6 +41,10 @@ class DetailsAdmin(admin.ModelAdmin):
     list_display_links = ('name', )
 
 
+@admin.register(CategoryDetails)
+class CategoryDetailsAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+    list_display_links = ('name', )
 
 
 @admin.register(ProductImages)
