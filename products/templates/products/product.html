@@ -56,11 +56,44 @@
                         <h3>{{ product }}</h3>
                         <i class="fa-solid fa-star fa-sm"></i> {{ product.rating }} &#8226;
                         <i class="fa-regular fa-comments"></i> {{ product.review }}
+                        <table style="display: table;
+                        border-collapse: separate;
+                        box-sizing: border-box;
+                        text-indent: initial;
+                        border-spacing: 2px;
+                        border-color: gray;">
+                            {% for detail in product.details.all %}
+                            <tr style="display: flex;">
+                                <th style='min-width: 144px; max-width: 144px;
+                                color: #9797af;
+                                font-variation-settings: "wght" 550;
+                                text-align: left;
+                                width: 50%;
+                                font-size: 14px;
+                                font-weight: 400;
+                                line-height: 17px;'>
+                                    {{ detail.detail}}
+                                </th>
+                                <th></th>
+                                <th style='width: 100%;
+                                color: #000;
+                                font-variation-settings: "wght" 400;
+                                word-break: break-word;
+                                width: 50%;
+                                font-size: 14px;
+                                font-weight: 400;
+                                line-height: 17px;'>
+                                    {{ detail.description }}
+                                </th>
+                            </tr>
+                            {% endfor %}
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="col" style="margin-bottom: 20px; ">
-                <div class="card border-0">
+            <div class="col" style="margin-bottom: 20px;">
+                <div class="card border-0"
+                    style="background: linear-gradient(97deg,#fef1fb .49%,#fdf1fc 14.88%,#fcf0fc 29.27%,#fbf0fd 43.14%,#f9effd 57.02%,#f8eefe 70.89%,#f6eefe 84.76%,#f4edff 99.15%); border-radius: 15px;">
                     <a href="#addtofavourites">
                         <i class="fa-regular fa-heart fa-2xl add_to_favourite"
                             style="color: rgb(51, 56, 124); position: absolute; top: 20px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
@@ -71,15 +104,18 @@
                         </h5>
                         <p style="margin: 0;"><b>Доставим послезавтра</b></p>
                     </div>
-                </div>
-                <a class="btn btn-primary-link" style="display: block;  background-color: rgb(51, 56, 124);"
-                    onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
-                    value="Нажми на меня!"/>В корзину</a>
-                <div style="display: flex;">
-                    <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
-                                class="fa-solid fa-star fa-sm"></i>{{ product.rating }}</a>
+                    <a class="btn btn-primary-link"
+                        style="display: block; background: rgb(115,107,169);
+                        background: linear-gradient(162deg, rgba(115,107,169,0.8935223747702206) 0%, rgba(55,44,132,1) 50%, rgba(18,0,136,1) 100%); border-width: 0;"
+                        onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
+                        value="Нажми на меня!" />В корзину</a>
+                    <div style="display: flex;">
+                        <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
+                                    class="fa-solid fa-star fa-sm"></i>{{ product.rating }}</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
