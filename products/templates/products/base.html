@@ -60,8 +60,7 @@
         </a>
 
         <a class="navbar-links" href="{% url 'products:profile' %}" {% if not request.user.is_authenticated %}
-           data-bs-toggle="modal" {% endif %}
-           data-bs-target="#exampleModalToggle">
+           data-bs-toggle="modal" {% endif %} data-bs-target="#exampleModalToggle">
             <figure>
                 <img src="{% static 'products/images/header/profile.png' %}" alt="profile" width="30" height="30">
                 <figcaption>Профиль</figcaption>
@@ -74,6 +73,7 @@
                 <figcaption>Корзина</figcaption>
             </figure>
         </a>
+
 
         <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
              tabindex="-1">
@@ -103,195 +103,157 @@
                             </div>
                             <div class="modal-footer" style="padding-bottom: 0">
                                 <div class="col">
-                                    <button class="login-button" type="submit" data-bs-target="#exampleModalToggle"
-                                            data-bs-toggle="modal"
-                                            data-bs-dismiss="modal">Войти
-                                    </button>
+                                    <button class="login-button" type="submit">Войти</button>
                                 </div>
                                 <h3 class="text-new-account" style="margin-top: 20px">Нет аккаунта?
-                                    <a class="new-account" data-bs-target="#exampleModalToggle2"
-                                       data-bs-toggle="modal"
-                                       data-bs-dismiss="modal"> Зарегистрироваться
-                                    </a>
+                                    {#                                    <a class="new-account" href="{% url 'users:registration' %}"> Зарегистрироваться</a>#}
+                                    <a class="new-account" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                                       data-bs-dismiss="modal"> Зарегистрироваться</a>
                                 </h3>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-         tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel2" style="color: black">Регистрация</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="{% url 'users:registration' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="row g-3">
-                            <div class="col">
-                                <label for="{{ registration_form.first_name.id_for_label }}"
-                                       class="col-form-label">Имя:</label>
-                                <div class="input-group">
-                                    {{ registration_form.first_name }}
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="{{ registration_form.last_name.id_for_label }}" class="col-form-label">Фамилия:</label>
-                                <div class="input-group">
-                                    {{ registration_form.last_name }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col">
-                                <label for="{{ registration_form.username.id_for_label }}" class="col-form-label">Имя
-                                    пользователя:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                    {{ registration_form.username }}
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="{{ registration_form.password.id_for_label }}" class="col-form-label">Пароль:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                    {{ registration_form.password }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col">
-                                <label for="{{ registration_form.phone.id_for_label }}"
-                                       class="col-form-label">Телефон:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-                                    {{ registration_form.phone }}
-                                </div>
-
-{#                                <script>#}
-{#                                    document.getElementById('{{ registration_form.phone.id_for_label }}').value = '+375';#}
-{#                                    document.getElementById('{{ registration_form.phone.id_for_label }}').addEventListener('input', function () {#}
-{#                                        if (this.value.length === 1 && this.value !== '+') {#}
-{#                                            this.value = '+375';#}
-{#                                        } else {#}
-{#                                            this.value = this.value.replace(/[^0-9+]/g, '');#}
-{#                                        }#}
-{#                                    });#}
-{#                                </script>#}
 
 
-                            </div>
-                            <div class="col">
-                                <label for="{{ registration_form.email.id_for_label }}" class="col-form-label">Эл.
-                                    адрес:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                                    {{ registration_form.email }}
-
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel2" style="color: black">Регистрация</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{% url 'users:registration' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col">
+                                    <label for="{{ registration_form.first_name.id_for_label }}" class="col-form-label">Имя:</label>
+                                    <div class="input-group">
+                                        {{ registration_form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="{{ registration_form.last_name.id_for_label }}" class="col-form-label">Фамилия:</label>
+                                    <div class="input-group">
+                                        {{ registration_form.last_name }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="{{ registration_form.username.id_for_label }}" class="col-form-label">Имя
+                                        пользователя:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                        {{ registration_form.username }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br>
-{#                        <div class="row g-3">#}
-{#                            <div class="col">#}
-{#                                <input class="form-check-input" type="radio" name="flexRadioDefault"#}
-{#                                       id="flexRadioDefault1">#}
-{#                                <label class="form-check-label" for="flexRadioDefault1">#}
-{#                                    Муж.#}
-{#                                </label>#}
-{##}
-{#                            </div>#}
-{#                            <div class="col">#}
-{#                                <input class="form-check-input" type="radio" name="flexRadioDefault"#}
-{#                                       id="flexRadioDefault2" checked>#}
-{#                                <label class="form-check-label" for="flexRadioDefault2">#}
-{#                                    Жен.#}
-{#                                </label>#}
-{##}
-{#                            </div>#}
-{#                        </div>#}
-                        <div class="modal-footer">
-                            <div class="col">
-                                <button class="registration-button" type="submit" data-bs-target="#exampleModalToggle"
-                                        data-bs-toggle="modal"
-                                        data-bs-dismiss="modal"
-                                        style="width: 350px; margin-left: 35px">Зарегистрироваться
-                                </button>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <label for="{{ registration_form.password1.id_for_label }}" class="col-form-label">Пароль:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                        {{ registration_form.password1 }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="{{ registration_form.password2.id_for_label }}" class="col-form-label">Повторите
+                                        пароль:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                        {{ registration_form.password2 }}
+                                    </div>
+                                </div>
                             </div>
-                            <h3 class="text-new-account" style="margin-top: 20px">Уже есть аккаунт?
-                                <a class="new-account" data-bs-target="#exampleModalToggle"
-                                   data-bs-toggle="modal"
-                                   data-bs-dismiss="modal">Войти
-                                </a>
-                            </h3>
-
-                        </div>
-                    </form>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <label for="{{ registration_form.phone.id_for_label }}" class="col-form-label">Телефон:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                        {{ registration_form.phone }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="{{ registration_form.email.id_for_label }}" class="col-form-label">Эл.
+                                        адрес:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                        {{ registration_form.email }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="col">
+                                    <button class="registration-button" type="submit"
+                                            style="width: 350px; margin-left: 35px">Зарегистрироваться
+                                    </button>
+                                </div>
+                                <h3 class="text-new-account" style="margin-top: 20px">Уже есть аккаунт?
+                                    <a class="new-account" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                                       data-bs-dismiss="modal">Войти</a>
+                                </h3>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-
-    {# Окно вне холста#}
-    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-         aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: rgb(219, 214, 213)">
-                Каталог товаров
-            </h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            {% for item in categories %}
-                <ul class="navbar-nav justify-content-center ">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ item.slug }}"
-                           style="color: rgb(219, 214, 213)"
-                           data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
-                            {{ item.name }}
-                        </a>
-                    </li>
-                </ul>
-            {% endfor %}
-        </div>
-    </div>
-    {# Дополнительное окно вне холста#}
-    {% for item in categories %}
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id={{ item.slug }}
-                aria-labelledby="offcanvasDarkNavbarLabel2">
+        {# Окно вне холста#}
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+             aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel2" style="color: rgb(219, 214, 213)">
-                    {{ item.name }}
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: rgb(219, 214, 213)">
+                    Каталог товаров
                 </h5>
-                <button class="btn-close btn-close-white" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-                        aria-label="Toggle navigation">
-                </button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                {% for product in item.subcategory_set.all %}
+                {% for item in categories %}
                     <ul class="navbar-nav justify-content-center ">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ product.get_absolute_url }}" aria-current="page"
+                            <a class="nav-link active" aria-current="page" href="{{ item.slug }}"
                                style="color: rgb(219, 214, 213)"
-                               data-bs-target={{ item.slug }}>
-                                {{ product.name }}
+                               data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
+                                {{ item.name }}
                             </a>
                         </li>
                     </ul>
                 {% endfor %}
             </div>
         </div>
-    {% endfor %}
+        {# Дополнительное окно вне холста#}
+        {% for item in categories %}
+            <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id={{ item.slug }}
+                    aria-labelledby="offcanvasDarkNavbarLabel2">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel2" style="color: rgb(219, 214, 213)">
+                        {{ item.name }}
+                    </h5>
+                    <button class="btn-close btn-close-white" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                            aria-label="Toggle navigation">
+                    </button>
+                </div>
+                <div class="offcanvas-body">
+                    {% for product in item.subcategory_set.all %}
+                        <ul class="navbar-nav justify-content-center ">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ product.get_absolute_url }}" aria-current="page"
+                                   style="color: rgb(219, 214, 213)"
+                                   data-bs-target={{ item.slug }}>
+                                    {{ product.name }}
+                                </a>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </nav>
 <section class="body">
