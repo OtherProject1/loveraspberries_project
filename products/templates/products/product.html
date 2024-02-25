@@ -56,15 +56,16 @@
                         <h3>{{ product }}</h3>
                         <i class="fa-solid fa-star fa-sm"></i> {{ product.rating }} &#8226;
                         <i class="fa-regular fa-comments"></i> {{ product.review }}
-                        <table style="display: table;
+                        <div>
+                            <table style="display: table;
                         border-collapse: separate;
                         box-sizing: border-box;
                         text-indent: initial;
                         border-spacing: 2px;
                         border-color: gray;">
-                            {% for detail in product.details.all %}
-                            <tr style="display: flex;">
-                                <th style='min-width: 144px; max-width: 144px;
+                                {% for detail in product.details.all|dictsort:"detail.name" %}
+                                <tr style="display: flex;">
+                                    <th style='min-width: 144px; max-width: 144px;
                                 color: #9797af;
                                 font-variation-settings: "wght" 550;
                                 text-align: left;
@@ -72,22 +73,23 @@
                                 font-size: 14px;
                                 font-weight: 400;
                                 line-height: 17px;'>
-                                    {{ detail.detail}}
-                                </th>
-                                <th></th>
-                                <th style='width: 100%;
+                                        {{ detail.detail}}
+                                    </th>
+                                    <td></td>
+                                    <td style='width: 100%;
                                 color: #000;
                                 font-variation-settings: "wght" 400;
                                 word-break: break-word;
-                                width: 50%;
+                                width: 100%;
                                 font-size: 14px;
                                 font-weight: 400;
                                 line-height: 17px;'>
-                                    {{ detail.description }}
-                                </th>
-                            </tr>
-                            {% endfor %}
-                        </table>
+                                        {{ detail.description }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,6 +119,11 @@
                 </div>
 
             </div>
+        </div>
+        <div>
+            <div>Отзывы</div>
+            <div>Вопросы</div>
+            
         </div>
     </div>
 
