@@ -14,5 +14,3 @@ class BaseMixin:
                         'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards,
                         'payment_list': favourite_cards})
         return context
-
-
