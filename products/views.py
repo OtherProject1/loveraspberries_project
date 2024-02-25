@@ -1,22 +1,19 @@
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
 from .models import Category, SubCategory
 from django.views.generic import ListView, DetailView
-from django.views.generic.base import TemplateView
 from .mixins import BaseMixin
 from products.models import Product
 
+from users.forms import UserLoginForm, UserRegistrationForm
+
 context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
            'navbar': navbar_list, 'footer': footer_list,
-           'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards}
-
-
-def home(request):
-    context['cards'] = cards
-    context['title'] = 'LoveRaspberry'
-    return render(request, 'products/main.html', context)
+           'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards,
+           }
 
 class MainView(BaseMixin, ListView):
     model = Product
@@ -26,18 +23,23 @@ class MainView(BaseMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(MainView, self).get_context_data()
         context['title'] = 'LoveRaspberry'
+        context['form'] = UserLoginForm()
+        context['registration_form'] = UserRegistrationForm()
         return context
+
+
+def product_page(request, subcategory_slug, product_id):
+    product = Product.objects.get(id=product_id)
+    slug = SubCategory.objects.get(slug=subcategory_slug)
+    context['product'] = product
+    context['subcategory'] = slug
+    return render(request, 'products/product.html', context)
 
 
 class ProductDetail(BaseMixin, DetailView):
     model = Product
     template_name = 'products/product.html'
-    pk_url_kwarg = 'product_id'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
-        return context
+    slug_url_kwarg = ''
 
 
 class CatalogListView(BaseMixin, ListView):
