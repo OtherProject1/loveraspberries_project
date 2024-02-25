@@ -1,3 +1,4 @@
+from typing import Iterable
 import pytils
 from django.db import models
 from django.urls import reverse
@@ -79,6 +80,7 @@ class Details(models.Model):
     class Meta:
         verbose_name = 'Характеристика'
         verbose_name_plural = 'Характеристики'
+
 
 class ProductDetail(models.Model):
     detail = models.ForeignKey(to=Details, on_delete=models.SET_NULL, null=True, related_name='product_details')

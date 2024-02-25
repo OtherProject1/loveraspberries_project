@@ -1,4 +1,5 @@
 {% extends 'products/base.html' %}
+{% load custom_tags %}
 {% block content %}
 <div class="catalog_content" style="margin-top: 50px">
     <div class="dropdown product" style="margin-left: 0">
@@ -15,12 +16,13 @@
         <div class="vendor" style="display: flex; justify-content: end; align-items: center;">
             <div>
                 <span data-text="strProductCodeShort">Арт.</span>
-                <span id="myInput" style="margin-right: 10px;">{{ product.id }}</span>
+                <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
             </div>
             <div>
-                <i class="fa-regular fa-copy"></i>
+                <i class="fa-regular fa-copy" onclick="myFunction('productArticle1')" style="cursor: pointer;"></i>
             </div>
         </div>
+
         <div class="row row-cols-auto" style="margin-top: 30px">
             <div class="col" style="margin-bottom: 20px;">
                 <div class="card border-0" style="width: 500px; height: 700px">
@@ -54,17 +56,18 @@
                 <div class="card border-0">
                     <div class="carousel-inner">
                         <h3>{{ product }}</h3>
-                        <i class="fa-solid fa-star fa-sm"></i> {{ product.rating }} &#8226;
-                        <i class="fa-regular fa-comments"></i> {{ product.review }}
-                        <table style="display: table;
+                        <i class="fa-solid fa-star fa-sm"></i> {{ product_avg_rating|floatformat }} &#8226;
+                        <i class="fa-regular fa-comments"></i> {{ product.reviews.all|length}}
+                        <div>
+                            <table style="display: table;
                         border-collapse: separate;
                         box-sizing: border-box;
                         text-indent: initial;
                         border-spacing: 2px;
                         border-color: gray;">
-                            {% for detail in product.details.all %}
-                            <tr style="display: flex;">
-                                <th style='min-width: 144px; max-width: 144px;
+                                {% for detail in product.details.all|dictsort:"detail.name" %}
+                                <tr style="display: flex;">
+                                    <th style='min-width: 144px; max-width: 144px;
                                 color: #9797af;
                                 font-variation-settings: "wght" 550;
                                 text-align: left;
@@ -72,23 +75,136 @@
                                 font-size: 14px;
                                 font-weight: 400;
                                 line-height: 17px;'>
-                                    {{ detail.detail}}
-                                </th>
-                                <th></th>
-                                <th style='width: 100%;
+                                        {{ detail.detail }}
+                                    </th>
+                                    <td></td>
+                                    <td style='width: 100%;
                                 color: #000;
                                 font-variation-settings: "wght" 400;
                                 word-break: break-word;
+                                width: 100%;
+                                font-size: 14px;
+                                font-weight: 400;
+                                line-height: 17px;'>
+                                        {{ detail.description }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                <tr style="display: flex;">
+                                    <th style='min-width: 144px; max-width: 144px;
+                                color: #9797af;
+                                font-variation-settings: "wght" 550;
+                                text-align: left;
                                 width: 50%;
                                 font-size: 14px;
                                 font-weight: 400;
                                 line-height: 17px;'>
-                                    {{ detail.description }}
-                                </th>
-                            </tr>
-                            {% endfor %}
-                        </table>
+                                        <a style="color: rgba(55,44,132,1); cursor: pointer;" data-bs-toggle="offcanvas"
+                                            data-bs-target="#offcanvasRight"
+                                            aria-controls="offcanvasRight">Подробнее</a>
+                                    </th>
+                            </table>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel"><b>Параметы и описание</b></h5>
+                    <button type="button" tabindex="-1" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <table style="display: table;
+                    border-collapse: separate;
+                    box-sizing: border-box;
+                    text-indent: initial;
+                    border-spacing: 2px;
+                    border-color: gray;">
+                        <tr style="display: flex;">
+                            <th style='min-width: 144px; max-width: 144px;
+                                                color: #9797af;
+                                                font-variation-settings: "wght" 550;
+                                                text-align: left;
+                                                width: 50%;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                line-height: 17px;'>
+                                Артикул
+                            </th>
+                            <td></td>
+                            <td style='width: 100%;
+                                                color: #000;
+                                                font-variation-settings: "wght" 400;
+                                                word-break: break-word;
+                                                width: 100%;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                line-height: 17px;'>
+                                {{ product.id }} <i class="fa-regular fa-copy" onclick="myFunction('productArticle1')"
+                                    style="cursor: pointer;"></i>
+                            </td>
+                        </tr>
+                        {% for detail in product.details.all|dictsort:"detail.name" %}
+                        <tr style="display: flex;">
+                            <th style='min-width: 144px; max-width: 144px;
+                            color: #9797af;
+                            font-variation-settings: "wght" 550;
+                            text-align: left;
+                            width: 50%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 17px;'>
+                                {{ detail.detail}}
+                            </th>
+                            <td></td>
+                            <td style='width: 100%;
+                            color: #000;
+                            font-variation-settings: "wght" 400;
+                            word-break: break-word;
+                            width: 100%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 17px;'>
+                                {{ detail.description }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td><b>Описание</b></td>
+                        </tr>
+                        <tr style="display: flex;">
+                            <td style='width: 100%;
+                            color: #000;
+                            font-variation-settings: "wght" 400;
+                            word-break: break-word;
+                            width: 100%;
+                            font-size: 12px;
+                            font-weight: 400;
+                            line-height: 17px;'>
+                                {{ product.description }}
+                            </td>
+                        </tr>
+                        <tr style="display: flex;">
+                            <td style='width: 100%;
+                            color: #9e9e9e;
+                            font-variation-settings: "wght" 400;
+                            word-break: break-word;
+                            width: 100%;
+                            font-size: 12px;
+                            font-weight: 400;
+                            line-height: 17px; margin-top: 5px;'>
+                                Вся информация о товаре справочная и основывается на последних сведениях от
+                                производителя
+                        </tr>
+
+                    </table>
+                    <a class="btn btn-primary-link"
+                        style="display: block; margin-top: 10px; background: rgb(115,107,169);
+                        background: linear-gradient(162deg, rgba(115,107,169,0.8935223747702206) 0%, rgba(55,44,132,1) 50%, rgba(18,0,136,1) 100%); border-width: 0;"
+                        type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть">
+                        Закрыть
+                    </a>
                 </div>
             </div>
             <div class="col" style="margin-bottom: 20px;">
@@ -111,16 +227,66 @@
                         value="Нажми на меня!" />В корзину</a>
                     <div style="display: flex;">
                         <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
-                                    class="fa-solid fa-star fa-sm"></i>{{ product.rating }}</a>
+                                    class="fa-solid fa-star fa-sm"></i>{{ product_avg_rating|floatformat }}</a>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
+        <div>
+            <div class="delivery" style="border-bottom: 2px solid #000; width: max-content;">
+                <b>Отзывы <span style="color: gray; font-size: large;">{{ product.reviews.all|length}}</span> - {{ product_avg_rating|floatformat }} <i class="fa-solid fa-star fa-2xs"></i></b>
+            </div>
+            <div>
+                <span style="font-size: 60px;">{{ product_avg_rating|floatformat }}</span>
+            </div>
+            <div style="display: inline-flex; overflow-x:scroll; width: 100%;">
+                {% for review in product.reviews.all %}
+                <div class="card" 
+                    style="background-color: rgba(189, 189, 189, 0.2); margin: 10px; border-radius: 10px; width: 300px; height: 180px; border-width: 0; flex-shrink: 0;">
+                    <div class="card-body">
+                        <div style="display: flex; margin-bottom: 10px;">
+                            <div>
+                                {% custom_range review.rating as rating %}
+                                {% for star in rating %}
+                                <i class="fa-solid fa-star fa-2xs"></i>
+                                {% endfor %}
+                                &#8226;
+                                {{ review.user.first_name }}, {{ review.date|date:"j b Y" }} г.
+                            </div>
+                        </div>
+                        <div class="review_content">
+                            <p class="card-text">{{ review.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div>Все отзывы</div>
+        </div>
     </div>
 
 </div>
 
-
+<script>
+    function myFunction(id) {
+        var value = document.getElementById(id).innerHTML;
+        var input_temp = document.createElement("input");
+        input_temp.value = value;
+        document.body.appendChild(input_temp);
+        input_temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(input_temp);
+    }
+</script>
 {% endblock content %}
+
+
+<div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>

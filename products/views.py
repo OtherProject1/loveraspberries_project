@@ -7,6 +7,7 @@ from .models import Category, SubCategory
 from django.views.generic import ListView, DetailView
 from .mixins import BaseMixin
 from products.models import Product
+from django.db.models import Avg
 
 from users.forms import UserLoginForm, UserRegistrationForm
 
@@ -39,7 +40,13 @@ def product_page(request, subcategory_slug, product_id):
 class ProductDetail(BaseMixin, DetailView):
     model = Product
     template_name = 'products/product.html'
-    slug_url_kwarg = ''
+    pk_url_kwarg = 'product_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
+        context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
+        return context
 
 
 class CatalogListView(BaseMixin, ListView):
