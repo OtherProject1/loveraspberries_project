@@ -12,6 +12,12 @@ class Card(models.Model):
 
 
 class User(AbstractUser):
+    MAN = 1
+    WOMAN = 2
+    GENDER = (
+        (MAN, 'муж.'),
+        (WOMAN, 'жен.')
+    )
     phone = models.CharField(max_length=13, null=True, blank=True)
-    gender = models.BooleanField(default=False)
+    gender = models.CharField(default=MAN, choices=GENDER, max_length=1, null=True, blank=True)
     card = models.OneToOneField(to=Card, on_delete=models.PROTECT, null=True)
