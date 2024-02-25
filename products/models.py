@@ -81,6 +81,7 @@ class Details(models.Model):
         verbose_name = 'Характеристика'
         verbose_name_plural = 'Характеристики'
 
+
 class ProductDetail(models.Model):
     detail = models.ForeignKey(to=Details, on_delete=models.SET_NULL, null=True, related_name='product_details')
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='details')

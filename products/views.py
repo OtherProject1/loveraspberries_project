@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.base import TemplateView
 from .mixins import BaseMixin
 from products.models import Product
+from django.db.models import Avg
 
 context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
            'navbar': navbar_list, 'footer': footer_list,
@@ -37,6 +38,7 @@ class ProductDetail(BaseMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
+        context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
         return context
 
 

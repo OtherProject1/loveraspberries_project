@@ -6,3 +6,8 @@ from .models import *
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['product', 'user', 'rating', 'date']
     list_display_links = ['product', 'user', 'rating', 'date']
+
+@admin.register(ReviewImages)
+class ReviewImagesAdmin(admin.ModelAdmin):
+    list_display = ['id', 'review']
+    list_display_links = ['id', 'review']
