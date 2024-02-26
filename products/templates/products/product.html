@@ -112,7 +112,8 @@
                 aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasRightLabel"><b>Параметы и описание</b></h5>
-                    <button type="button" tabindex="-1" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+                    <button type="button" tabindex="-1" class="btn-close" data-bs-dismiss="offcanvas"
+                        aria-label="Закрыть"></button>
                 </div>
                 <div class="offcanvas-body">
                     <table style="display: table;
@@ -213,8 +214,7 @@
                     <a href="#addtofavourites">
                         <i class="fa-regular fa-heart fa-2xl add_to_favourite"
                             style="color: rgb(51, 56, 124); position: absolute; top: 20px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
-                    <div class="card-body"
-                        style="overflow: hidden; padding-top: 5px; padding-bottom: 0px; padding-left: 0; margin-top: 0;">
+                    <div style="overflow: hidden; padding: 5px 10px 0px; margin-top: 0;">
                         <h5 class="card-title" style="font-size: 34px; margin-top: 10px">
                             <b>{{ product.price }} р.</b>
                         </h5>
@@ -222,7 +222,7 @@
                     </div>
                     <a class="btn btn-primary-link"
                         style="display: block; background: rgb(115,107,169);
-                        background: linear-gradient(162deg, rgba(115,107,169,0.8935223747702206) 0%, rgba(55,44,132,1) 50%, rgba(18,0,136,1) 100%); border-width: 0;"
+                        background: linear-gradient(162deg, rgba(115,107,169,0.8935223747702206) 0%, rgba(55,44,132,1) 50%, rgba(18,0,136,1) 100%); border-width: 0; margin-left: 5px; margin-right: 5px;"
                         onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
                         value="Нажми на меня!" />В корзину</a>
                     <div style="display: flex;">
@@ -235,17 +235,43 @@
             </div>
         </div>
         <div>
-            <div class="delivery" style="border-bottom: 2px solid #000; width: max-content;">
-                <b>Отзывы <span style="color: gray; font-size: large;">{{ product.reviews.all|length}}</span> - {{ product_avg_rating|floatformat }} <i class="fa-solid fa-star fa-2xs"></i></b>
+            <div style="display: flex;">
+                <div class="delivery" style="border-bottom: 2px solid #000; width: max-content;">
+                    <b>Отзывы <span style="color: gray; font-size: large;">{{ product.reviews.all|length}}</span></b>
+                </div>
+                <div class="delivery">
+                    <a href="#" style="color: #000;">
+                        <b>Вопросы</b>
+                    </a>
+                </div>
             </div>
-            <div>
-                <span style="font-size: 60px;">{{ product_avg_rating|floatformat }}</span>
+            <div style="display: flex; margin-top: 10px;">
+                <div style="margin-right: 20px;">
+                    <span style="font-size: 60px;">{{ product_avg_rating|floatformat }}</span>
+                </div>
+                <div>
+                    {% for value in every_counts_stars %}
+                    {% custom_range value.rating as stars %}
+                    <div style="display: flex; margin-left: auto; margin-right: 0;">
+                        <div style="display: flex; justify-content: flex-end; width: 70px; align-content: end;">
+                            {% for star in stars %}
+                            <div>
+                                <i class="fa-solid fa-star fa-2xs"></i>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            &ensp;&#8226;&ensp;{{ value.count }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div style="display: inline-flex; overflow-x:scroll; width: 100%;">
-                {% for review in product.reviews.all %}
-                <div class="card" 
-                    style="background-color: rgba(189, 189, 189, 0.2); margin: 10px; border-radius: 10px; width: 300px; height: 180px; border-width: 0; flex-shrink: 0;">
-                    <div class="card-body">
+            <div style="display: inline-flex; overflow-x:scroll; width: 100%; height: max-content;">
+                {% for review in product.reviews.all|slice:"10" %}
+                <div class="card"
+                    style="background: #f6f6fa; margin: 10px; border-radius: 10px; width: 300px; height: 180px; border-width: 0; flex-shrink: 0;">
+                    <div class="card-body" style="height: 180px; overflow: hidden;">
                         <div style="display: flex; margin-bottom: 10px;">
                             <div>
                                 {% custom_range review.rating as rating %}
@@ -256,9 +282,18 @@
                                 {{ review.user.first_name }}, {{ review.date|date:"j b Y" }} г.
                             </div>
                         </div>
+                        {% if review.images.all %}
+                        <div style="display: flex;">
+                            {% for image in review.images.all %}
+                            <img src="{{ image.image.url }}" alt="" width="50" height="50"
+                                style="margin: 4px; border-radius: 10%;">
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                         <div class="review_content">
                             <p class="card-text">{{ review.description }}</p>
                         </div>
+
                     </div>
                 </div>
                 {% endfor %}
@@ -281,12 +316,3 @@
     }
 </script>
 {% endblock content %}
-
-
-<div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-</div>

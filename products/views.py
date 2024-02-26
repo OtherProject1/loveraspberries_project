@@ -7,7 +7,7 @@ from .models import Category, SubCategory
 from django.views.generic import ListView, DetailView
 from .mixins import BaseMixin
 from products.models import Product
-from django.db.models import Avg
+from django.db.models import Avg, Count
 
 from users.forms import UserLoginForm, UserRegistrationForm
 
@@ -46,6 +46,8 @@ class ProductDetail(BaseMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
         context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
+        context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(count=Count('rating'))[::-1]
+        print(context['every_counts_stars'])
         return context
 
 
