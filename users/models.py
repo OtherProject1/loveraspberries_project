@@ -21,3 +21,4 @@ class User(AbstractUser):
     phone = models.CharField(max_length=13, null=True, blank=True)
     gender = models.CharField(default=MAN, choices=GENDER, max_length=1, null=True, blank=True)
     card = models.OneToOneField(to=Card, on_delete=models.PROTECT, null=True)
+
