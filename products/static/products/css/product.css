@@ -15,17 +15,16 @@
 
 .review_content {
     text-overflow: clip;
-    height: 120px;
+    max-height: 80%;
     position: relative;
     overflow: hidden;
 }
-
-.review_content::after {
+.card-body::after {
     content: "";
-    background: linear-gradient(270deg,#f6f6fa,#f6f6fa1a);
-    width: 100%;
-    height: 23px;
+    background: linear-gradient(270deg, #f6f6fa, #f6f6fa1a);
+    width: 80%;
+    height: 26px;
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
 }
