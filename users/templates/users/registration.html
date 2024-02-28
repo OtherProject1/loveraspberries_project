@@ -1,0 +1,128 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+    <style>
+        .alert {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 15px;
+        }
+
+        .error {
+            color: #fb4646;
+        }
+    </style>
+    <div class="modal-dialog modal-dialog-centered"
+         style="margin-top: 50px; margin-bottom: 50px;border: 1px solid; border-radius: 10px;background-clip: padding-box;">
+        <div class="modal-content" style="margin: 15px 15px 15px 15px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2" style="color: black;">Регистрация</h5>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'users:registration' %}" method="POST">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-block alert-warning" style="align-content: center">
+                            <span>
+                                <i class="fa-solid fa-triangle-exclamation">
+                                    Проверьте правильность ввода данных
+                                </i>
+                            </span>
+                        </div>
+                    {% endif %}
+                    <div class="row g-3">
+                        <div class="col">
+                            <label for="{{ form.first_name.id_for_label }}"
+                                   class="col-form-label">Имя:</label>
+                            <div class="input-group">
+                                {{ form.first_name }}
+                            </div>
+                            {% if form.first_name.errors %}
+                                <span class="error">{{ form.first_name.errors }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <label for="{{ form.last_name.id_for_label }}"
+                                   class="col-form-label">Фамилия:</label>
+                            <div class="input-group">
+                                {{ form.last_name }}
+                            </div>
+                            {% if form.last_name.errors %}
+                                <span class="error">{{ form.last_name.errors }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="{{ form.username.id_for_label }}" class="col-form-label">Имя
+                            пользователя:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                            {{ form.username }}
+                        </div>
+                        {% if form.username.errors %}
+                            <span class="error"><h3></h3>{{ form.username.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        <label for="{{ form.password1.id_for_label }}"
+                               class="col-form-label">Пароль:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                            {{ form.password1 }}
+                        </div>
+                        {% if form.password1.errors %}
+                            <span class="error">{{ form.password1.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        <label for="{{ form.password2.id_for_label }}" class="col-form-label">Повторите
+                            пароль:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                            {{ form.password2 }}
+                        </div>
+                        {% if form.password2.errors %}
+                            <span class="error">{{ form.password2.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
+                            <label for="{{ form.phone.id_for_label }}"
+                                   class="col-form-label">Телефон:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                {{ form.phone }}
+                            </div>
+                            {% if form.phone.errors %}
+                                <span class="error">{{ form.phone.errors }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <label for="{{ form.email.id_for_label }}" class="col-form-label">Эл.
+                                адрес:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                {{ form.email }}
+                            </div>
+                            {% if form.email.errors %}
+                                <span class="error">{{ form.email.errors }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="modal-footer col" style=" margin-top: 20px">
+                        <div class="col">
+                            <button class="registration-button" type="submit"
+                                    style="width: 350px; margin-left: 35px; margin-top: 10px">Зарегистрироваться
+                            </button>
+                        </div>
+                        <h3 class="text-new-account" style="margin-top: 20px">Уже есть аккаунт?
+                            <a class="new-account" href="{% url 'users:login' %}">Войти</a>
+                        </h3>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

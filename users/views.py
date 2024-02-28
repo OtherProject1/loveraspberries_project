@@ -6,17 +6,18 @@ from users.forms import UserLoginForm, UserRegistrationForm
 from django.urls import reverse, reverse_lazy
 from users.models import User
 from django.contrib import auth
+from django.contrib.auth.views import PasswordChangeView
 
 
 class UserLoginView(BaseMixin, LoginView):
-    template_name = 'products/base.html'
+    template_name = 'users/login.html'
     form_class = UserLoginForm
     success_url = reverse_lazy('products:home')
 
 
 class UserRegistrationView(CreateView):
     model = User
-    template_name = 'products/base.html'
+    template_name = 'users/registration.html'
     form_class = UserRegistrationForm
     success_url = reverse_lazy('products:home')
 

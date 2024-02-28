@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{% static 'products/css/details.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/catalog.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/login.css' %}">
 
     <link rel="shortcut icon" href="{% static 'products/images/header/minilogo.png' %}" type="image/png">
 </head>
@@ -59,8 +60,14 @@
             </figure>
         </a>
 
-        <a class="navbar-links" href="{% url 'products:profile' %}" {% if not request.user.is_authenticated %}
-           data-bs-toggle="modal" {% endif %} data-bs-target="#exampleModalToggle">
+        <a class="navbar-links"
+                {% if request.user.is_authenticated %}
+           href="{% url 'products:profile' %}"
+                {% endif %}
+                {% if not request.user.is_authenticated %}
+           href="{% url 'users:login' %}"
+                {% endif %}
+        >
             <figure>
                 <img src="{% static 'products/images/header/profile.png' %}" alt="profile" width="30" height="30">
                 <figcaption>Профиль</figcaption>
@@ -73,135 +80,6 @@
                 <figcaption>Корзина</figcaption>
             </figure>
         </a>
-
-
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-             tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered" style="width: 400px">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalToggleLabel" style="color: black">Вход</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{% url 'users:login' %}" method="POST">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="{{ form.username.id_for_label }}" class="col-form-label">Имя
-                                    пользователя:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                    {{ form.username }}
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="{{ form.password.id_for_label }}" class="col-form-label">Пароль:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                    {{ form.password }}
-                                </div>
-                            </div>
-                            <div class="modal-footer" style="padding-bottom: 0">
-                                <div class="col">
-                                    <button class="login-button" type="submit">Войти</button>
-                                </div>
-                                <h3 class="text-new-account" style="margin-top: 20px">Нет аккаунта?
-                                    {#                                    <a class="new-account" href="{% url 'users:registration' %}"> Зарегистрироваться</a>#}
-                                    <a class="new-account" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                                       data-bs-dismiss="modal"> Зарегистрироваться</a>
-                                </h3>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-             tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalToggleLabel2" style="color: black">Регистрация</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{% url 'users:registration' %}" method="POST">
-                            {% csrf_token %}
-                            <div class="row g-3">
-                                <div class="col">
-                                    <label for="{{ registration_form.first_name.id_for_label }}" class="col-form-label">Имя:</label>
-                                    <div class="input-group">
-                                        {{ registration_form.first_name }}
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label for="{{ registration_form.last_name.id_for_label }}" class="col-form-label">Фамилия:</label>
-                                    <div class="input-group">
-                                        {{ registration_form.last_name }}
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label for="{{ registration_form.username.id_for_label }}" class="col-form-label">Имя
-                                        пользователя:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                        {{ registration_form.username }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row g-3">
-                                <div class="col">
-                                    <label for="{{ registration_form.password1.id_for_label }}" class="col-form-label">Пароль:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                        {{ registration_form.password1 }}
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label for="{{ registration_form.password2.id_for_label }}" class="col-form-label">Повторите
-                                        пароль:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                        {{ registration_form.password2 }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row g-3">
-                                <div class="col">
-                                    <label for="{{ registration_form.phone.id_for_label }}" class="col-form-label">Телефон:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-                                        {{ registration_form.phone }}
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label for="{{ registration_form.email.id_for_label }}" class="col-form-label">Эл.
-                                        адрес:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                                        {{ registration_form.email }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col">
-                                    <button class="registration-button" type="submit"
-                                            style="width: 350px; margin-left: 35px">Зарегистрироваться
-                                    </button>
-                                </div>
-                                <h3 class="text-new-account" style="margin-top: 20px">Уже есть аккаунт?
-                                    <a class="new-account" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-                                       data-bs-dismiss="modal">Войти</a>
-                                </h3>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         {# Окно вне холста#}
         <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
              aria-labelledby="offcanvasDarkNavbarLabel">
