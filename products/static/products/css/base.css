@@ -133,21 +133,23 @@ span.blur::after {
 
 
 .modal-footer .login-button {
-    width: 290px;
+    width: 291px;
     border: 1px solid;
     border-radius: 5px;
     background-color: #212529;
     color: #fff;
-    margin-left: 22px;
+    margin-left: 39px;
+    margin-top: 20px;
 }
 
 .modal-footer .login-button:hover {
-    width: 290px;
+    width: 291px;
     border: 1px solid;
     border-radius: 5px;
     background-color: #1c505b;
     color: #fff;
-    margin-left: 22px;
+    margin-left: 39px;
+    margin-top: 20px;
 }
 
 .modal-footer .registration-button {
@@ -155,6 +157,7 @@ span.blur::after {
     border-radius: 5px;
     background-color: #212529;
     color: #fff;
+    margin-top: 20px;
 
 }
 
@@ -163,6 +166,7 @@ span.blur::after {
     border-radius: 5px;
     background-color: #1c505b;
     color: #fff;
+    margin-top: 20px;
 
 }
 

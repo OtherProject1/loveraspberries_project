@@ -1,0 +1,68 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+    <style>
+        .alert {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 15px;
+        }
+
+        .error {
+            color: #fb4646;
+        }
+    </style>
+    <div class="modal-dialog modal-dialog-centered"
+         style="width: 400px; margin-top: 50px; margin-bottom: 50px;border: 1px solid; border-radius: 10px;background-clip: padding-box;">
+        <div class="modal-content" style="margin: 15px 15px 15px 15px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel" style="color: black">Вход</h5>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'users:login' %}" method="POST">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-block alert-warning" style="align-content: center">
+                            <span>
+                                <i class="fa-solid fa-triangle-exclamation">
+                                    Проверьте правильность ввода данных
+                                </i>
+                            </span>
+                        </div>
+                    {% endif %}
+                    <div class="mb-3">
+                        <label for="{{ form.username.id_for_label }}" class="col-form-label">Имя
+                            пользователя:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                            {{ form.username }}
+                        </div>
+                        {% if form.username.errors %}
+                            <span class="error">{{ form.username.errors }}</span>
+                        {% endif %}
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.password.id_for_label }}" class="col-form-label">Пароль:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                            {{ form.password }}
+                        </div>
+                        {% if form.password.errors %}
+                            <span class="error">{{ form.password.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="modal-footer" style="padding-bottom: 0">
+                        <div class="col">
+                            <button class="login-button" type="submit">Войти</button>
+                        </div>
+                        <h3 class="text-new-account" style="margin-top: 20px">Нет аккаунта?
+                            <a class="new-account" href="{% url 'users:registration' %}"> Зарегистрироваться</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
