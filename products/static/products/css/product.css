@@ -28,3 +28,75 @@
     position: absolute;
     bottom: 4px;
 }
+
+.rating_list_wrapper {
+    background-color: #f0ecf4;
+    height: 2px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.rating_list_line {
+    background-color: #000;
+    height: 2px;
+}
+
+#insert {
+    font-size: 10px;
+}
+
+  
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    display: inline-flex;
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+.mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }

@@ -47,7 +47,7 @@ class ProductDetail(BaseMixin, DetailView):
         context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
         context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
         context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(count=Count('rating'))[::-1]
-        print(context['every_counts_stars'])
+        context['all_count_reviews'] = context['product'].reviews.all().count()
         return context
 
 

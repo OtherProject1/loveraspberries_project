@@ -1,6 +1,46 @@
 {% extends 'products/base.html' %}
 {% load custom_tags %}
+
 {% block content %}
+<div class="col container" style="margin: 0;">
+    <!-- Thumbnail images -->
+    <div style="margin-right: 10px;">
+        {% for image in product.images.all %}
+        {% if image %}
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="column">
+                <img class="demo cursor" src="{{ image.image.url }}"
+                    onclick="currentSlide({{forloop.counter}})" width="80" alt="Image"
+                    style="border-radius: 15px;">
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Full-width images with number text -->
+    <div style="width: 330px; position: relative;">
+        {% for image in product.images.all %}
+        {% if image %}
+        <div class="mySlides">
+            <img src="{{ image.image.url }}" style="width: 330px; border-radius: 10px;">
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Next and previous buttons -->
+        <button class="carousel-control-prev" type="button" onclick="plusSlides(-1)">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" onclick="plusSlides(1)">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+        </button>
+        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+    </div>
+</div>
 <div class="catalog_content" style="margin-top: 50px">
     <div class="dropdown product" style="margin-left: 0">
         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -19,40 +59,60 @@
                 <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
             </div>
             <div>
-                <i class="fa-regular fa-copy" onclick="myFunction('productArticle1')" style="cursor: pointer;"></i>
+                <i id='send' class="fa-regular fa-copy" onclick="myFunction('productArticle1')" style="cursor: pointer;"
+                    title="Скопировать"></i>
             </div>
+            <div id="insert"></div>
         </div>
 
         <div class="row row-cols-auto" style="margin-top: 30px">
-            <div class="col" style="margin-bottom: 20px;">
-                <div class="card border-0" style="width: 500px; height: 700px">
-                    <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
-                        <div class="carousel-inner">
-                            {% for image in product.images.all %}
-                            {% if image %}
-                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="image-wrapper">
-                                    <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
-                                        style="border-radius: 10px; width: 330px;" alt="Image">
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ product.id }}"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Предыдущий</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ product.id }}"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Следующий</span>
-                        </button>
+
+            <!-- old variant -->
+            <!-- <div>
+                <div class="col" style="margin-bottom: 20px;">
+                    <div>
+                        {% for image in product.images.all %}
+                        {% if image %}
+                        <a href="#{{image.pk}}" style="display: block;">
+                            <img src="{{ image.image.url }}" width="80"
+                                style="border-radius: 15px; margin-bottom: 10px;" alt="Image">
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col" style="margin-bottom: 20px;">
+                <div class="col" style="margin-bottom: 20px;">
+                    <div class="card border-0" style="width: 500px; height: 700px">
+                        <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
+                            <div class="carousel-inner">
+                                {% for image in product.images.all %}
+                                {% if image %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <div class="image-wrapper">
+                                        <img src="{{ image.image.url }}" class="d-block card-img-top" width="80"
+                                            style="border-radius: 10px;" alt="Image">
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carousel-{{ product.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Предыдущий</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carousel-{{ product.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Следующий</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="col" style="margin-bottom: 20px; max-width: 450px;">
                 <div class="card border-0">
                     <div class="carousel-inner">
                         <h3>{{ product }}</h3>
@@ -142,8 +202,10 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 line-height: 17px;'>
-                                {{ product.id }} <i class="fa-regular fa-copy" onclick="myFunction('productArticle1')"
-                                    style="cursor: pointer;"></i>
+                                {{ product.id }} <i id="send" class="fa-regular fa-copy"
+                                    onclick="myFunction('productArticle1')" style="cursor: pointer;"
+                                    title="Скопировать"></i>
+                                <div id="insert"></div>
                             </td>
                         </tr>
                         {% for detail in product.details.all|dictsort:"detail.name" %}
@@ -237,7 +299,7 @@
         <div>
             <div style="display: flex;">
                 <div class="delivery" style="border-bottom: 2px solid #000; width: max-content;">
-                    <b>Отзывы <span style="color: gray; font-size: large;">{{ product.reviews.all|length}}</span></b>
+                    <b>Отзывы <span style="color: gray; font-size: large;">{{ all_count_reviews }}</span></b>
                 </div>
                 <div class="delivery">
                     <a href="#" style="color: #000;">
@@ -259,9 +321,13 @@
                                 <i class="fa-solid fa-star fa-2xs"></i>
                             </div>
                             {% endfor %}
+                        </div>&ensp;
+                        <div class="rating_list_wrapper">
+                            {% width_line_rating value.count all_count_reviews as width_rating %}
+                            <div class="rating_list_line" style="width: {{ width_rating|floatformat }}%"></div>
                         </div>
                         <div>
-                            &ensp;&#8226;&ensp;{{ value.count }}
+                            &ensp;{{ value.count }}
                         </div>
                     </div>
                     {% endfor %}
@@ -313,6 +379,51 @@
         input_temp.select();
         document.execCommand("copy");
         document.body.removeChild(input_temp);
+    }
+
+    function insertText() {
+        var text = 'Скопировано';
+        var insert = document.getElementById('insert');
+        if (insert != null) insert.textContent = text;
+        else alert('Функция insertText() обратилась к несуществующему элементу с id="insert"');
+    }
+    window.onload = function () {
+        var send = document.getElementById('send');
+        if (send != null) send.onclick = insertText;
+        else alert('Элемент с id="send" не существует! ');
+    }
+</script>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        // var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
     }
 </script>
 {% endblock content %}
