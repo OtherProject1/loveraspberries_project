@@ -47,7 +47,7 @@
 
   
 /* Position the image container (needed to position the left and right arrows) */
-.container {
+.containerimages {
     display: inline-flex;
     position: relative;
   }

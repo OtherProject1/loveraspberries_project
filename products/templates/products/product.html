@@ -2,45 +2,7 @@
 {% load custom_tags %}
 
 {% block content %}
-<div class="col container" style="margin: 0;">
-    <!-- Thumbnail images -->
-    <div style="margin-right: 10px;">
-        {% for image in product.images.all %}
-        {% if image %}
-        <div class="row" style="margin-bottom: 5px;">
-            <div class="column">
-                <img class="demo cursor" src="{{ image.image.url }}"
-                    onclick="currentSlide({{forloop.counter}})" width="80" alt="Image"
-                    style="border-radius: 15px;">
-            </div>
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
 
-    <!-- Full-width images with number text -->
-    <div style="width: 330px; position: relative;">
-        {% for image in product.images.all %}
-        {% if image %}
-        <div class="mySlides">
-            <img src="{{ image.image.url }}" style="width: 330px; border-radius: 10px;">
-        </div>
-        {% endif %}
-        {% endfor %}
-
-        <!-- Next and previous buttons -->
-        <button class="carousel-control-prev" type="button" onclick="plusSlides(-1)">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Предыдущий</span>
-        </button>
-        <button class="carousel-control-next" type="button" onclick="plusSlides(1)">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Следующий</span>
-        </button>
-        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-    </div>
-</div>
 <div class="catalog_content" style="margin-top: 50px">
     <div class="dropdown product" style="margin-left: 0">
         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -59,14 +21,52 @@
                 <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
             </div>
             <div>
-                <i id='send' class="fa-regular fa-copy" onclick="myFunction('productArticle1')" style="cursor: pointer;"
+                <i id='send1' class="fa-regular fa-copy" onclick="myFunction('productArticle1')" style="cursor: pointer;"
                     title="Скопировать"></i>
             </div>
             <div id="insert"></div>
         </div>
 
         <div class="row row-cols-auto" style="margin-top: 30px">
+            <div class="col containerimages" style="margin: 0;">
+                <!-- Thumbnail images -->
+                <div style="margin-right: 10px;">
+                    {% for image in product.images.all %}
+                    {% if image %}
+                    <div class="row" style="margin-bottom: 5px;">
+                        <div class="column">
+                            <img class="demo cursor" src="{{ image.image.url }}"
+                                onclick="currentSlide({{forloop.counter}})" width="80" alt="Image"
+                                style="border-radius: 15px;">
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
 
+                <!-- Full-width images with number text -->
+                <div style="width: 330px; position: relative;">
+                    {% for image in product.images.all %}
+                    {% if image %}
+                    <div class="mySlides">
+                        <img src="{{ image.image.url }}" style="width: 330px; border-radius: 10px;">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    <!-- Next and previous buttons -->
+                    <button class="carousel-control-prev" type="button" onclick="plusSlides(-1)">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" onclick="plusSlides(1)">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Следующий</span>
+                    </button>
+                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+                </div>
+            </div>
             <!-- old variant -->
             <!-- <div>
                 <div class="col" style="margin-bottom: 20px;">
@@ -202,8 +202,8 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 line-height: 17px;'>
-                                {{ product.id }} <i id="send" class="fa-regular fa-copy"
-                                    onclick="myFunction('productArticle1')" style="cursor: pointer;"
+                                <span id="productArticle2"></span>{{ product.id }} <i id="send2" class="fa-regular fa-copy"
+                                    onclick="myFunction('productArticle2')" style="cursor: pointer;"
                                     title="Скопировать"></i>
                                 <div id="insert"></div>
                             </td>
@@ -387,14 +387,12 @@
         if (insert != null) insert.textContent = text;
         else alert('Функция insertText() обратилась к несуществующему элементу с id="insert"');
     }
-    window.onload = function () {
-        var send = document.getElementById('send');
-        if (send != null) send.onclick = insertText;
-        else alert('Элемент с id="send" не существует! ');
-    }
-</script>
+    // window.onload = function () {
+    //     var send = document.getElementById();
+    //     if (send != null) send.onclick = insertText;
+    //     else alert('Элемент с id="send" не существует! ');
+    // }
 
-<script>
     var slideIndex = 1;
     showSlides(slideIndex);
 
@@ -426,4 +424,5 @@
         captionText.innerHTML = dots[slideIndex - 1].alt;
     }
 </script>
+
 {% endblock content %}
