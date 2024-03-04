@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from users.models import User
 from django import forms
@@ -67,3 +67,25 @@ class UserRegistrationForm(UserCreationForm):
                 "Не совпадают",
                 code='password_mismatch',
             ))
+
+
+class UserProfileForm(UserChangeForm):
+    CHOICES = {"0": "Муж.", "1": "Жен."}
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control-label'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control-label'}))
+    phone = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control-label', 'maxlength': '13', 'readonly': True}),
+        error_messages={
+            "required": "Пожалуйста, введите номер телефона!"
+        }, )
+    email = forms.CharField(widget=forms.EmailInput(
+        attrs={'class': 'form-control-label', }),
+        error_messages={
+            "required": "Пожалуйста, введите email адрес!",
+            "invalid": "Введите email адрес в формате example@email.ru"
+        }, )
+    gender = forms.ChoiceField(widget=forms.RadioSelect(), required=False, choices=CHOICES)
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'phone', 'email', 'gender')
