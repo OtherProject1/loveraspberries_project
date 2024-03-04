@@ -80,6 +80,7 @@
     font-weight: 400;
     line-height: 1.2;
 }
+
 .item-payments {
     flex-wrap: wrap;
     align-items: center;
@@ -87,4 +88,61 @@
     margin-top: 5px;
     margin-bottom: 16px;
     display: flex;
+}
+
+.nav_details .nav:not(.details) {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+}
+
+.nav_details .nav:not(.details):hover {
+    color: rgb(201, 17, 170);
+}
+
+.nav_details .details {
+    color: black;
+    background-color: rgb(244, 244, 248);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.nav_details ul li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 5px;
+    padding: 3px;
+}
+
+.title_nav {
+    margin: 0;
+    padding: 4px;
+}
+
+.nav_details {
+    margin-top: 50px;
+}
+
+.row .gender label {
+    color: black;
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
+.row.gender input[type="radio"] {
+    display: inline-block;
+    margin-right: 10px;
 }

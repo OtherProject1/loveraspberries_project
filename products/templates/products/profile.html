@@ -24,17 +24,19 @@
                                 <img src="\static\products\images\avatar.png" alt="" width="40" height="40"
                                      style="border-radius: 100; margin-right: 10px;">
                             </div>
-                            <div>
-                                <a href="{% url 'products:details' %}" style="color: black;">
-                                    <h5 class="card-title">Имя Фамилия</h5>
-                                </a>
-                                <p style="margin-bottom: 0;">+375 29 292-92-92</p>
-                                <p>profile@gmail.com</p>
-                            </div>
-                        </div>
-                        <div style="font-size: small;">
-                            <a href="{% url 'users:logout' %}" style="color: black;">Выйти</a>
-                        </div>
+                            {% if user.is_authenticated %}
+                                <div>
+                                    <a href="{% url 'products:details' %}" style="color: black;">
+                                        <h5 class="card-title">{{ users.first_name }} {{ users.last_name }}</h5>
+                                    </a>
+                                    <p style="margin-bottom: 0;">{{ users.phone }}</p>
+                                    <p>{{ users.email }}</p>
+                                </div>
+                                </div>
+                                <div class="logout">
+                                    <a href="{% url 'users:logout' %}">Выйти</a>
+                                </div>
+                            {% endif %}
                     </div>
                     <div class="profile-user__notice">
                         <a href="#" style="color: black;"><i class="fa-regular fa-bell fa-rotate-by"

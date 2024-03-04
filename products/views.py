@@ -1,6 +1,5 @@
-from django.contrib.auth.views import LoginView
-from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
 from .models import Category, SubCategory
@@ -8,13 +7,14 @@ from django.views.generic import ListView, DetailView
 from .mixins import BaseMixin
 from products.models import Product
 from django.db.models import Avg, Count
-
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.models import User
+from users.forms import UserProfileForm
 
 context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
            'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards,
            }
+
 
 class MainView(BaseMixin, ListView):
     model = Product
@@ -44,7 +44,8 @@ class ProductDetail(BaseMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
         context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
-        context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(count=Count('rating'))[::-1]
+        context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(
+            count=Count('rating'))[::-1]
         print(context['every_counts_stars'])
         return context
 
@@ -81,6 +82,8 @@ def favourites_products(request):
 def profile(request):
     context['is_auth'] = True
     context['title'] = 'Профиль'
+    auth_user = User.objects.get(username=request.user.username)
+    context['users'] = auth_user
     return render(request, 'products/profile.html', context)
 
 
@@ -105,8 +108,17 @@ def history(request):
 
 
 def details(request):
-    context['title'] = 'Личные данные'
-    return render(request, 'products/details.html', context)
+    if request.method == 'POST':
+        form = UserProfileForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('products:details'))
+        else:
+            print(form.errors)
+    else:
+        context['title'] = 'Личные данные'
+        context['form'] = UserProfileForm(instance=request.user)
+        return render(request, 'products/details.html', context)
 
 
 def payment_methods(request):
