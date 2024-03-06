@@ -1,0 +1,154 @@
+{% extends 'products/base.html' %}
+{% load custom_tags %}
+
+{% block content %}
+
+<div class="catalog_content" style="margin-top: 50px">
+    <div class="dropdown product" style="margin-left: 0">
+        <div style="display: flex;">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {{ subcategory.category }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for product in subcategory.category.subcategory_set.all %}
+                <li><a class="dropdown-item" href="{{ product.get_absolute_url }}">{{ product.name }} </a></li>
+                {% endfor %}
+            </ul>
+            <span> {{ subcategory }}</span>
+            <div class="vendor" style="display: flex; justify-content: end; align-items: center; margin-left: auto;">
+                <div>
+                    <span data-text="strProductCodeShort">Арт.</span>
+                    <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
+                </div>
+                <div>
+                    <i id='send1' class="fa-regular fa-copy" onclick="myFunction('productArticle1')"
+                        style="cursor: pointer;" title="Скопировать"></i>
+                </div>
+                <div id="insert"></div>
+            </div>
+        </div>
+
+        <div style="display: flex; padding-top: 10px;">
+            <div>
+                <div style="display: flex; margin-top: 10px;">
+                    <div style="margin-right: 20px;">
+                        <span style="font-size: 60px;">{{ product_avg_rating|floatformat }}</span>
+                    </div>
+                    {% if all_count_reviews %}
+                    <div>
+                        {% for value in '54321'|make_list %}
+                        {% custom_range value as stars %}
+                        <div style="display: flex; margin-left: auto; margin-right: 0;">
+                            <div style="display: flex; justify-content: flex-end; width: 70px; align-content: end;">
+                                {% for star in stars %}
+                                <div>
+                                    <i class="fa-solid fa-star fa-2xs"></i>
+                                </div>
+                                {% endfor %}
+                            </div>&ensp;
+                            <div class="rating_list_wrapper">
+                                {% width_line_rating product.pk value all_count_reviews as rating %}
+                                <div class="rating_list_line" style="width: {{ rating.1|floatformat }}%"></div>
+                            </div>
+                            <div>
+                                &ensp;{{ rating.0 }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div style="display: flex; flex-wrap: wrap;">
+                    {% for review in reviews %}
+                    <div class="card" style="border-radius: 20px; margin: 5px; width: 48%; background: #ede7ff83;">
+                        <div class="card-body">
+                            <div style="display: flex; margin-bottom: 10px;">
+                                <div>
+                                    {% custom_range review.rating as rating %}
+                                    {% for star in rating %}
+                                    <i class="fa-solid fa-star fa-2xs"></i>
+                                    {% endfor %}
+                                    &#8226;
+                                    {{ review.user.first_name }}, {{ review.date|date:"j b Y" }} г.
+                                </div>
+                            </div>
+                            {% if review.images.all %}
+                            <div style="display: flex;">
+                                {% for image in review.images.all %}
+                                <img src="{{ image.image.url }}" alt="" width="50" height="50"
+                                    style="margin: 4px; border-radius: 10%;">
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <div class="review_content">
+                                <p class="card-text">{{ review.description }}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col" style="cursor: pointer; margin-bottom: 20px;">
+                <div style="position: sticky; top: 0;">
+                    <div class="card border-0" style="width: 247px; height: 467px;">
+                        <a href="#addtofavourites">
+                            <i class="fa-regular fa-heart fa-lg add_to_favourite"
+                                style="color: rgb(255, 255, 255); position: absolute; top: 10px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
+                        <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
+                            <div class="carousel-inner">
+                                {% for image in product.images.all %}
+                                {% if image %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <div class="image-wrapper">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
+                                                style="border-radius: 10px; width: 330px;" alt="Image">
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carousel-{{ product.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Предыдущий</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carousel-{{ product.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Следующий</span>
+                            </button>
+                        </div>
+                        <div class="card-body"
+                            style="overflow: hidden; padding-top: 5px; padding-bottom: 0px; padding-left: 0; margin-top: 0;">
+                            <h5 class="card-title" style="font-size: 24px; margin-top: 10px">
+                                <b>{{ product.price }} р.</b>
+                            </h5>
+                            <p style="margin: 0; font-size: small;"><small><b>Завтра</b></small></p>
+                            <p class="card-text" style="margin-bottom: 0; white-space: nowrap; margin-top: 3px;">
+                                <span class="blur" style="width: 250px">{{ product.name }}</span>
+                            </p>
+                            <div style="display: flex;">
+                                <!-- <div class="star-rating">
+                                <div class="star" style="background-color: rgb(42, 44, 58);"></div>
+                            </div> -->
+                                <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
+                                            class="fa-solid fa-star fa-sm"></i>{{ product.rating }} &#8226;
+                                        {{ product.review }} отзывов</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary-link" style="background-color: rgb(51, 56, 124);"
+                        onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
+                        value="Нажми на меня!" />В корзину</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -66,7 +66,6 @@ class CatalogListView(BaseMixin, ListView):
     def get_queryset(self):
         queryset = super(CatalogListView, self).get_queryset()
         subcategory_slug = self.kwargs.get('subcategory_slug')
-        # Получаем id категории
         subcategory = SubCategory.objects.get(slug=subcategory_slug)
         subcategory_id = subcategory.id
         return queryset.filter(subcategory_id=subcategory_id) if subcategory_slug else queryset
