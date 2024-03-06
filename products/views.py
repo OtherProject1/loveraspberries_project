@@ -44,9 +44,8 @@ class ProductDetail(BaseMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['subcategory'] = SubCategory.objects.get(slug=self.kwargs['subcategory_slug'])
         context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
-        context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(
-            count=Count('rating'))[::-1]
-        print(context['every_counts_stars'])
+        context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(count=Count('rating'))[::-1]
+        context['all_count_reviews'] = context['product'].reviews.all().count()
         return context
 
 
@@ -67,7 +66,6 @@ class CatalogListView(BaseMixin, ListView):
     def get_queryset(self):
         queryset = super(CatalogListView, self).get_queryset()
         subcategory_slug = self.kwargs.get('subcategory_slug')
-        # Получаем id категории
         subcategory = SubCategory.objects.get(slug=subcategory_slug)
         subcategory_id = subcategory.id
         return queryset.filter(subcategory_id=subcategory_id) if subcategory_slug else queryset

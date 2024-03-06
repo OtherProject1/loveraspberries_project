@@ -1,58 +1,75 @@
 {% extends 'products/base.html' %}
 {% load custom_tags %}
+
 {% block content %}
+
 <div class="catalog_content" style="margin-top: 50px">
     <div class="dropdown product" style="margin-left: 0">
-        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            {{ subcategory.category }}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            {% for product in subcategory.category.subcategory_set.all %}
-            <li><a class="dropdown-item" href="{{ product.get_absolute_url }}">{{ product.name }} </a></li>
-            {% endfor %}
-        </ul>
-        <span> {{ subcategory }}</span>
-        <div class="vendor" style="display: flex; justify-content: end; align-items: center;">
-            <div>
-                <span data-text="strProductCodeShort">Арт.</span>
-                <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
-            </div>
-            <div>
-                <i class="fa-regular fa-copy" onclick="myFunction('productArticle1')" style="cursor: pointer;"></i>
+        <div style="display: flex;">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {{ subcategory.category }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for product in subcategory.category.subcategory_set.all %}
+                <li><a class="dropdown-item" href="{{ product.get_absolute_url }}">{{ product.name }} </a></li>
+                {% endfor %}
+            </ul>
+            <span> {{ subcategory }}</span>
+            <div class="vendor" style="display: flex; justify-content: end; align-items: center; margin-left: auto;">
+                <div>
+                    <span data-text="strProductCodeShort">Арт.</span>
+                    <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
+                </div>
+                <div>
+                    <i id='send1' class="fa-regular fa-copy" onclick="myFunction('productArticle1')"
+                        style="cursor: pointer;" title="Скопировать"></i>
+                </div>
+                <div id="insert"></div>
             </div>
         </div>
-
         <div class="row row-cols-auto" style="margin-top: 30px">
-            <div class="col" style="margin-bottom: 20px;">
-                <div class="card border-0" style="width: 500px; height: 700px">
-                    <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
-                        <div class="carousel-inner">
-                            {% for image in product.images.all %}
-                            {% if image %}
-                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="image-wrapper">
-                                    <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
-                                        style="border-radius: 10px; width: 330px;" alt="Image">
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% endfor %}
+            <div class="col containerimages" style="margin: 0;">
+                <!-- Thumbnail images -->
+                <div class="scrollimagesdiv">
+                    {% for image in product.images.all %}
+                    {% if image %}
+                    <div class="row" style="margin-bottom: 5px;">
+                        <div class="column">
+                            <img class="demo cursor" src="{{ image.image.url }}"
+                                onclick="currentSlide({{forloop.counter}})" width="80" alt="Image"
+                                style="border-radius: 15px;">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ product.id }}"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Предыдущий</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ product.id }}"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Следующий</span>
-                        </button>
                     </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                <!-- Full-width images with number text -->
+                <div style="width: 330px; position: relative;">
+                    {% for image in product.images.all %}
+                    {% if image %}
+                    <div class="mySlides">
+                        <img src="{{ image.image.url }}" style="width: 330px; border-radius: 10px;">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    <!-- Next and previous buttons -->
+                    <button class="carousel-control-prev" type="button" onclick="plusSlides(-1)">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" onclick="plusSlides(1)">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Следующий</span>
+                    </button>
+                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
                 </div>
             </div>
-            <div class="col" style="margin-bottom: 20px;">
+
+            <div class="col" style="margin-bottom: 20px; max-width: 450px;">
                 <div class="card border-0">
                     <div class="carousel-inner">
                         <h3>{{ product }}</h3>
@@ -142,8 +159,10 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 line-height: 17px;'>
-                                {{ product.id }} <i class="fa-regular fa-copy" onclick="myFunction('productArticle1')"
-                                    style="cursor: pointer;"></i>
+                                <span id="productArticle2"></span>{{ product.id }} <i id="send2"
+                                    class="fa-regular fa-copy" onclick="myFunction('productArticle2')"
+                                    style="cursor: pointer;" title="Скопировать"></i>
+                                <div id="insert"></div>
                             </td>
                         </tr>
                         {% for detail in product.details.all|dictsort:"detail.name" %}
@@ -237,7 +256,7 @@
         <div>
             <div style="display: flex;">
                 <div class="delivery" style="border-bottom: 2px solid #000; width: max-content;">
-                    <b>Отзывы <span style="color: gray; font-size: large;">{{ product.reviews.all|length}}</span></b>
+                    <b>Отзывы <span style="color: gray; font-size: large;">{{ all_count_reviews }}</span></b>
                 </div>
                 <div class="delivery">
                     <a href="#" style="color: #000;">
@@ -249,9 +268,10 @@
                 <div style="margin-right: 20px;">
                     <span style="font-size: 60px;">{{ product_avg_rating|floatformat }}</span>
                 </div>
+                {% if all_count_reviews %}
                 <div>
-                    {% for value in every_counts_stars %}
-                    {% custom_range value.rating as stars %}
+                    {% for value in '54321'|make_list %}
+                    {% custom_range value as stars %}
                     <div style="display: flex; margin-left: auto; margin-right: 0;">
                         <div style="display: flex; justify-content: flex-end; width: 70px; align-content: end;">
                             {% for star in stars %}
@@ -259,19 +279,24 @@
                                 <i class="fa-solid fa-star fa-2xs"></i>
                             </div>
                             {% endfor %}
+                        </div>&ensp;
+                        <div class="rating_list_wrapper">
+                            {% width_line_rating product.pk value all_count_reviews as rating %}
+                            <div class="rating_list_line" style="width: {{ rating.1|floatformat }}%"></div>
                         </div>
                         <div>
-                            &ensp;&#8226;&ensp;{{ value.count }}
+                            &ensp;{{ rating.0 }}
                         </div>
                     </div>
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
             <div style="display: inline-flex; overflow-x:scroll; width: 100%; height: max-content;">
                 {% for review in product.reviews.all|slice:"10" %}
                 <div class="card"
                     style="background: #f6f6fa; margin: 10px; border-radius: 10px; width: 300px; height: 180px; border-width: 0; flex-shrink: 0;">
-                    <div class="card-body" style="height: 180px; overflow: hidden;">
+                    <div class="card-body card-body-custom" style="height: 180px; overflow: hidden;">
                         <div style="display: flex; margin-bottom: 10px;">
                             <div>
                                 {% custom_range review.rating as rating %}
@@ -298,7 +323,8 @@
                 </div>
                 {% endfor %}
             </div>
-            <div>Все отзывы</div>
+            <div><a href="{% url 'feedbacks:reviews' subcategory.slug product.id %}" style="color: #000;">Все отзывы</a>
+            </div>
         </div>
     </div>
 
@@ -314,5 +340,49 @@
         document.execCommand("copy");
         document.body.removeChild(input_temp);
     }
+
+    function insertText() {
+        var text = 'Скопировано';
+        var insert = document.getElementById('insert');
+        if (insert != null) insert.textContent = text;
+        else alert('Функция insertText() обратилась к несуществующему элементу с id="insert"');
+    }
+    // window.onload = function () {
+    //     var send = document.getElementById();
+    //     if (send != null) send.onclick = insertText;
+    //     else alert('Элемент с id="send" не существует! ');
+    // }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        // var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
 </script>
+
 {% endblock content %}

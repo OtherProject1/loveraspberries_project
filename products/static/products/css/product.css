@@ -1,30 +1,116 @@
 .dropdown span {
-    font-size: 15px;
-    margin-top: 3px;
-    margin-bottom: 0;
+  font-size: 15px;
+  margin-top: 3px;
+  margin-bottom: 0;
 }
 
 .vendor {
-    text-align: end;
+  text-align: end;
 }
 
 .carousel-inner i {
-    font-size: 12px;
+  font-size: 12px;
 
 }
 
 .review_content {
-    text-overflow: clip;
-    max-height: 80%;
-    position: relative;
-    overflow: hidden;
+  text-overflow: clip;
+  max-height: 80%;
+  position: relative;
+  overflow: hidden;
 }
-.card-body::after {
-    content: "";
-    background: linear-gradient(270deg, #f6f6fa, #f6f6fa1a);
-    width: 80%;
-    height: 26px;
-    display: block;
-    position: absolute;
-    bottom: 4px;
+
+.card-body-custom::after {
+  content: "";
+  background: linear-gradient(270deg, #f6f6fa, #f6f6fa1a);
+  width: 80%;
+  height: 26px;
+  display: block;
+  position: absolute;
+  bottom: 4px;
+}
+
+.rating_list_wrapper {
+  background-color: #f0ecf4;
+  height: 2px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.rating_list_line {
+  background-color: #000;
+  height: 2px;
+}
+
+#insert {
+  font-size: 10px;
+}
+
+
+/* Position the image container (needed to position the left and right arrows) */
+.containerimages {
+  display: inline-flex;
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.scrollimagesdiv {
+  margin-right: 10px;
+  height: 460px;
+  overflow-y: scroll;
+}
+
+.scrollimagesdiv::-webkit-scrollbar { width: 0; }
+
+.nav-right-side {
+  position: sticky; /* Fixed Sidebar (stay in place on scroll) */
+  top: 24px;
 }
