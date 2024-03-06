@@ -12,11 +12,11 @@ class Card(models.Model):
 
 
 class User(AbstractUser):
-    MAN = 1
-    WOMAN = 2
+    MAN = "0"
+    WOMAN = "1"
     GENDER = (
-        (MAN, 'муж.'),
-        (WOMAN, 'жен.')
+        (MAN, 'Муж.'),
+        (WOMAN, 'Жен.')
     )
     phone = models.CharField(max_length=13, null=True, blank=True)
     gender = models.CharField(default=MAN, choices=GENDER, max_length=1, null=True, blank=True)

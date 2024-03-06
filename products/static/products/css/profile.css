@@ -45,3 +45,15 @@
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
 }
+.logout {
+    font-size: small;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+.logout a {
+    color: black;
+}
+.logout a:hover {
+    color: black;
+    text-decoration-line: underline;
+}
