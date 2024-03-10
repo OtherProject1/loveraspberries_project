@@ -12,6 +12,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/bfa770dae3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     {# Подключение static-files #}
     <link rel="stylesheet" href="{% static 'products/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/payment_methods.css' %}">
@@ -70,9 +71,9 @@
                 </figure>
             </a>
 
-            <a class="navbar-links" href="{% url 'products:shopping_cart' %}">
+            <a class="navbar-links" href="{% url 'basket:basket' %}">
                 <figure><img src="{% static 'products/images/header/basket.png' %}" alt="basket" width="30" height="30">
-                    <figcaption>Корзина</figcaption>
+                    <figcaption>Корзина{% if all_basket_products %}: {{all_basket_products}} {% endif %}</figcaption>
                 </figure>
             </a>
             {# Окно вне холста#}

@@ -1,9 +1,6 @@
-from typing import Iterable
 import pytils
 from django.db import models
 from django.urls import reverse
-from django.utils.text import slugify
-
 
 # class SlugMixin:
 # def save(self, *args, **kwargs):
@@ -86,3 +83,4 @@ class ProductDetail(models.Model):
     detail = models.ForeignKey(to=Details, on_delete=models.SET_NULL, null=True, related_name='product_details')
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='details')
     description = models.CharField(max_length=255)
+

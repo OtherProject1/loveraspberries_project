@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-xr-64dk$bzivie+_j-e3f9ozhm+4od(e@+1loo*ycc*%p4-*^+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', ]
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'products',
     'users',
     'reviews',
+    'basket',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +124,5 @@ MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = "/"

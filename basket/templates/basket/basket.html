@@ -1,0 +1,51 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+<div style="text-align: center;">
+    <h1>Корзина</h1>
+</div>
+<div style="display: flex; justify-content: space-between;">
+    <div class="list-group" style="justify-content: space-between;">
+        {% for product in basket_products %}
+        <div style="display: flex; margin-bottom: 10px;">
+            <div style="margin-right: 10px;">
+                <img src="{{ product.product.images.all.1.image.url }}" alt="Image" height="100" width="70"
+                    style="border-radius: 10px;">
+            </div>
+            <div style="margin-right: 10px;">
+                <h7 class="mb-1">{{ product.product.name }}</h7>
+                <p style="margin: 0;"><small>loveraspberry</small></p>
+                <small class="text-muted">И какой-то приглушенный мелкий шрифт.</small>
+                <p class="mb-1">Количество: {{ product.quantity }}</p>
+            </div>
+            <div style="width: max-content; text-align: right;">{{ product.product.price }} р.</div>
+            <div class="form-check">
+                {% if product.selected_for_purchase %}
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                {% else %}
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="card text-bg-dark mb-3" style="width: 18rem; align-self: flex-start;">
+        <div class="card-body">
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-weight: bold;">Итого</span> <span style="font-weight: bold;">ххх р.</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span>1 товар</span> <span>хх р.</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span>Доставка</span> <span>-</span>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button type="button" class="btn btn-primary" style="width: 100%;">Оплатить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
