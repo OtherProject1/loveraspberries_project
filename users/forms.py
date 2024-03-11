@@ -84,7 +84,15 @@ class UserProfileForm(UserChangeForm):
             "required": "Пожалуйста, введите email адрес!",
             "invalid": "Введите email адрес в формате example@email.ru"
         }, )
-    gender = forms.ChoiceField(widget=forms.RadioSelect(), required=False, choices=CHOICES)
+    gender = forms.ChoiceField(widget=forms.RadioSelect(attrs={'class': 'btn-check'}), required=False,
+                               choices=CHOICES, )
+
+    def __init__(self, *args, **kwargs):
+        initial = kwargs.get('initial', {})
+        if 'instance' in kwargs:
+            initial['gender'] = str(kwargs['instance'].gender)  # Предположим, что пол хранится как строка
+        kwargs['initial'] = initial
+        super(UserProfileForm, self).__init__(*args, **kwargs)
 
     class Meta:
         model = User
