@@ -8,6 +8,9 @@ from django.views.generic import ListView, DetailView
 from .mixins import BaseMixin
 from products.models import Product
 from django.db.models import Avg, Count
+from basket.models import Basket
+from django.contrib.auth.models import AnonymousUser
+
 from users.models import User
 from users.forms import UserProfileForm
 import sweetify
@@ -17,6 +20,8 @@ context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subc
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards,
            }
 
+def page_not_found(request, exception):
+    return render(request, 'products/page_not_found.html', status=404)
 
 class MainView(BaseMixin, ListView):
     model = Product
@@ -26,6 +31,9 @@ class MainView(BaseMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(MainView, self).get_context_data()
         context['title'] = 'LoveRaspberry'
+        if not isinstance(self.request.user, AnonymousUser):
+            context['basket_products'] = Basket.objects.filter(user=self.request.user)
+            context['all_basket_products'] = context['basket_products'].count()
         return context
 
 
