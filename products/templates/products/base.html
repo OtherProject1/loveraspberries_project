@@ -46,25 +46,25 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                 aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search"
-                   style="width: 320px;">
-            <button type="submit" class="btn btn-light"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <a class="navbar-links" href="{% url 'products:delivery' %}">
-            <figure><img src="{% static 'products/images/header/delivery.png' %}" alt="delivery" width="30"
-                         height="30">
-                <figcaption>Доставки</figcaption>
-            </figure>
-        </a>
-        <a class="navbar-links" href="{% url 'products:favourites' %}">
-            <figure><img src="{% static 'products/images/header/favorites.png' %}" alt="favorite" width="30"
-                         height="30">
-                <figcaption>Избранное</figcaption>
-            </figure>
-        </a>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search"
+                    style="width: 320px;">
+                <button type="submit" class="btn btn-light"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <a class="navbar-links" href="{% url 'products:delivery' %}">
+                <figure><img src="{% static 'products/images/header/delivery.png' %}" alt="delivery" width="30"
+                        height="30">
+                    <figcaption>Доставки</figcaption>
+                </figure>
+            </a>
+            <a class="navbar-links" href="{% url 'basket:favorites' %}">
+                <figure><img src="{% static 'products/images/header/favorites.png' %}" alt="favorite" width="30"
+                        height="30">
+                    <figcaption>Избранное</figcaption>
+                </figure>
+            </a>
 
         <a class="navbar-links" {% if request.user.is_authenticated %} href="{% url 'products:profile' %}" {% endif %}
                 {% if not request.user.is_authenticated %} href="{% url 'users:login' %}" {% endif %}>
@@ -94,8 +94,7 @@
                     <ul class="navbar-nav justify-content-center ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ item.slug }}"
-                               style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas" data-bs-target={{ '#'
-                                    |add:item.slug }}>
+                                style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
                                 {{ item.name }}
                             </a>
                         </li>

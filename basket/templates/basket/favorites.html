@@ -3,14 +3,11 @@
 
 {% block content %}
 <div class="row row-cols-auto" style="margin-top: 30px">
-    {% for product in object_list %}
+    {% for product in favorites_products %}
     <div class="col" style="cursor: pointer; margin-bottom: 20px;">
         <div class="card border-0" style="width: 247px; height: 467px">
             <a href="{% url 'basket:add_product_to_favorites' product.pk %}">
-                
-                
-                
-                <i class="{% if product.pk in favorites_products %}fa-solid{% else %}fa-regular{% endif %} fa-heart fa-lg add_to_favourite"
+                <i class="fa-regular fa-heart fa-lg add_to_favourite"
                     style="color: rgb(255, 255, 255); position: absolute; top: 10px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
             <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
                 <div class="carousel-inner">
