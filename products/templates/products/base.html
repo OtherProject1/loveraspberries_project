@@ -57,7 +57,7 @@
                     <figcaption>Доставки</figcaption>
                 </figure>
             </a>
-            <a class="navbar-links" href="{% url 'products:favourites' %}">
+            <a class="navbar-links" href="{% url 'basket:favorites' %}">
                 <figure><img src="{% static 'products/images/header/favorites.png' %}" alt="favorite" width="30"
                         height="30">
                     <figcaption>Избранное</figcaption>
@@ -91,8 +91,7 @@
                     <ul class="navbar-nav justify-content-center ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ item.slug }}"
-                                style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas" data-bs-target={{ '#'
-                                |add:item.slug }}>
+                                style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
                                 {{ item.name }}
                             </a>
                         </li>

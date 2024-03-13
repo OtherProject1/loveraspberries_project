@@ -1,3 +1,5 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
@@ -7,7 +9,7 @@ from django.views.generic import ListView, DetailView
 from .mixins import BaseMixin
 from products.models import Product
 from django.db.models import Avg, Count
-from basket.models import Basket
+from basket.models import Basket, Favorites
 from django.contrib.auth.models import AnonymousUser
 
 from users.models import User
@@ -32,6 +34,7 @@ class MainView(BaseMixin, ListView):
         if not isinstance(self.request.user, AnonymousUser):
             context['basket_products'] = Basket.objects.filter(user=self.request.user)
             context['all_basket_products'] = context['basket_products'].count()
+            context['favorites_products'] = list(*list(zip(*Favorites.objects.filter(user=self.request.user).values_list('product'))))
         return context
 
 
