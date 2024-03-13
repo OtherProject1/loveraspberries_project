@@ -10,7 +10,16 @@
 }
 
 .btn-group {
-    margin-top: 20px
+    margin-top: 0;
+    margin-left: 10px;
+    padding: 0;
+    background-color: white;
+}
+
+
+.col-sm-3-gender {
+    flex: 0 0 auto;
+    width: 18%;
 }
 
 .col-sm-3-name {
@@ -21,6 +30,10 @@
 .col-sm-3-surname {
     flex: 0 0 auto;
     width: 18%;
+}
+.col-sm-3 {
+    flex: 0 0 auto;
+    width: 26%;
 }
 
 .form-control-label {
@@ -144,5 +157,10 @@
 
 .row.gender input[type="radio"] {
     display: inline-block;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
+}
+
+.btn-group > .btn {
+    position: relative;
+    flex: none;
 }

@@ -1,5 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
+from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
@@ -14,6 +15,7 @@ from django.contrib.auth.models import AnonymousUser
 
 from users.models import User
 from users.forms import UserProfileForm
+import sweetify
 
 context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
            'navbar': navbar_list, 'footer': footer_list,
@@ -121,9 +123,11 @@ def details(request):
         form = UserProfileForm(instance=request.user, data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Данные успешно изменены!")
             return HttpResponseRedirect(reverse('products:details'))
         else:
-            print(form.errors)
+            messages.error(request, "Проверьте правильность ввода данных!")
+            return HttpResponseRedirect(reverse('products:details'))
     else:
         context['title'] = 'Личные данные'
         context['form'] = UserProfileForm(instance=request.user)

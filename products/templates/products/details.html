@@ -1,5 +1,7 @@
 {% extends 'products/base.html' %}
 {% load static %}
+{% load sweetify %}
+{% sweetify %}
 {% block title %}Личные данные{% endblock %}
 {% block content %}
     <div class="nav_details">
@@ -19,6 +21,15 @@
         <div class="personal-body">
             <form class="row" action="{% url 'products:details' %}" method="post">
                 {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="alert alert-block alert-warning" style="align-content: center">
+                            <span>
+                                <i class="fa-solid fa-triangle-exclamation">
+                                    Проверьте правильность ввода данных
+                                </i>
+                            </span>
+                    </div>
+                {% endif %}
                 <div class="row">
                     <div class="col-sm-3-name">
                         <label for="{{ form.first_name.id_for_label }}" class="form-label">Имя</label>
@@ -28,10 +39,21 @@
                         <label for="{{ form.last_name.id_for_label }}" class="form-label">Фамилия</label>
                         {{ form.last_name }}
                     </div>
-                    <div class="col-6 gender">
-                        <label class="form-label" style="color: #9797af; font-size: 15px">Пол</label>
-                        {{ form.gender }}
+                    <div class="col-sm-3-gender">
+                        <label for="{{ form.gender.id_for_label }}" class="form-label">Пол</label>
+                        <div>
+                            {% for gen_key, gen_value in form.gender.field.choices %}
+                                <label class="btn btn-outline-secondary" style="width: 90px; margin-top:5px; ">
+                                    <input type="radio" id="{{ form.gender.id_for_label }}"
+                                           name="{{ form.gender.html_name }}" value="{{ gen_key }}"
+                                            {% if form.gender.value == gen_key %} checked {% endif %}>
+                                    {{ gen_value }}
+                                </label>
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    {#                    </div>#}
                     <div style="margin-top: 20px">
                         <div class="row">
                             <div class="col-sm-3">
@@ -39,7 +61,8 @@
                                 {{ form.phone }}
                             </div>
                             <div class="col-sm-3">
-                                <label for="{{ form.email.id_for_label }}" class="form-label">Эл. почта</label>
+                                <label for="{{ form.email.id_for_label }}" class="form-label" style="width: 300px">Эл.
+                                    почта</label>
                                 {{ form.email }}
                             </div>
                         </div>
@@ -48,31 +71,81 @@
                 </div>
                 <div class="row" style="margin-top: 20px">
                     <div class="col-5">
-                        <button class="btn btn-outline-dark" type="submit"
+                        <button class="btn btn-outline-dark" type="submit" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
                                 style="width: 250px; height: 40px;">Сохранить изменения
                         </button>
                     </div>
                 </div>
-                {% if not form.errors %}
-                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-                        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header">
-                                <img src="..." class="rounded me-2" alt="...">
-                                <strong class="me-auto">Bootstrap</strong>
-                                <small>11 мин назад</small>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast"
-                                        aria-label="Закрыть"></button>
-                            </div>
-                            <div class="toast-body">
-                                Данные пользователя успешно обновлены
-                            </div>
-                        </div>
-                    </div>
-                {% else %}
-                    {{ form.errors }}
-                {% endif %}
-
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                        <script>
+                            var m = "{{ message }}";
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: m,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        </script>
+                    {% else %}
+                        <script>
+                            var m = "{{ message }}";
+                            Swal.fire({
+                                position: "center",
+                                icon: "error",
+                                title: m,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        </script>
+                    {% endif %}
+                {% endfor %}
+                {#                {% if not non_field_errors %}#}
+                {#                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"#}
+                {#                         aria-hidden="true">#}
+                {#                        <div class="modal-dialog modal-dialog-centered">#}
+                {#                            <div class="modal-content">#}
+                {#                                <div class="modal-header">#}
+                {#                                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>#}
+                {#                                    <button type="button" class="btn-close" data-bs-dismiss="modal"#}
+                {#                                            aria-label="Close"></button>#}
+                {#                                </div>#}
+                {#                                <div class="modal-body">#}
+                {#                                    ...#}
+                {#                                </div>#}
+                {#                                <div class="modal-footer">#}
+                {#                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close#}
+                {#                                    </button>#}
+                {#                                    <button type="button" class="btn btn-primary">Save changes</button>#}
+                {#                                </div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                {% else %}#}
+                {#                    {{ non_field_errors }}#}
+                {#                {% endif %}#}
             </form>
+            {#            <script>#}
+            {#                $(document).ready(function () {#}
+            {#                    $('form').submit(function (e) {#}
+            {#                        e.preventDefault();#}
+            {#                        $.ajax({#}
+            {#                            type: 'POST',#}
+            {#                            url: $(this).attr('action'),#}
+            {#                            data: $(this).serialize(),#}
+            {#                            success: function (response) {#}
+            {#                                $('#exampleModal').modal('show');#}
+            {#                            },#}
+            {#                            error: function (xhr, status, error) {#}
+            {#                                console.log(error);#}
+            {#                            }#}
+            {#                        });#}
+            {#                    });#}
+            {#                });#}
+            {#            </script>#}
+
         </div>
     </div>
     <div class="mycards" style="margin-top: 30px; margin-left: 10px">
@@ -143,7 +216,7 @@
             </div>
             <div class="row button-submit" style="margin-top: 50px">
                 <div class="col">
-                    {# Изменить положение кнопки#}
+                    Изменить положение кнопки
                     <button class="delivery_item_button_submit gradient" type="submit">Привязать</button>
                 </div>
             </div>
