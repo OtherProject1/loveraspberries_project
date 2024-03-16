@@ -1,6 +1,8 @@
 import pytils
 from django.db import models
 from django.urls import reverse
+from django.db.models import Avg
+
 
 # class SlugMixin:
 # def save(self, *args, **kwargs):
@@ -43,8 +45,6 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     subcategory = models.ForeignKey(to=SubCategory, on_delete=models.PROTECT)
-    rating = models.DecimalField(max_digits=2, decimal_places=1, )
-    review = models.PositiveIntegerField(default=0)
 
     # details = models.PositiveIntegerField(default=0) для отображения количества полей характеристики
     def __str__(self):
@@ -52,6 +52,10 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('products:product_page', kwargs={'subcategory_slug': self.subcategory.slug, 'product_id': self.pk})
+    
+    def get_avg_rating(self):
+        avg_rating = self.reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
+        return avg_rating
 
 
 class ProductImages(models.Model):

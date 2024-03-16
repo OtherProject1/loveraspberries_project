@@ -83,26 +83,12 @@ class CatalogListView(BaseMixin, ListView):
         subcategory_id = subcategory.id
         return queryset.filter(subcategory_id=subcategory_id) if subcategory_slug else queryset
 
-
-def favourites_products(request):
-    context['favorites_products'] = favourite_cards
-    context['title'] = 'Избранное'
-    return render(request, 'products/favourites_products.html', context)
-
-
 def profile(request):
     context['is_auth'] = True
     context['title'] = 'Профиль'
     auth_user = User.objects.get(username=request.user.username)
     context['users'] = auth_user
     return render(request, 'products/profile.html', context)
-
-
-def shopping_cart(request):
-    context['title'] = 'Корзина'
-    context['is_auth'] = True
-    context['shopping_cards'] = shopping_cards
-    return render(request, 'products/shopping_cart.html', context)
 
 
 def delivery(request):
