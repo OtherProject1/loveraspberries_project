@@ -61,8 +61,10 @@ class FavoritesView(BaseMixin, ListView):
     context_object_name = 'favorites_products'
 
     def get_queryset(self) -> QuerySet[Any]:
-        return Favorites.objects.filter(user=self.request.user).select_related('product')
+        # return Favorites.objects.filter(user=self.request.user).select_related('product')
+        return Product.objects.filter(favorite__user=self.request.user)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['basket_products'] = Basket.objects.filter(user=self.request.user)
         return context
