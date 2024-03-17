@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from products.mixins import BaseMixin
 from django.contrib.auth.models import AnonymousUser
+from django.db.models import Sum, Count
 
 from .models import Basket, Favorites
 from products.models import Product
@@ -42,6 +43,20 @@ def minus_product_to_basket(request, product_id):
             product_in_basket[0].delete()
     return redirect('products:home')
 
+@login_required()
+def delete_product_from_basket(request, basket_id):
+    '''пока делаю, что в корзину могут добавлять только авторизованные юзеры и при этом страница перезагружается'''
+    product_in_basket = Basket.objects.get(pk=basket_id).delete()
+    return redirect('basket:basket')
+
+@login_required()
+def selected_for_purchase(request, basket_id):
+    '''пока делаю, что в корзину могут добавлять только авторизованные юзеры и при этом страница перезагружается'''
+    basket = Basket.objects.get(pk=basket_id)
+    basket.selected_for_purchase = not basket.selected_for_purchase
+    basket.save()
+    return redirect('basket:basket')
+
 
 class BasketView(BaseMixin, ListView):
     model = Basket
@@ -53,6 +68,9 @@ class BasketView(BaseMixin, ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['favorites_products'] = list(*list(zip(*Favorites.objects.filter(user=self.request.user).values_list('product'))))
+        context['cost_selected_basket_products'] = context['basket_products'].filter(selected_for_purchase=1).aggregate(basket_cost=Sum('product__price'), basket_count_products=Sum('quantity'))
+        print(context['cost_selected_basket_products'])
         return context
 
 class FavoritesView(BaseMixin, ListView):
