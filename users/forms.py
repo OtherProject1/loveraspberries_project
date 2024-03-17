@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.views import PasswordChangeView
+from django.utils.translation import gettext_lazy as _
 from users.models import User
 from django import forms
 
@@ -24,6 +25,9 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(UserCreationForm):
     CHOICES = {'1': "Муж.", '2': "Жен."}
+    error_messages = {
+        'password_mismatch': _('Пароли не совпадают.'),
+    }
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), error_messages={
         "required": "Пожалуйста, введите имя!"
     }, )

@@ -83,12 +83,7 @@ class CatalogListView(BaseMixin, ListView):
         subcategory_id = subcategory.id
         return queryset.filter(subcategory_id=subcategory_id) if subcategory_slug else queryset
 
-def profile(request):
-    context['is_auth'] = True
-    context['title'] = 'Профиль'
-    auth_user = User.objects.get(username=request.user.username)
-    context['users'] = auth_user
-    return render(request, 'products/profile.html', context)
+
 
 
 def delivery(request):
