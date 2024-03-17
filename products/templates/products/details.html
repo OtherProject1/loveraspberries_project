@@ -6,10 +6,10 @@
 {% block content %}
     <div class="nav_details">
         <ul class="title_nav">
-            <li><a href="{% url 'products:profile' %}" class="nav profile"><b>Профиль</b></a></li>
+            <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
             <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
             </li>
-            <li><a href="{% url 'products:favourites' %}" class="nav favourite"><b>Избранное</b></a></li>
+            <li><a href="#" class="nav favourite"><b>Избранное</b></a></li>
             <li><a href="{% url 'products:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
             <li><a href="{% url 'products:details' %}" class="nav details"><b>Личные данные</b></a></li>
         </ul>
@@ -77,31 +77,7 @@
                         </button>
                     </div>
                 </div>
-                {% for message in messages %}
-                    {% if message.tags == 'success' %}
-                        <script>
-                            var m = "{{ message }}";
-                            Swal.fire({
-                                position: "center",
-                                icon: "success",
-                                title: m,
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        </script>
-                    {% else %}
-                        <script>
-                            var m = "{{ message }}";
-                            Swal.fire({
-                                position: "center",
-                                icon: "error",
-                                title: m,
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        </script>
-                    {% endif %}
-                {% endfor %}
+
                 {#                {% if not non_field_errors %}#}
                 {#                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"#}
                 {#                         aria-hidden="true">#}
