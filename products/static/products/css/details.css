@@ -31,6 +31,7 @@
     flex: 0 0 auto;
     width: 18%;
 }
+
 .col-sm-3 {
     flex: 0 0 auto;
     width: 26%;
@@ -103,7 +104,7 @@
     display: flex;
 }
 
-.nav_details .nav:not(.details) {
+.nav_content_details .nav:not(.details) {
     color: black;
     text-align: center;
     text-decoration: none;
@@ -115,11 +116,11 @@
     border-radius: 5px;
 }
 
-.nav_details .nav:not(.details):hover {
+.nav_content_details .nav:not(.details):hover {
     color: rgb(201, 17, 170);
 }
 
-.nav_details .details {
+.nav_content_details .details {
     color: black;
     background-color: rgb(244, 244, 248);
     border: none;
@@ -131,7 +132,7 @@
     border-radius: 5px;
 }
 
-.nav_details ul li {
+.nav_content_details ul li {
     list-style-type: none;
     display: inline;
     margin-right: 5px;
@@ -143,7 +144,7 @@
     padding: 4px;
 }
 
-.nav_details {
+.nav_content_details {
     margin-top: 50px;
 }
 

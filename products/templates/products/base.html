@@ -27,12 +27,12 @@
     <link rel="stylesheet" href="{% static 'products/css/about_us.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/delivery.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/history.css' %}">
-    <link rel="stylesheet" href="{% static 'products/css/../../../users/static/users/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/profile.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/favourite.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/details.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/catalog.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
-    <link rel="stylesheet" href="{% static 'products/css/login.css' %}">
+
     <link rel="stylesheet" href="{% static 'products/css/reviews.css' %}">
 
     <link rel="shortcut icon" href="{% static 'products/images/header/minilogo.png' %}" type="image/png">
@@ -58,7 +58,7 @@
                 <img src="{% static 'products/images/header/delivery.svg' %}" alt="delivery" width="30" height="30"
                      class="first-icon" style="filter: brightness(0) invert(1);">
                 <img src="{% static 'products/images/header/delivery_full.svg' %}" alt="delivery_full" width="30"
-                     height="30" class="second-icon" style="filter: brightness(0) invert(1); margin-left: 20px">
+                     height="30" class="second-icon" style="filter: brightness(0) invert(1); margin-left: 19px">
                 <figcaption>Доставки</figcaption>
             </figure>
         </a>
@@ -80,7 +80,7 @@
                 <img src="{% static 'products/images/header/person.svg' %}" alt="profile" width="30" height="30"
                      style="filter: brightness(0) invert(1);" class="first-icon">
                 <img src="{% static 'products/images/header/person_full.svg' %}" alt="profile" width="30" height="30"
-                     style="filter: brightness(0) invert(1); margin-left: 19px" class="second-icon">
+                     style="filter: brightness(0) invert(1); margin-left: 18px" class="second-icon">
                 <figcaption>Профиль</figcaption>
             </figure>
         </a>
@@ -90,9 +90,9 @@
                 <img src="{% static 'products/images/header/shopping_cart.svg' %}" alt="basket" width="30"
                      height="30" style="filter: brightness(0) invert(1);" class="first-icon">
                 <img src="{% static 'products/images/header/shopping_cart_full.svg' %}" alt="basket" width="30"
-                     height="30" style="filter: brightness(0) invert(1); margin-left: 24px" class="second-icon">
+                     height="30" style="filter: brightness(0) invert(1); margin-left: 16px" class="second-icon">
                 {% if basket_counter %}
-                    <figcaption>Корзина: {{ basket_counter }}</figcaption>
+                    <figcaption class="button_basket" data-count="{{ basket_counter }}">Корзина</figcaption>
                 {% else %}
                     <figcaption>Корзина</figcaption>
                 {% endif %}
@@ -154,7 +154,8 @@
 <section class="body">
     <div class="container">
         <div class="row">
-            {% block content %}{% endblock %}
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 </section>

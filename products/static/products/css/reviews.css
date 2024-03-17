@@ -1,4 +1,4 @@
-.nav_reviews .nav:not(.reviews) {
+.nav_content_reviews .nav:not(.reviews) {
     color: black;
     text-align: center;
     text-decoration: none;
@@ -10,11 +10,11 @@
     border-radius: 5px;
 }
 
-.nav_reviews .nav:not(.reviews):hover {
+.nav_content_reviews .nav:not(.reviews):hover {
     color: rgb(201, 17, 170);
 }
 
-.nav_reviews .reviews {
+.nav_content_reviews .reviews {
     color: black;
     background-color: rgb(244, 244, 248);
     border: none;
@@ -26,18 +26,19 @@
     border-radius: 5px;
 }
 
-.nav_reviews ul li {
+.nav_content_reviews ul li {
     list-style-type: none;
     display: inline;
     margin-right: 5px;
     padding: 3px;
 }
+
 .title_nav {
     margin: 0;
     padding: 4px;
 }
 
-.nav_reviews {
+.nav_content_reviews {
     margin-top: 50px;
 }
 

@@ -2,7 +2,16 @@
 {% load custom_tags %}
 
 {% block content %}
-
-{% cards_of_products favorites_products user.id %}
+    <div class="nav_content_favourites">
+        <ul class="title_nav">
+            <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
+            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
+                покупки</b></a></li>
+            <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
+            <li><a href="{% url 'products:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
+            <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
+        </ul>
+    </div>
+    {% cards_of_products favorites_products user.id %}
 
 {% endblock content %}

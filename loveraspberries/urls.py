@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('users.urls', namespace='users')),
     path('', include('reviews.urls', namespace='reviews')),
     path('', include('basket.urls', namespace='basket')),
+    path('', include('orders.urls', namespace='orders')),
 ]
 
 handler404 = page_not_found

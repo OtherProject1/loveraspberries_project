@@ -10,6 +10,9 @@ class Basket(models.Model):
     quantity = models.IntegerField(default=1)
     selected_for_purchase = models.BooleanField(default=True)
 
+    def sum(self):
+        return self.product.price * self.quantity
+
 
 class Favorites(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

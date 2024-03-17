@@ -11,7 +11,6 @@ urlpatterns = [
     path('profile/delivery/', delivery, name='delivery'),
     path('profile/history/', history, name='history'),
     path('profile/reviews/', reviews, name='reviews'),
-    path('profile/details/', details, name='details'),
     path('services/payment-methods', payment_methods, name='payment_methods'),
     path('services/item-return', item_return, name='item_return'),
     path('services/sale-rules', sale_rules, name='sale_rules'),

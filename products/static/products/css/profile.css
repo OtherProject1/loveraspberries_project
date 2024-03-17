@@ -1,4 +1,4 @@
-.nav_profile ul li {
+.nav_content_profile ul li {
     list-style-type: none;
     display: inline;
     margin-right: 5px;
@@ -10,15 +10,15 @@
     padding: 4px;
 }
 
-.nav_profile {
+.nav_content_profile {
     margin-top: 50px;
 }
 
-.nav_profile {
+.nav_content_profile {
     margin-top: 50px;
 }
 
-.nav_profile .nav:not(.profile) {
+.nav_content_profile .nav:not(.profile) {
     color: black;
     text-align: center;
     text-decoration: none;
@@ -30,11 +30,11 @@
     border-radius: 5px;
 }
 
-.nav_profile .nav:not(.profile):hover {
+.nav_content_profile .nav:not(.profile):hover {
     color: rgb(201, 17, 170);
 }
 
-.nav_profile .profile {
+.nav_content_profile .profile {
     color: black;
     background-color: rgb(244, 244, 248);
     border: none;

@@ -4,22 +4,22 @@
 {% sweetify %}
 {% block title %}Личные данные{% endblock %}
 {% block content %}
-    <div class="nav_details">
+    <div class="nav_content_details">
         <ul class="title_nav">
-            <li><a href="{% url 'products:profile' %}" class="nav profile"><b>Профиль</b></a></li>
-            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
-            </li>
-            <li><a href="{% url 'products:favourites' %}" class="nav favourite"><b>Избранное</b></a></li>
+            <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
+            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
+                покупки</b></a></li>
+            <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
             <li><a href="{% url 'products:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
-            <li><a href="{% url 'products:details' %}" class="nav details"><b>Личные данные</b></a></li>
+            <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
         </ul>
     </div>
     <div class="delivery">
-        <a href="{% url 'products:details' %}" class="link_delivery"><b>Личные данные</b></a>
+        <a href="{% url 'users:details' %}" class="link_delivery"><b>Личные данные</b></a>
     </div>
     <div class="container-fluid">
         <div class="personal-body">
-            <form class="row" action="{% url 'products:details' %}" method="post">
+            <form class="row" action="{% url 'users:details' %}" method="post">
                 {% csrf_token %}
                 {% if form.non_field_errors %}
                     <div class="alert alert-block alert-warning" style="align-content: center">
@@ -160,68 +160,68 @@
             </div>
         </div>
     </div>
-    <div class="button-add" style="margin-left: 10px">
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#NewCard"
-                aria-controls="NewCard">+ Новая карта
-        </button>
-    </div>
-    <div class="offcanvas offcanvas-end " tabindex="-1" id="NewCard" aria-labelledby="NewCardLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="NewCardLabel"><b>Новая карта</b></h5>
-            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Закрыть"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="row">
-                <div class="col">
-                    <label for="validationDefault01" class="form-label">Номер карты</label>
-                    <input type="text" class="form-control-label" id="validationDefault01"
-                           pattern="^(\d{4})(\d{4})(\d{4})(\d{4})$" maxlength="19" required
-                           oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\d{4})/g, '$1 ')"
-                           placeholder="0000 0000 0000 0000">
-                </div>
-
-
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label for="validationDefault01" class="form-label">ММ</label>
-                    <input type="text" class="form-control-label" id="validationDefault01" pattern="[0-9]{2}"
-                           maxlength="2"
-                           required>
-                </div>
-                <div class="col-sm-3">
-                    <label for="validationDefault01" class="form-label">ГГ</label>
-                    <input type="text" class="form-control-label" id="validationDefault01" pattern="[0-9]{2}"
-                           maxlength="2"
-                           required>
-                </div>
-                <div class="col-sm-3" style="margin-left: 90px">
-                    <label for="validationDefault01" class="form-label">CVC</label>
-                    <input type="text" class="form-control-label" id="validationDefault01" pattern="[0-9]{3}"
-                           maxlength="3"
-                           required>
-                </div>
-            </div>
-
-            <div class="body-payments" style="margin-top: 20px">
-                <p>Принимаем карты</p>
-                <div class="item-payments">
-                    {% for item in logo %}
-                        <div class="payments__item" style="margin-top: 10px">
-                            <img src="{% static item.img %}" alt="{{ item.alt }}" height="18px">
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="row button-submit" style="margin-top: 50px">
-                <div class="col">
-                    Изменить положение кнопки
-                    <button class="delivery_item_button_submit gradient" type="submit">Привязать</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    {#    <div class="button-add" style="margin-left: 10px">#}
+    {#        <button type="button" class="btn btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#NewCard"#}
+    {#                aria-controls="NewCard">+ Новая карта#}
+    {#        </button>#}
+    {#    </div>#}
+    {#    <div class="offcanvas offcanvas-end " tabindex="-1" id="NewCard" aria-labelledby="NewCardLabel">#}
+    {#        <div class="offcanvas-header">#}
+    {#            <h5 class="offcanvas-title" id="NewCardLabel"><b>Новая карта</b></h5>#}
+    {#            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"#}
+    {#                    aria-label="Закрыть"></button>#}
+    {#        </div>#}
+    {#        <div class="offcanvas-body">#}
+    {#            <div class="row">#}
+    {#                <div class="col">#}
+    {#                    <label for="validationDefault01" class="form-label">Номер карты</label>#}
+    {#                    <input type="text" class="form-control-label" id="validationDefault01"#}
+    {#                           pattern="^(\d{4})(\d{4})(\d{4})(\d{4})$" maxlength="19" required#}
+    {#                           oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\d{4})/g, '$1 ')"#}
+    {#                           placeholder="0000 0000 0000 0000">#}
+    {#                </div>#}
+    {##}
+    {##}
+    {#            </div>#}
+    {#            <div class="row">#}
+    {#                <div class="col-sm-3">#}
+    {#                    <label for="validationDefault01" class="form-label">ММ</label>#}
+    {#                    <input type="text" class="form-control-label" id="validationDefault01" pattern="[0-9]{2}"#}
+    {#                           maxlength="2"#}
+    {#                           required>#}
+    {#                </div>#}
+    {#                <div class="col-sm-3">#}
+    {#                    <label for="validationDefault01" class="form-label">ГГ</label>#}
+    {#                    <input type="text" class="form-control-label" id="validationDefault01" pattern="[0-9]{2}"#}
+    {#                           maxlength="2"#}
+    {#                           required>#}
+    {#                </div>#}
+    {#                <div class="col-sm-3" style="margin-left: 90px">#}
+    {#                    <label for="validationDefault01" class="form-label">CVC</label>#}
+    {#                    <input type="text" class="form-control-label" id="validationDefault01" pattern="[0-9]{3}"#}
+    {#                           maxlength="3"#}
+    {#                           required>#}
+    {#                </div>#}
+    {#            </div>#}
+    {##}
+    {#            <div class="body-payments" style="margin-top: 20px">#}
+    {#                <p>Принимаем карты</p>#}
+    {#                <div class="item-payments">#}
+    {#                    {% for item in logo %}#}
+    {#                        <div class="payments__item" style="margin-top: 10px">#}
+    {#                            <img src="{% static item.img %}" alt="{{ item.alt }}" height="18px">#}
+    {#                        </div>#}
+    {#                    {% endfor %}#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div class="row button-submit" style="margin-top: 50px">#}
+    {#                <div class="col">#}
+    {#                    Изменить положение кнопки#}
+    {#                    <button class="delivery_item_button_submit gradient" type="submit">Привязать</button>#}
+    {#                </div>#}
+    {#            </div>#}
+    {##}
+    {#        </div>#}
+    {#    </div>#}
 
 {% endblock %}
