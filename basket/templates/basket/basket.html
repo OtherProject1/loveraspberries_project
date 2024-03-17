@@ -7,42 +7,82 @@
 </div>
 <div style="display: flex; justify-content: space-between;">
     <div class="list-group" style="justify-content: space-between;">
-        {% for product in basket_products %}
-        <div style="display: flex; margin-bottom: 10px;">
-            <div style="margin-right: 10px;">
-                <img src="{{ product.product.images.all.1.image.url }}" alt="Image" height="100" width="70"
-                    style="border-radius: 10px;">
+        {% for basket in basket_products %}
+        <div style="display: flex; margin-bottom: 10px; justify-content: space-between; max-width: 800px;">
+            <div style="display: flex;">
+                <div style="margin-right: 10px;">
+                    <img src="{{ basket.product.images.all.1.image.url }}" alt="Image" height="100" width="70"
+                        style="border-radius: 10px;">
+                </div>
+                <div style="margin-right: 10px;">
+                    <h7 class="mb-1">{{ basket.product.name }}</h7>
+                    <p style="margin: 0;"><small>loveraspberry</small></p>
+                    {# <small class="text-muted">И какой-то приглушенный мелкий шрифт.</small> #}
+                    <p class="mb-1">Количество: {{ basket.quantity }}</p>
+                    <div style="display: flex;">
+                        <div style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
+                            <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a
+                                    href="{% url 'basket:minus_product_to_basket' basket.product.pk %}"
+                                    style="all: unset;"><i class="fa-solid fa-minus"></i></a></button>
+                            <input type="text"
+                                style="width: 53px; height: 32px; font-size: 14px; font-weight: 700; border: none; background: none; padding: 0; text-align: center;"
+                                value="{{ basket.quantity }}">
+                            <button style="border: none; background: none; padding: 0px 5px 0px 0px;"><a
+                                    href="{% url 'basket:add_product_to_basket' basket.product.pk %}"
+                                    style="all: unset;"><i class="fa-solid fa-plus"></i></a></button>
+
+                        </div>
+                        <div style="padding-left: 10px;">
+                            <a href="{% url 'basket:add_product_to_favorites' basket.product.pk %}" style="all: unset;">
+                                <i
+                                    class="{% if basket.product.pk in favorites_products %}fa-solid{% else %}fa-regular{% endif %} fa-heart fa-xl add_to_favourite"></i></a>
+                        </div>
+                        <div style="padding-left: 10px;">
+                            <a href="{% url 'basket:delete_product_from_basket' basket.pk %}" style="all: unset;"><i class="fa-regular fa-trash-can fa-xl add_to_favourite"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="margin-right: 10px;">
-                <h7 class="mb-1">{{ product.product.name }}</h7>
-                <p style="margin: 0;"><small>loveraspberry</small></p>
-                <small class="text-muted">И какой-то приглушенный мелкий шрифт.</small>
-                <p class="mb-1">Количество: {{ product.quantity }}</p>
-            </div>
-            <div style="width: max-content; text-align: right;">{{ product.product.price }} р.</div>
-            <div class="form-check">
-                {% if product.selected_for_purchase %}
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                {% else %}
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                {% endif %}
+            <div style="display: flex;">
+                <div style="width: max-content; text-align: right;">{{ basket.product.price }} р.</div>
+                <div class="form-check">
+                    {% if basket.selected_for_purchase %}
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked
+                        onclick="window.location.assign('{% url "basket:selected_for_purchase" basket.pk %}')">
+                    {% else %}
+                    <a href="{% url 'basket:selected_for_purchase' basket.pk %}"><input class="form-check-input"
+                            type="checkbox" value="" id="flexCheckChecked" onclick="window.location.assign('{% url "basket:selected_for_purchase" basket.pk %}')"></a>
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
-    <div class="card text-bg-dark mb-3" style="width: 18rem; align-self: flex-start;">
+    <div class="card text mb-3"
+        style="width: 18rem; align-self: flex-start; background-color: rgba(51, 56, 124, 0.1); border: none;">
         <div class="card-body">
             <div style="display: flex; justify-content: space-between;">
-                <span style="font-weight: bold;">Итого</span> <span style="font-weight: bold;">ххх р.</span>
+                <span style="font-weight: bold;">Итого</span> <span style="font-weight: bold;">
+                    {% if cost_selected_basket_products.basket_cost %}
+                    {{ cost_selected_basket_products.basket_cost|floatformat:'2' }} р.
+                    {% else %}
+                    0 р.
+                    {% endif %}</span>
             </div>
             <div style="display: flex; justify-content: space-between;">
-                <span>1 товар</span> <span>хх р.</span>
+                <span>Товаров</span> <span>
+                    {% if cost_selected_basket_products.basket_cost %}
+                    {{ cost_selected_basket_products.basket_count_products }}
+                    {% else %}
+                    0
+                    {% endif %}</span>
             </div>
             <div style="display: flex; justify-content: space-between;">
                 <span>Доставка</span> <span>-</span>
             </div>
             <div style="display: flex; justify-content: center;">
-                <button type="button" class="btn btn-primary" style="width: 100%;">Оплатить</button>
+                <button type="button" class="btn btn-primary"
+                    style="width: 100%; background-color: rgb(51, 56, 124);">Оплатить</button>
             </div>
         </div>
     </div>
