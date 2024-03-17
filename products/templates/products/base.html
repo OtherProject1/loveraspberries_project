@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{% static 'products/css/about_us.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/delivery.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/history.css' %}">
-    <link rel="stylesheet" href="{% static 'products/css/../../../users/static/users/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/profile.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/favourite.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/details.css' %}">
     <link rel="stylesheet" href="{% static 'products/css/catalog.css' %}">
@@ -46,52 +46,41 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                 aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search"
-                   style="width: 320px;">
-            <button type="submit" class="btn btn-light"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <a class="navbar-links" href="{% url 'products:delivery' %}">
-            <figure class="icon-container">
-                <img src="{% static 'products/images/header/delivery.svg' %}" alt="delivery" width="30" height="30"
-                     class="first-icon" style="filter: brightness(0) invert(1);">
-                <img src="{% static 'products/images/header/delivery_full.svg' %}" alt="delivery_full" width="30"
-                     height="30" class="second-icon" style="filter: brightness(0) invert(1); margin-left: 19px">
-                <figcaption>Доставки</figcaption>
-            </figure>
-        </a>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2 col-sm-3" type="search" placeholder="Найти товары" aria-label="Search"
+                    style="width: 320px;">
+                <button type="submit" class="btn btn-light"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <a class="navbar-links" href="{% url 'products:delivery' %}">
+                <figure><img src="{% static 'products/images/header/delivery.png' %}" alt="delivery" width="30"
+                        height="30">
+                    <figcaption>Доставки</figcaption>
+                </figure>
+            </a>
+            <a class="navbar-links" href="{% url 'basket:favorites' %}">
+                <figure><img src="{% static 'products/images/header/favorites.png' %}" alt="favorite" width="30"
+                        height="30">
+                    <figcaption>Избранное</figcaption>
+                </figure>
+            </a>
 
-
-        <a class="navbar-links" href="{% url 'basket:favorites' %}">
-            <figure class="icon-container">
-                <img src="{% static 'products/images/header/favorite.svg' %}" alt="favorite" class="first-icon"
-                     width="30" height="30" style="filter: brightness(0) invert(1);">
-                <img src="{% static 'products/images/header/favorite_full.svg' %}" alt="favorite" class="second-icon"
-                     width="30" height="30" style="filter: brightness(0) invert(1); margin-left: 26px">
-                <figcaption>Избранное</figcaption>
-            </figure>
-        </a>
-
-        <a class=" navbar-links" {% if request.user.is_authenticated %} href="{% url 'users:profile' %}" {% endif %}
+        <a class="navbar-links" {% if request.user.is_authenticated %} href="{% url 'users:profile' %}" {% endif %}
                 {% if not request.user.is_authenticated %} href="{% url 'users:login' %}" {% endif %}>
-            <figure class="icon-container">
-                <img src="{% static 'products/images/header/person.svg' %}" alt="profile" width="30" height="30"
-                     style="filter: brightness(0) invert(1);" class="first-icon">
-                <img src="{% static 'products/images/header/person_full.svg' %}" alt="profile" width="30" height="30"
-                     style="filter: brightness(0) invert(1); margin-left: 18px" class="second-icon" >
+            <figure>
+                <img src="{% static 'products/images/header/profile.png' %}" alt="profile" width="30" height="30">
                 <figcaption>Профиль</figcaption>
             </figure>
         </a>
 
-        <a class=" navbar-links" href="{% url 'basket:basket' %}">
-            <figure class="icon-container">
-                <img src="{% static 'products/images/header/shopping_cart.svg' %}" alt="basket" width="30"
-                     height="30" style="filter: brightness(0) invert(1);" class="first-icon">
-                <img src="{% static 'products/images/header/shopping_cart_full.svg' %}" alt="basket" width="30"
-                     height="30" style="filter: brightness(0) invert(1); margin-left: 16px" class="second-icon">
+        <a class="navbar-links" href="{% url 'basket:basket' %}">
+            <figure><img src="{% static 'products/images/header/basket.png' %}" alt="basket" width="30" height="30">
+                {% if basket_counter %}
+                <figcaption>Корзина: {{ basket_counter }}</figcaption>
+                {% else %}
                 <figcaption>Корзина</figcaption>
+                {% endif %}
             </figure>
         </a>
         {# Окно вне холста#}
@@ -109,8 +98,7 @@
                     <ul class="navbar-nav justify-content-center ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ item.slug }}"
-                               style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas"
-                               data-bs-target={{ '#'|add:item.slug }}>
+                                style="color: rgb(219, 214, 213)" data-bs-toggle="offcanvas" data-bs-target={{ '#'|add:item.slug }}>
                                 {{ item.name }}
                             </a>
                         </li>
@@ -147,6 +135,7 @@
         {% endfor %}
     </div>
 </nav>
+
 <section class="body">
     <div class="container">
         <div class="row">
@@ -154,28 +143,8 @@
         </div>
     </div>
 </section>
-<script>
-    {% for message in messages %}
-        {% if message.tags == 'success' %}
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "{{ message }}",
-                timer: 1500
-            });
-        {% else %}
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "{{ message }}",
-                timer: 2500
-            });
-        {% endif %}
-    {% endfor %}
-</script>
 {# Футер #}
 <footer>
-
     <section class="footer">
         <div class="container">
             <div class="row">
