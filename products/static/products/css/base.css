@@ -187,3 +187,25 @@ span.blur::after {
     color: #212529;
     font-size: 12px;
 }
+
+.icon-container {
+    position: relative;
+}
+
+.second-icon {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon-container:hover .first-icon {
+    opacity: 0;
+    object-position: center /* Скрыть первую картинку при наведении */
+}
+
+.icon-container:hover .second-icon {
+    display: block;
+    object-position: center;
+
+}
