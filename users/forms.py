@@ -75,6 +75,9 @@ class UserRegistrationForm(UserCreationForm):
 
 class UserProfileForm(UserChangeForm):
     CHOICES = {"0": "Муж.", "1": "Жен."}
+    error_messages = {
+        'password_mismatch': _('Пароли не совпадают.'),
+    }
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control-label'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control-label'}))
     phone = forms.CharField(

@@ -10,6 +10,9 @@ from django.urls import reverse, reverse_lazy
 from users.models import User
 from django.contrib import auth
 from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.views.generic import ListView, DetailView
+from basket.models import Favorites
+from django.db.models.base import Model as Model
 
 
 class UserLoginView(BaseMixin, LoginView):
@@ -48,8 +51,14 @@ def logout(request):
     return HttpResponseRedirect(reverse('products:home'))
 
 
-def profile(request):
-    # context['title'] = 'Профиль'
-    # auth_user = User.objects.get(username=request.user.username)
-    # context['users'] = auth_user
-    return render(request, 'users/profile.html')
+class ProfileView(BaseMixin, DetailView):
+    model = User
+    template_name = 'users/profile.html'
+
+    def get_object(self, queryset=None) -> Model:
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['favorites_products'] = Favorites.objects.filter(user=self.request.user)
+        return context

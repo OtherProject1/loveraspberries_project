@@ -58,7 +58,7 @@
                 <img src="{% static 'products/images/header/delivery.svg' %}" alt="delivery" width="30" height="30"
                      class="first-icon" style="filter: brightness(0) invert(1);">
                 <img src="{% static 'products/images/header/delivery_full.svg' %}" alt="delivery_full" width="30"
-                     height="30" class="second-icon" style="filter: brightness(0) invert(1); margin-left: 19px">
+                     height="30" class="second-icon" style="filter: brightness(0) invert(1); margin-left: 20px">
                 <figcaption>Доставки</figcaption>
             </figure>
         </a>
@@ -80,7 +80,7 @@
                 <img src="{% static 'products/images/header/person.svg' %}" alt="profile" width="30" height="30"
                      style="filter: brightness(0) invert(1);" class="first-icon">
                 <img src="{% static 'products/images/header/person_full.svg' %}" alt="profile" width="30" height="30"
-                     style="filter: brightness(0) invert(1); margin-left: 18px" class="second-icon" >
+                     style="filter: brightness(0) invert(1); margin-left: 19px" class="second-icon">
                 <figcaption>Профиль</figcaption>
             </figure>
         </a>
@@ -90,8 +90,12 @@
                 <img src="{% static 'products/images/header/shopping_cart.svg' %}" alt="basket" width="30"
                      height="30" style="filter: brightness(0) invert(1);" class="first-icon">
                 <img src="{% static 'products/images/header/shopping_cart_full.svg' %}" alt="basket" width="30"
-                     height="30" style="filter: brightness(0) invert(1); margin-left: 16px" class="second-icon">
-                <figcaption>Корзина</figcaption>
+                     height="30" style="filter: brightness(0) invert(1); margin-left: 24px" class="second-icon">
+                {% if basket_counter %}
+                    <figcaption>Корзина: {{ basket_counter }}</figcaption>
+                {% else %}
+                    <figcaption>Корзина</figcaption>
+                {% endif %}
             </figure>
         </a>
         {# Окно вне холста#}
