@@ -70,7 +70,7 @@ class BasketView(BaseMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['favorites_products'] = list(*list(zip(*Favorites.objects.filter(user=self.request.user).values_list('product'))))
         context['cost_selected_basket_products'] = context['basket_products'].filter(selected_for_purchase=1).aggregate(basket_cost=Sum('product__price'), basket_count_products=Sum('quantity'))
-        print(context['cost_selected_basket_products'])
+        print(context['favorites_products'])
         return context
 
 class FavoritesView(BaseMixin, ListView):

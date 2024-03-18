@@ -1,4 +1,4 @@
-.nav_delivery ul li {
+.nav_content_delivery ul li {
     list-style-type: none;
     display: inline;
     margin-right: 5px;
@@ -10,11 +10,11 @@
     padding: 4px;
 }
 
-.nav_delivery {
+.nav_content_delivery {
     margin-top: 50px;
 }
 
-.nav_delivery .nav:not(.delivery_and_purchases) {
+.nav_content_delivery .nav:not(.delivery_and_purchases) {
     color: black;
     text-align: center;
     text-decoration: none;
@@ -26,11 +26,11 @@
     border-radius: 5px;
 }
 
-.nav_delivery .nav:not(.delivery_and_purchases):hover {
+.nav_content_delivery .nav:not(.delivery_and_purchases):hover {
     color: rgb(201, 17, 170);
 }
 
-.nav_delivery .delivery_and_purchases {
+.nav_content_delivery .delivery_and_purchases {
     color: black;
     background-color: rgb(244, 244, 248);
     border: none;

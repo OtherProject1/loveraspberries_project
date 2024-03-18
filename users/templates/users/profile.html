@@ -2,14 +2,14 @@
 {% load custom_tags %}
 
 {% block content %}
-    <div class="nav_details">
+    <div class="nav_content_profile">
         <ul class="title_nav">
             <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
-            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
-            </li>
-            <li><a href="#" class="nav favourite"><b>Избранное</b></a></li>
+            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
+                покупки</b></a></li>
+            <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
             <li><a href="{% url 'products:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
-            <li><a href="{% url 'products:details' %}" class="nav details"><b>Личные данные</b></a></li>
+            <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
         </ul>
     </div>
     {% if user.is_authenticated %}
@@ -23,7 +23,7 @@
                                      style="border-radius: 100; margin-right: 10px;">
                             </div>
                             <div>
-                                <a href="{% url 'products:details' %}" style="color: black;">
+                                <a href="{% url 'users:details' %}" style="color: black;">
                                     <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
                                 </a>
                                 <p style="margin-bottom: 0;">{{ user.phone }}</p>
@@ -75,7 +75,7 @@
 
             <div class="card text-bg-light mb-3" style="width: 30%; margin: 15px;">
                 <div class="card-body">
-                    <a href="{% url 'products:details' %}" style="color: black">
+                    <a href="{% url 'users:details' %}" style="color: black">
                         <h5 class="card-title">Мои карты и
                             счета</h5>
                     </a>

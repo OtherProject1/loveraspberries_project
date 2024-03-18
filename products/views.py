@@ -104,21 +104,6 @@ def history(request):
     return render(request, 'products/history.html', context)
 
 
-def details(request):
-    if request.method == 'POST':
-        form = UserProfileForm(instance=request.user, data=request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Данные успешно изменены!")
-            return HttpResponseRedirect(reverse('products:details'))
-        else:
-            messages.error(request, "Проверьте правильность ввода данных!")
-            return HttpResponseRedirect(reverse('products:details'))
-    else:
-        context['title'] = 'Личные данные'
-        context['form'] = UserProfileForm(instance=request.user)
-        return render(request, 'products/details.html', context)
-
 
 def payment_methods(request):
     context['title'] = 'Способы оплаты'

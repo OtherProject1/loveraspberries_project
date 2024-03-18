@@ -1,11 +1,11 @@
-from django.core.checks import messages
+
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect
 from django.views.generic.edit import CreateView
 from django.contrib import messages
 from products.mixins import BaseMixin
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from django.urls import reverse, reverse_lazy
 from users.models import User
 from django.contrib import auth
@@ -49,6 +49,21 @@ class UserRegistrationView(CreateView):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('products:home'))
+
+
+def details(request):
+    if request.method == 'POST':
+        form = UserProfileForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Данные успешно изменены!")
+            return HttpResponseRedirect(reverse('users:details'))
+        else:
+            messages.error(request, "Проверьте правильность ввода данных!")
+            return HttpResponseRedirect(reverse('users:details'))
+    else:
+        context = {'title': 'Личные данные', 'form': UserProfileForm(instance=request.user)}
+        return render(request, 'users/details.html', context)
 
 
 class ProfileView(BaseMixin, DetailView):

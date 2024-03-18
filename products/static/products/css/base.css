@@ -192,6 +192,26 @@ span.blur::after {
     position: relative;
 }
 
+.button_basket {
+    position: relative;
+}
+
+.button_basket::before {
+    content: attr(data-count);
+    position: absolute;
+    top: -28px;
+    right: -10px;
+    border-radius: 7px;
+    background: purple;
+    color: white;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
 .second-icon {
     display: none;
     position: absolute;

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'reviews',
     'sweetify',
     'basket',
+    'orders',
 ]
 
 MIDDLEWARE = [
