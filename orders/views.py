@@ -35,9 +35,7 @@ def orders(request):
             messages.error(request, "Проверьте правильность ввода данных!")
             return HttpResponseRedirect(reverse('orders:order'))
     else:
+        basket = Basket.objects.filter(user=request.user)
         context = {'title': 'Личные данные', 'form': OrderForm(instance=request.user),
-                   'basket': Basket.objects.filter(user=request.user, selected_for_purchase=1).select_related(
-                       'product'), 'total_sum': Basket.objects.filter(user=request.user).filter(
-                selected_for_purchase=1).aggregate(basket_cost=Sum('product__price'),
-                                                   basket_count_products=Sum('quantity'))}
+                   'basket_products': basket}
         return render(request, 'orders/order.html', context)
