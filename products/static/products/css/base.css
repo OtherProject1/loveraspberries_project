@@ -229,3 +229,23 @@ span.blur::after {
     object-position: center;
 
 }
+
+.small-alert {
+    max-width: 500px;
+    max-height: 300px
+}
+
+.small-alert .swal2-popup {
+    width: 500px;
+    height: 200px;
+}
+
+/*.small-alert .swal2-icon {*/
+/*    width: 50px; !* Размер иконки *!*/
+/*    height: 50px;*/
+/*}*/
+
+.small-alert .swal2-title {
+    font-size: 16px; /* Размер текста */
+}
+
