@@ -23,15 +23,15 @@
             <div class="modal-body">
                 <form action="{% url 'users:registration' %}" method="POST">
                     {% csrf_token %}
-                    {% if form.non_field_errors %}
-                        <div class="alert alert-block alert-warning" style="align-content: center">
-                            <span>
-                                <i class="fa-solid fa-triangle-exclamation">
-                                    Проверьте правильность ввода данных
-                                </i>
-                            </span>
-                        </div>
-                    {% endif %}
+                    {#                    {% if form.non_field_errors %}#}
+                    {#                        <div class="alert alert-block alert-warning" style="align-content: center">#}
+                    {#                            <span>#}
+                    {#                                <i class="fa-solid fa-triangle-exclamation">#}
+                    {#                                    Проверьте правильность ввода данных#}
+                    {#                                </i>#}
+                    {#                            </span>#}
+                    {#                        </div>#}
+                    {#                    {% endif %}#}
                     <div class="row g-3">
                         <div class="col">
                             <label for="{{ form.first_name.id_for_label }}"
@@ -92,7 +92,7 @@
                             <label for="{{ form.phone.id_for_label }}"
                                    class="col-form-label">Телефон:</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                <span class="input-group-text" id="phone-input"><i class="fa-solid fa-phone"></i></span>
                                 {{ form.phone }}
                             </div>
                             {% if form.phone.errors %}
@@ -121,6 +121,11 @@
                             <a class="new-account" href="{% url 'users:login' %}">Войти</a>
                         </h3>
                     </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#phone-input').mask('+375 (00) 000 00 00');
+                        });
+                    </script>
                 </form>
             </div>
         </div>
