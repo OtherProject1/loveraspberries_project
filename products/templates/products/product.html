@@ -19,10 +19,10 @@
             <div class="vendor" style="display: flex; justify-content: end; align-items: center; margin-left: auto;">
                 <div>
                     <span data-text="strProductCodeShort">Арт.</span>
-                    <span id="productArticle1" style="margin-right: 10px;">{{ product.id }}</span>
+                    <span id="productArticle" style="margin-right: 10px;">{{ product.id }}</span>
                 </div>
                 <div>
-                    <i id='send1' class="fa-regular fa-copy" onclick="myFunction('productArticle1')"
+                    <i id='send1' class="fa-regular fa-copy" onclick="myFunction('productArticle')"
                         style="cursor: pointer;" title="Скопировать"></i>
                 </div>
                 <div id="insert"></div>
@@ -159,8 +159,8 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 line-height: 17px;'>
-                                <span id="productArticle2"></span>{{ product.id }} <i id="send2"
-                                    class="fa-regular fa-copy" onclick="myFunction('productArticle2')"
+                                <span id="productArticle">{{ product.id }}</span><i id="send2"
+                                    class="fa-regular fa-copy" onclick="myFunction('productArticle')"
                                     style="cursor: pointer;" title="Скопировать"></i>
                                 <div id="insert"></div>
                             </td>
