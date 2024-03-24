@@ -202,7 +202,7 @@ span.blur::after {
     top: -28px;
     right: -10px;
     border-radius: 7px;
-    background: purple;
+    background: hsl(0, 100%, 58%);
     color: white;
     width: 20px;
     height: 20px;
@@ -249,3 +249,16 @@ span.blur::after {
     font-size: 16px; /* Размер текста */
 }
 
+.notific {
+    background-color: rgba(51, 56, 124, 0.9);
+    width: fit-content;
+    border-radius: 15px;
+    padding: 0px 10px 0px;
+    position: relative;
+    color: white;
+    margin: 5px;
+}
+
+.notific p {
+    margin: 0;
+}

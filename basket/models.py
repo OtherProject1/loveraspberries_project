@@ -6,7 +6,7 @@ from products.models import Product
 class BasketQueryset(models.QuerySet):
     def total_sum(self):
         # В self хранится Basket.objects.filter(user=self.request.user)
-        return sum(basket.sum() for basket in self)
+        return sum(basket.sum() for basket in self if basket.selected_for_purchase)
 
     def total_quantity(self):
         return sum(basket.quantity for basket in self)
