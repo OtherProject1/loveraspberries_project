@@ -44,29 +44,38 @@
                 <div style="display: flex;">
                     <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
                                 class="fa-solid fa-star fa-sm"></i>
-                                {% if product.reviews.all|length > 0 %}
-                                {{ product.get_avg_rating|floatformat }} &#8226;
-                                <i class="fa-regular fa-comments"></i> {{ product.reviews.all|length }}</a>
-                                {% else %}
-                                Нет отзывов
-                                {% endif %}
+                            {% if product.reviews.all|length > 0 %}
+                            {{ product.get_avg_rating|floatformat }} &#8226;
+                            <i class="fa-regular fa-comments"></i> {{ product.reviews.all|length }}</a>
+                        {% else %}
+                        Нет отзывов
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
-        {% find_product_in_basket product basket_products as product_in_basket %}
-        {% if not product_in_basket %}
-        <div>
-            <a class="btn btn-primary-link" style="background-color: rgb(51, 56, 124); height: 32px; padding: 1px 11px 0; align-content: center;"
-                href="{% url 'basket:add_product_to_basket' product.pk %}" value="">В корзину</a>
+        <div id="in_basket_{{product.pk}}">
+            {% find_product_in_basket product basket_products as product_in_basket %}
+            {% if not product_in_basket %}
+            <div id="product_not_in_basket_{{product.pk}}">
+                <a id="inBasket" class="btn btn-primary-link"
+                    style="background-color: rgb(51, 56, 124); height: 32px; padding: 1px 11px 0; align-content: center;"
+                    value="" onclick="add_product_to_basket({{product.pk}})">В корзину</a>
+            </div>
+            {% else %}
+            <div id="product_in_basket_{{product.pk}}"
+                style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
+                <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a style="all: unset;"
+                        onclick="minus_product_to_basket({{product.pk}})"><i
+                            class="fa-solid fa-minus"></i></a></button>
+                <input id="product_{{product.pk}}_quantity" type="text"
+                    style="width: 53px; height: 32px; font-size: 14px; font-weight: 700; border: none; background: none; padding: 0; text-align: center;"
+                    value="{{ product_in_basket.quantity }}" disabled>
+                <button style="border: none; background: none; padding: 0px 5px 0px 0px;"><a style="all: unset;"
+                        onclick="add_product_to_basket({{product.pk}})"><i class="fa-solid fa-plus"></i></a></button>
+            </div>
+            {% endif %}
         </div>
-        {% else %}
-        <div style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
-            <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a href="{% url 'basket:minus_product_to_basket' product.pk %}" style="all: unset;"><i class="fa-solid fa-minus"></i></a></button>
-            <input type="text" style="width: 53px; height: 32px; font-size: 14px; font-weight: 700; border: none; background: none; padding: 0; text-align: center;" value="{{ product_in_basket.quantity }}">
-            <button style="border: none; background: none; padding: 0px 5px 0px 0px;"><a href="{% url 'basket:add_product_to_basket' product.pk %}" style="all: unset;"><i class="fa-solid fa-plus"></i></a></button>
-        </div>
-        {% endif %}
     </div>
     {% endfor %}
 </div>

@@ -12,5 +12,6 @@ urlpatterns = [
     path('favorites/', FavoritesView.as_view(), name='favorites'),
     # path('basket/', BasketView.as_view(), name='basket'),
     path('basket/', basket_products, name='basket'),
-
+    path('ajax/add_product_to_basket/<int:product_id>/', ajax_add_product_to_basket, name='ajax_add_product_to_basket'),
+    path('ajax/minus_product_to_basket/<int:product_id>/', ajax_minus_product_to_basket, name='ajax_minus_product_to_basket'),
 ]

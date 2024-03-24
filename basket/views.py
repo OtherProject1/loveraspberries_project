@@ -6,6 +6,8 @@ from django.views.generic import ListView, DetailView
 from products.mixins import BaseMixin
 from django.contrib.auth.models import AnonymousUser
 from django.db.models import Sum, Count
+from django.http import JsonResponse
+from django.urls import reverse
 
 from .models import Basket, Favorites
 from products.models import Product
@@ -66,6 +68,45 @@ from products.models import Product
 Попробую написать функцию добавления товара немного по другому
 '''
 
+@login_required()
+def ajax_add_product_to_basket(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    product_in_basket = Basket.objects.filter(user=request.user, product=product)
+    response = {'success': True,
+                'product_id': product_id, }
+    # Если QuerySet пуст
+    if not product_in_basket.exists():
+        Basket.objects.create(user=request.user, product=product, quantity=1)
+        response['basket_product_quantity'] = 1
+    else:
+        basket = product_in_basket.first()
+        basket.quantity += 1
+        basket.save()
+        response['basket_product_quantity'] = basket.quantity
+    response['basket_counter'] = Basket.objects.filter(user=request.user).count()
+    response['add_product_to_basket'] = reverse('basket:ajax_add_product_to_basket', args=[product_id,])
+    response['minus_product_to_basket'] = reverse('basket:ajax_minus_product_to_basket', args=[product_id, ])
+    return JsonResponse(response)
+
+
+@login_required()
+def ajax_minus_product_to_basket(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    product_in_basket = Basket.objects.filter(user=request.user, product=product)
+    response = {'success': True,
+                'product_id': product_id, }
+    if product_in_basket.exists():
+        basket = product_in_basket.last()
+        basket.quantity -= 1
+        basket.save()
+        response['basket_product_quantity'] = basket.quantity
+        if product_in_basket[0].quantity == 0:
+            basket.delete()
+    response['basket_counter'] = Basket.objects.filter(user=request.user).count()
+    response['add_product_to_basket'] = reverse('basket:ajax_add_product_to_basket', args=[product_id,])
+    response['minus_product_to_basket'] = reverse('basket:ajax_minus_product_to_basket', args=[product_id, ])
+    return JsonResponse(response)
+
 
 @login_required()
 def add_product_to_basket(request, product_id):
@@ -87,17 +128,16 @@ def minus_product_to_basket(request, product_id):
     product_in_basket = Basket.objects.filter(user=request.user, product=product)
     if product_in_basket.exists():
         basket = product_in_basket.last()
-        if basket.quantity != 0:
-            basket.quantity -= 1
-            basket.save()
-        else:
-            Basket.objects.get(user=request.user, product=product).delete()
+        basket.quantity -= 1
+        basket.save()
+        if product_in_basket[0].quantity == 0:
+            basket.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 @login_required()
 def delete_product_from_basket(request, basket_id):
-    product_in_basket = Basket.objects.get(pk=basket_id).delete()
+    Basket.objects.get(pk=basket_id).delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
