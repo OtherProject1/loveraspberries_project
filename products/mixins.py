@@ -16,7 +16,7 @@ class BaseMixin:
                         'navbar': navbar_list, 'footer': footer_list,
                         'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards,
                         'payment_list': favourite_cards,
-                        'baskets': Basket.objects.filter(user=self.request.user)})
+                        })
         if not isinstance(self.request.user, AnonymousUser):
             context['basket_counter'] = Basket.objects.filter(user=self.request.user).count()
         return context
