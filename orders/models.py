@@ -21,7 +21,7 @@ class Order(models.Model):
     last_name = models.CharField(max_length=64)
     email = models.EmailField(max_length=256)
     address = models.CharField(max_length=256)
-    basket_history = models.JSONField(default=dict)
+    # basket_history = models.JSONField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     status = models.SmallIntegerField(default=CREATED, choices=STATUS)
     initiator = models.ForeignKey(to=User, on_delete=models.CASCADE)
