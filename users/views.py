@@ -1,4 +1,3 @@
-
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect
@@ -69,6 +68,7 @@ def details(request):
 class ProfileView(BaseMixin, DetailView):
     model = User
     template_name = 'users/profile.html'
+    title = 'StuffStore - Профиль'
 
     def get_object(self, queryset=None) -> Model:
         return self.request.user

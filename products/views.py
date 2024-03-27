@@ -1,7 +1,3 @@
-from typing import Any
-from django.db.models.query import QuerySet
-from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from products.categories_list import first_categories, navbar_list, footer_list, cards, payment_list, favourite_cards, \
     shopping_cards, user_reviews
@@ -14,10 +10,8 @@ from basket.models import Basket, Favorites
 from django.contrib.auth.models import AnonymousUser
 
 from users.models import User
-from users.forms import UserProfileForm
-import sweetify
 
-context = {'title': 'LoveRaspberry', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
+context = {'title': 'StuffStore', 'categories': Category.objects.all(), 'subcategories': SubCategory.objects.all(),
            'navbar': navbar_list, 'footer': footer_list,
            'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards, 'payment_list': favourite_cards,
            }
@@ -32,7 +26,7 @@ class MainView(BaseMixin, ListView):
     # Для отображения категории товара
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(MainView, self).get_context_data()
-        context['title'] = 'LoveRaspberry'
+        context['title'] = 'StuffStore'
         if not isinstance(self.request.user, AnonymousUser):
             context['basket_products'] = Basket.objects.filter(user=self.request.user)
             context['all_basket_products'] = context['basket_products'].count()
@@ -94,7 +88,7 @@ def profile(request):
 def delivery(request):
     context['is_auth'] = True
     context['is_not_payment'] = True
-    context['title'] = 'Доставки'
+    context['title'] = 'StuffStore - Доставки'
     return render(request, 'products/delivery.html', context)
 
 

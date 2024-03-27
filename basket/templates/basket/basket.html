@@ -1,4 +1,5 @@
 {% extends 'products/base.html' %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     {% if basket_products %}
@@ -17,7 +18,7 @@
                             </div>
                             <div style="margin-right: 10px;">
                                 <h7 class="mb-1">{{ basket.product.name }}</h7>
-                                <p style="margin: 0;"><small>loveraspberry</small></p>
+                                <p style="margin: 0;"><small>stuffstore</small></p>
                                 {# <small class="text-muted">И какой-то приглушенный мелкий шрифт.</small> #}
                                 <p class="mb-1">Количество: {{ basket.quantity }}</p>
                                 <div style="display: flex;">
