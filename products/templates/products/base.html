@@ -91,7 +91,7 @@
             </figure>
         </a>
 
-        <a class=" navbar-links" href="{% url 'basket:basket' %}">
+        <a class="navbar-links" href="{% url 'basket:basket' %}">
             <figure class="icon-container">
                 <img src="{% static 'products/images/header/shopping_cart.svg' %}" alt="basket" width="30"
                      height="30" style="filter: brightness(0) invert(1);" class="first-icon">
@@ -101,7 +101,7 @@
                     <figcaption id="button_basket" class="button_basket" data-count="{{ basket_counter }}">Корзина
                     </figcaption>
                 {% else %}
-                    <figcaption id="button_basket" class="button_basket" data-count="{{ basket_counter }}">Корзина
+                    <figcaption id="button_basket" data-count="{{ basket_counter }}">Корзина
                     </figcaption>
                 {% endif %}
             </figure>

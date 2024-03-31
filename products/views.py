@@ -34,12 +34,12 @@ class MainView(BaseMixin, ListView):
         return context
 
 
-def product_page(request, subcategory_slug, product_id):
-    product = Product.objects.get(id=product_id)
-    slug = SubCategory.objects.get(slug=subcategory_slug)
-    context['product'] = product
-    context['subcategory'] = slug
-    return render(request, 'products/product.html', context)
+# def product_page(request, subcategory_slug, product_id):
+#     product = Product.objects.get(id=product_id)
+#     slug = SubCategory.objects.get(slug=subcategory_slug)
+#     context['product'] = product
+#     context['subcategory'] = slug
+#     return render(request, 'products/product.html', context)
 
 
 class ProductDetail(BaseMixin, DetailView):
@@ -53,6 +53,8 @@ class ProductDetail(BaseMixin, DetailView):
         context['product_avg_rating'] = context['product'].reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
         context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(count=Count('rating'))[::-1]
         context['all_count_reviews'] = context['product'].reviews.all().count()
+        context['title'] = context['product'].name
+        context['product_in_basket'] = Basket.objects.filter(user=self.request.user, product=context['product'])
         return context
 
 

@@ -148,7 +148,7 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 line-height: 17px;'>
-                                Артикул
+                                Артикул 
                             </th>
                             <td></td>
                             <td style='width: 100%;
@@ -159,7 +159,7 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 line-height: 17px;'>
-                                <span id="productArticle">{{ product.id }}</span><i id="send2"
+                                <span id="productArticle" style="padding-right: 5px">{{ product.id }}</span><i id="send2"
                                     class="fa-regular fa-copy" onclick="myFunction('productArticle')"
                                     style="cursor: pointer;" title="Скопировать"></i>
                                 <div id="insert"></div>
@@ -239,11 +239,28 @@
                         </h5>
                         <p style="margin: 0;"><b>Доставим послезавтра</b></p>
                     </div>
-                    <a class="btn btn-primary-link"
-                        style="display: block; background: rgb(115,107,169);
-                        background: linear-gradient(162deg, rgba(115,107,169,0.8935223747702206) 0%, rgba(55,44,132,1) 50%, rgba(18,0,136,1) 100%); border-width: 0; margin-left: 5px; margin-right: 5px;"
-                        onclick="alert('Товар добавлен в корзину. PS добавить исчезание этой надписи само по себе и сделать ее меньше')"
-                        value="Нажми на меня!" />В корзину</a>
+                    <div id="in_basket_{{product.pk}}">
+                        {% if not product_in_basket %}
+                            <div id="product_not_in_basket_{{product.pk}}">
+                                <a id="inBasket" class="btn btn-primary-link"
+                                    style="background-color: rgb(51, 56, 124); height: 32px; padding: 1px 11px 0; align-content: center;"
+                                    value="" onclick="add_product_to_basket({{product.pk}})">В корзину</a>
+                            </div>
+                        {% else %}
+                        <div id="product_in_basket_{{product.pk}}"
+                            style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
+                            <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a
+                                    style="all: unset;" onclick="minus_product_to_basket({{product.pk}})"><i
+                                        class="fa-solid fa-minus"></i></a></button>
+                            <input id="product_{{product.pk}}_quantity" type="text"
+                                style="width: 53px; height: 32px; font-size: 14px; font-weight: 700; border: none; background: none; padding: 0; text-align: center;"
+                                value="{{ product_in_basket.0.quantity }}" disabled>
+                            <button style="border: none; background: none; padding: 0px 5px 0px 0px;"><a
+                                    style="all: unset;" onclick="add_product_to_basket({{product.pk}})"><i
+                                        class="fa-solid fa-plus"></i></a></button>
+                        </div>
+                        {% endif %}
+                    </div>
                     <div style="display: flex;">
                         <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
                                     class="fa-solid fa-star fa-sm"></i>{{ product_avg_rating|floatformat }}</a>
@@ -323,7 +340,8 @@
                 </div>
                 {% endfor %}
             </div>
-            <div><a href="{% url 'feedbacks:reviews' subcategory.slug product.id %}" style="color: #000;">Все отзывы</a>
+            <div><a href="{% url 'feedbacks:reviews' subcategory.slug product.id %}" style="color: #000;">Все
+                    отзывы</a>
             </div>
         </div>
     </div>
