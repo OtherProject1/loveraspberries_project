@@ -11,7 +11,8 @@ class BaseMixin:
 
     def get_context_data(self, **kwargs):
         context = super(BaseMixin, self).get_context_data(**kwargs)
-        context.update({'title': self.title, 'categories': Category.objects.all(),
+        context.update({'title': self.title, 
+                        'categories': Category.objects.all(),
                         'subcategories': SubCategory.objects.all(),
                         'navbar': navbar_list, 'footer': footer_list,
                         'logo': payment_list, 'bought_cards': cards, 'shopping': shopping_cards,

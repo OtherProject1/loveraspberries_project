@@ -26,7 +26,7 @@ function add_product_to_basket(product_id) {
 
     $.ajax({
         type: "POST", // Метод запроса
-        url: `ajax/add_product_to_basket/${product_id}/`, // url запроса
+        url: `/ajax/add_product_to_basket/${product_id}/`, // url запроса
         data: {                 // Параметры для запроса
             'X-CSRFToken': csrftoken
         },
@@ -36,6 +36,8 @@ function add_product_to_basket(product_id) {
             const button_basket = document.getElementById('button_basket')
             button_basket.setAttribute('data-count', response['basket_counter'])
             if (response['basket_product_quantity'] == 1) {
+                button_basket.classList.add('button_basket')
+                console.log('kljmdlk;;Ldkl;jasKLK;')
                 in_basket_parent.removeChild(in_basket_child)
                 in_basket_parent.innerHTML += `<div id="product_in_basket_${response['product_id']}" style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
                                                     <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a
@@ -70,25 +72,28 @@ function minus_product_to_basket(product_id) {
 
     $.ajax({
         type: "POST", // Метод запроса
-        url: `ajax/minus_product_to_basket/${product_id}/`, // url запроса
+        url: `/ajax/minus_product_to_basket/${product_id}/`, // url запроса
         data: {                 // Параметры для запроса
             'X-CSRFToken': csrftoken
         },
         success: function (response) { // Код который выполнится  для удачного запроса
-            const in_basket_parent = document.getElementById(`in_basket_${response['product_id']}`)
-            const in_basket_child = document.getElementById(`product_in_basket_${response['product_id']}`)
-            const button_basket = document.getElementById('button_basket')
-            button_basket.setAttribute('data-count', response['basket_counter'])
+            const in_basket_parent = document.getElementById(`in_basket_${response['product_id']}`);
+            const in_basket_child = document.getElementById(`product_in_basket_${response['product_id']}`);
+            const button_basket = document.getElementById('button_basket');
+            button_basket.setAttribute('data-count', response['basket_counter']);
             if (response['basket_product_quantity'] == 0) {
-                in_basket_parent.removeChild(in_basket_child)
+                if (response['basket_counter'] == 0) {
+                    button_basket.classList.remove('button_basket')
+                };
+                in_basket_parent.removeChild(in_basket_child);
                 in_basket_parent.innerHTML += `<div id="product_not_in_basket_${response['product_id']}">
                                                     <a id="inBasket" class="btn btn-primary-link"
                                                         style="background-color: rgb(51, 56, 124); height: 32px; padding: 1px 11px 0; align-content: center;"
                                                         value="" onclick="add_product_to_basket(${response['product_id']})">В корзину</a>
-                                                </div>`
+                                                </div>`;
             } else {
-                const input_quantity = document.getElementById(`product_${response['product_id']}_quantity`)
-                input_quantity.value = response['basket_product_quantity']
+                const input_quantity = document.getElementById(`product_${response['product_id']}_quantity`);
+                input_quantity.value = response['basket_product_quantity'];
             }
         },
         error: function (response) { // Код который выполнится  при ошибке запроса
