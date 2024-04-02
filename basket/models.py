@@ -9,7 +9,7 @@ class BasketQueryset(models.QuerySet):
         return sum(basket.sum() for basket in self if basket.selected_for_purchase)
 
     def total_quantity(self):
-        return sum(basket.quantity for basket in self)
+        return sum(basket.quantity for basket in self if basket.selected_for_purchase)
 
 
 class Basket(models.Model):
