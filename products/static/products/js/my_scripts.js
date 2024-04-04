@@ -235,6 +235,7 @@ function add_product_to_favorites(product_id) {
         beforeSend: function (xhr, settings) {
             if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
                 xhr.setRequestHeader('X-CSRFToken', csrftoken);
+                console.log('beforesend')
             }
         }
     });
@@ -247,7 +248,6 @@ function add_product_to_favorites(product_id) {
         },
         success: function (response) { // Код который выполнится  для удачного запроса
             const favorite_product = document.getElementById(`favorite_heart_${response['product_id']}`)
-            console.log(12121)
             if (response['add_product'] == true) {
                 favorite_product.classList.remove('fa-regular');
                 favorite_product.classList.add('fa-solid');
