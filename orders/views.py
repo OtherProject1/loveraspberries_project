@@ -27,18 +27,7 @@ class OrderCreateView(BaseMixin, CreateView):
         messages.error(self.request, "Проверьте правильность ввода данных!")
         return response
 
-# def orders(request):
-#     if request.method == 'POST':
-#         form = OrderForm(instance=request.user, data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, "Заказ сформирован!")
-#             return HttpResponseRedirect(reverse('products:home'))
-#         else:
-#             messages.error(request, "Проверьте правильность ввода данных!")
-#             return HttpResponseRedirect(reverse('orders:order'))
-#     else:
-#         basket = Basket.objects.filter(user=request.user)
-#         context = {'title': 'StuffStore - Оформление заказа', 'form': OrderForm(instance=request.user),
-#                    'basket_products': basket}
-#         return render(request, 'orders/order.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['order_products'] = Basket.objects.filter(user=self.request.user).all()
+        return context

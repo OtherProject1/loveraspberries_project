@@ -11,9 +11,12 @@ from .models import Basket, Favorites
 from products.models import Product
 from django.db.models.aggregates import Sum
 from django.db.models.expressions import F
+
 '''
 Твой вариант
 '''
+
+
 # @login_required()
 # def add_product_to_basket(request, product_id):
 #     '''пока делаю, что в корзину могут добавлять только авторизованные юзеры и при этом страница перезагружается'''
@@ -63,8 +66,10 @@ class BasketView(BaseMixin, ListView):
         context['favorites_products'] = list(
             *list(zip(*Favorites.objects.filter(user=self.request.user).values_list('product'))))
         context['cost_selected_basket_products'] = context['basket_products'].filter(selected_for_purchase=1).aggregate(
-            basket_cost=Sum(F('product__price')*F('quantity')), basket_count_products=Sum('quantity'))
+            basket_cost=Sum(F('product__price') * F('quantity')), basket_count_products=Sum('quantity'))
         return context
+
+
 '''
 Попробую написать функцию добавления товара немного по другому
 '''
@@ -90,7 +95,7 @@ def ajax_add_product_to_basket(request, product_id):
     response['add_product_to_basket'] = reverse('basket:ajax_add_product_to_basket', args=[product_id, ])
     response['minus_product_to_basket'] = reverse('basket:ajax_minus_product_to_basket', args=[product_id, ])
     response['total_basket_quantity_and_cost'] = basket.filter(selected_for_purchase=1).aggregate(
-            basket_cost=Sum(F('product__price')*F('quantity')), basket_quantity=Sum('quantity'))
+        basket_cost=Sum(F('product__price') * F('quantity')), basket_quantity=Sum('quantity'))
     response['product_sum'] = product_in_basket[0].sum()
     return JsonResponse(response)
 
@@ -114,8 +119,9 @@ def ajax_minus_product_to_basket(request, product_id):
     response['add_product_to_basket'] = reverse('basket:ajax_add_product_to_basket', args=[product_id, ])
     response['minus_product_to_basket'] = reverse('basket:ajax_minus_product_to_basket', args=[product_id, ])
     response['total_basket_quantity_and_cost'] = basket.filter(selected_for_purchase=1).aggregate(
-            basket_cost=Sum(F('product__price')*F('quantity')), basket_quantity=Sum('quantity'))
+        basket_cost=Sum(F('product__price') * F('quantity')), basket_quantity=Sum('quantity'))
     return JsonResponse(response)
+
 
 @login_required()
 def ajax_delete_product_from_basket(request, product_id):
@@ -127,7 +133,7 @@ def ajax_delete_product_from_basket(request, product_id):
     basket = Basket.objects.filter(user=request.user)
     response['basket_counter'] = Basket.objects.filter(user=request.user).count()
     response['total_basket_quantity_and_cost'] = basket.filter(selected_for_purchase=1).aggregate(
-            basket_cost=Sum(F('product__price')*F('quantity')), basket_quantity=Sum('quantity'))
+        basket_cost=Sum(F('product__price') * F('quantity')), basket_quantity=Sum('quantity'))
     return JsonResponse(response)
 
 
@@ -144,6 +150,7 @@ def ajax_add_product_to_favorites(request, product_id):
         Favorites.objects.create(user=request.user, product=product)
         response['add_product'] = True
     return JsonResponse(response)
+
 
 @login_required
 def add_product_to_basket(request, product_id):

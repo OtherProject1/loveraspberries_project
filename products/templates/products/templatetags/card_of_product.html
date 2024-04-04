@@ -1,81 +1,83 @@
 {% load custom_tags %}
 <div class="row row-cols-auto" style="margin-top: 30px">
     {% for product in products %}
-    <div class="col" style="cursor: pointer; margin-bottom: 20px;">
-        <div class="card border-0" style="width: 247px; height: 467px">
-            <a onclick="add_product_to_favorites({{product.id}})">
-                <i id="favorite_heart_{{product.id}}" class="{% if product.pk in favorites_products %}fa-solid{% else %}fa-regular{% endif %} fa-heart fa-lg add_to_favourite"
-                    style="color: rgb(255, 255, 255); position: absolute; top: 10px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
-            <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
-                <div class="carousel-inner">
-                    {% for image in product.images.all %}
-                    {% if image %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        <div class="image-wrapper">
-                            <a href="{{ product.get_absolute_url }}">
-                                <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
-                                    style="border-radius: 10px; width: 330px;" alt="Image">
-                            </a>
-                        </div>
+        <div class="col" style="cursor: pointer; margin-bottom: 20px;margin-left: 35px">
+            <div class="card border-0" style="width: 260px; height: 500px">
+                <a onclick="add_product_to_favorites({{ product.id }})">
+                    <i id="favorite_heart_{{ product.id }}"
+                       class="{% if product.pk in favorites_products %}fa-solid{% else %}fa-regular{% endif %} fa-heart fa-lg add_to_favourite"
+                       style="color: rgb(255, 255, 255); position: absolute; top: 10px; z-index: 1000; right: 10px; margin: 15px 5px 0px 0px;"></i></a>
+                <div id="carousel-{{ product.id }}" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                        {% for image in product.images.all %}
+                            {% if image %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <div class="image-wrapper">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <img src="{{ image.image.url }}" class="d-block w-100 card-img-top"
+                                                 style="border-radius: 10px; width: 330px;" alt="Image">
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ product.id }}"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ product.id }}"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Следующий</span>
+                    </button>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ product.id }}"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Предыдущий</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ product.id }}"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Следующий</span>
-                </button>
-            </div>
-            <div class="card-body"
-                style="overflow: hidden; padding-top: 5px; padding-bottom: 0px; padding-left: 0; margin-top: 0;">
-                <h5 class="card-title" style="font-size: 24px; margin-top: 10px">
-                    <b>{{ product.price }} р.</b>
-                </h5>
-                <p style="margin: 0; font-size: small;"><small><b>Доставка неизвестна</b></small></p>
-                <p class="card-text" style="margin-bottom: 0; white-space: nowrap; margin-top: 3px;">
-                    <span class="blur" style="width: 250px">{{ product.name }}</span>
-                </p>
-                <div style="display: flex;">
-                    <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
+                <div class="card-body"
+                     style="overflow: hidden; padding-top: 5px; padding-bottom: 0px; padding-left: 0; margin-top: 0;">
+                    <h5 class="card-title" style="font-size: 24px; margin-top: 10px">
+                        <b>{{ product.price }} р.</b>
+                    </h5>
+                    <p style="margin: 0; font-size: small;"><small><b>Доставка неизвестна</b></small></p>
+                    <p class="card-text" style="margin-bottom: 0; white-space: nowrap; margin-top: 3px;">
+                        <span class="blur" style="width: 260px">{{ product.name }}</span>
+                    </p>
+                    <div style="display: flex;">
+                        <div style="font-size: 14px;"><a href="#reviews" style="color: black;"><i
                                 class="fa-solid fa-star fa-sm"></i>
                             {% if product.reviews.all|length > 0 %}
-                            {{ product.get_avg_rating|floatformat }} &#8226;
-                            <i class="fa-regular fa-comments"></i> {{ product.reviews.all|length }}</a>
-                        {% else %}
-                        Нет отзывов
-                        {% endif %}
+                                {{ product.get_avg_rating|floatformat }} &#8226;
+                                <i class="fa-regular fa-comments"></i> {{ product.reviews.all|length }}</a>
+                            {% else %}
+                                Нет отзывов
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="in_basket_{{product.pk}}">
-            {% find_product_in_basket product basket_products as product_in_basket %}
-            {% if not product_in_basket %}
-            <div id="product_not_in_basket_{{product.pk}}">
-                <a id="inBasket" class="btn btn-primary-link"
-                    style="background-color: rgb(51, 56, 124); height: 32px; padding: 1px 11px 0; align-content: center;"
-                    value="" onclick="add_product_to_basket({{product.pk}})">В корзину</a>
+            <div id="in_basket_{{ product.pk }}">
+                {% find_product_in_basket product basket_products as product_in_basket %}
+                {% if not product_in_basket %}
+                    <div id="product_not_in_basket_{{ product.pk }}">
+                        <a id="inBasket" class="btn btn-primary-link"
+                           style="background-color: rgb(51, 56, 124); height: 32px; padding: 1px 11px 0; align-content: center;"
+                           value="" onclick="add_product_to_basket({{ product.pk }})">В корзину</a>
+                    </div>
+                {% else %}
+                    <div id="product_in_basket_{{ product.pk }}"
+                         style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
+                        <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a style="all: unset;"
+                                                                                                     onclick="minus_product_to_basket({{ product.pk }})"><i
+                                class="fa-solid fa-minus"></i></a></button>
+                        <input id="product_{{ product.pk }}_quantity" type="text"
+                               style="width: 53px; height: 32px; font-size: 14px; font-weight: 700; border: none; background: none; padding: 0; text-align: center;"
+                               value="{{ product_in_basket.quantity }}" disabled>
+                        <button style="border: none; background: none; padding: 0px 5px 0px 0px;"><a style="all: unset;"
+                                                                                                     onclick="add_product_to_basket({{ product.pk }})"><i
+                                class="fa-solid fa-plus"></i></a></button>
+                    </div>
+                {% endif %}
             </div>
-            {% else %}
-            <div id="product_in_basket_{{product.pk}}"
-                style="background-color: rgba(51, 56, 124, 0.1); width: max-content; border-radius: 5px;">
-                <button style="border: none; background: none; padding: 0px 0px 0px 5px;"><a style="all: unset;"
-                        onclick="minus_product_to_basket({{product.pk}})"><i
-                            class="fa-solid fa-minus"></i></a></button>
-                <input id="product_{{product.pk}}_quantity" type="text"
-                    style="width: 53px; height: 32px; font-size: 14px; font-weight: 700; border: none; background: none; padding: 0; text-align: center;"
-                    value="{{ product_in_basket.quantity }}" disabled>
-                <button style="border: none; background: none; padding: 0px 5px 0px 0px;"><a style="all: unset;"
-                        onclick="add_product_to_basket({{product.pk}})"><i class="fa-solid fa-plus"></i></a></button>
-            </div>
-            {% endif %}
         </div>
-    </div>
     {% endfor %}
 </div>
