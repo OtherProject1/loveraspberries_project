@@ -1,6 +1,5 @@
 {% extends 'products/base.html' %}
-{% load static %}
-{% load sweetify %}
+{% load static sweetify humanize %}
 {% sweetify %}
 {% block content %}
     <style>
@@ -27,7 +26,7 @@
                                     <h6 class="my-0" style="width: 300px">{{ product.product.name }}</h6>
                                     <small class="text-muted">Количество: {{ product.quantity }} шт.</small>
                                 </div>
-                                <span class="text-muted">{{ product.sum }} руб.</span>
+                                <span class="text-muted">{{ product.sum|intcomma }} руб.</span>
                             </li>
                         {% endfor %}
                         <li class="list-group-item d-flex justify-content-between">
@@ -36,7 +35,7 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Итоговая сумма:</span>
-                            <strong> {{ order_products.total_sum }} руб.</strong>
+                            <strong> {{ order_products.total_sum|intcomma }} руб.</strong>
                         </li>
                     </ul>
 
@@ -68,7 +67,8 @@
                             </div>
                         </div>
                         <br>
-                        <button class="w-100 btn btn-outline-dark" type="submit" style="margin-bottom: 190px; margin-top: 15px">
+                        <button class="w-100 btn btn-outline-dark" type="submit"
+                                style="margin-bottom: 190px; margin-top: 15px">
                             Продолжить
                         </button>
                     </form>
