@@ -4,6 +4,7 @@ from users.models import User
 from django.conf import settings
 from basket.models import Basket
 
+
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class Order(models.Model):
@@ -11,17 +12,19 @@ class Order(models.Model):
     PAID = 1
     ON_WAY = 2
     DELIVERED = 3
+    RECEIVED = 4
     STATUS = (
         (CREATED, 'Создан'),
         (PAID, 'Оплачен'),
         (ON_WAY, 'В пути'),
         (DELIVERED, 'Доставлен'),
+        (RECEIVED, 'Получено'),
     )
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     email = models.EmailField(max_length=256)
     address = models.CharField(max_length=256)
-    # basket_history = models.JSONField(default=0)
+    basket_history = models.JSONField(default=dict)
     created = models.DateTimeField(auto_now_add=True)
     status = models.SmallIntegerField(default=CREATED, choices=STATUS)
     initiator = models.ForeignKey(to=User, on_delete=models.CASCADE)
