@@ -11,6 +11,16 @@ class BasketQueryset(models.QuerySet):
     def total_quantity(self):
         return sum(basket.quantity for basket in self if basket.selected_for_purchase)
 
+    def stripe_products(self):
+        line_items = []
+        for basket in self:
+            item = {
+                'price': basket.product.stripe_product_price_id,
+                'quantity': basket.quantity
+            }
+            line_items.append(item)
+        return line_items
+
 
 class Basket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

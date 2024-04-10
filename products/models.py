@@ -1,7 +1,10 @@
-import pytils
+import pytils, stripe
 from django.db import models
+from django.conf import settings
 from django.urls import reverse
 from django.db.models import Avg
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # class SlugMixin:
@@ -45,17 +48,36 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     subcategory = models.ForeignKey(to=SubCategory, on_delete=models.PROTECT)
+    stripe_product_price_id = models.CharField(max_length=128, blank=True, null=True)
 
     # details = models.PositiveIntegerField(default=0) для отображения количества полей характеристики
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('products:product_page', kwargs={'subcategory_slug': self.subcategory.slug, 'product_id': self.pk})
-    
+        return reverse('products:product_page',
+                       kwargs={'subcategory_slug': self.subcategory.slug, 'product_id': self.pk})
+
     def get_avg_rating(self):
         avg_rating = self.reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
         return avg_rating
+
+    # Для передачи информации о продукте на оплату
+    def create_stripe_product_price(self):
+        stripe_product = stripe.Product.create(name=self.name)
+        stripe_product_price = stripe.Price.create(
+            product=stripe_product['id'],
+            unit_amount=round(self.price * 100),
+            currency='byn',
+        )
+        return stripe_product_price
+
+    # Метод будет заполнять информацию для stripe_product_price_id при добавлении товара в бд
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        if not self.stripe_product_price_id:
+            stipe_product_price = self.create_stripe_product_price()
+            self.stripe_product_price_id = stipe_product_price['id']
+        super(Product, self).save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 
 class ProductImages(models.Model):
@@ -77,7 +99,7 @@ class Details(models.Model):
 
     def __str__(self) -> str:
         return self.name
-    
+
     class Meta:
         verbose_name = 'Характеристика'
         verbose_name_plural = 'Характеристики'
@@ -87,4 +109,3 @@ class ProductDetail(models.Model):
     detail = models.ForeignKey(to=Details, on_delete=models.SET_NULL, null=True, related_name='product_details')
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='details')
     description = models.CharField(max_length=255)
-
