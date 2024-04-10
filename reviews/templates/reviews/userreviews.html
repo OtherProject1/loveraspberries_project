@@ -1,0 +1,133 @@
+{% extends 'products/base.html' %}
+{% load custom_tags %}
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+
+
+<div class="nav_content_profile">
+    <ul class="title_nav">
+        <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
+        <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
+                    покупки</b></a></li>
+        <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
+        <li><a href="{% url 'reviews:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
+        <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
+    </ul>
+</div>
+
+<div>
+    <h4>Оцените товары</h4>
+    <div style="display: flex; position: relative;">
+        {% for card in products %}
+        <div style="margin: 10px; border-radius: 10px;">
+            <img src="{{ card.images.first.image.url }}" alt="image" height="180" width="180"
+                style="border-radius: 10px;">
+            <div style="position: absolute; bottom: 10px;">
+                <fieldset class="rating" style="background-color: rgba(143, 143, 143, 0.7); border-radius: 10px;"
+                    data-bs-toggle="offcanvas" data-bs-target="#Review-{{card.pk}}" aria-controls="NewReview">
+                    <input type="radio" id="card{{ card.id }}star5" name="rating" value="5" /><label class="full"
+                        for="star5"></label>
+                    <input type="radio" id="card{{ card.id }}star4" name="rating" value="4" /><label class="full"
+                        for="star4"></label>
+                    <input type="radio" id="card{{ card.id }}star3" name="rating" value="3" /><label class="full"
+                        for="star3"></label>
+                    <input type="radio" id="card{{ card.id }}star2" name="rating" value="2" /><label class="full"
+                        for="star2"></label>
+                    <input type="radio" id="card{{ card.id }}star1" name="rating" value="1" /><label class="full"
+                        for="star1"></label>
+                </fieldset>
+            </div>
+        </div>
+        {# выпадающее поле для написания отзыва #}
+        <div class="offcanvas offcanvas-end " tabindex="-1" id="Review-{{card.pk}}" aria-labelledby="ReviewLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="ReviewLabel"><b>Отзыв о товаре</b></h5>
+                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Закрыть"></button>
+            </div>
+            <div class="offcanvas-body" style="display: block;">
+                <div style="display: flex;">
+                    <img src="{{ card.images.first.image.url }}" alt="image" width="90" height="120"
+                        style="border-radius: 10px;">
+                    <h5 style="margin-left: 10px;">{{ card.name }}</h5>
+                </div>
+
+                <!-- <div style="height: 50px;"></div>
+                <div>
+
+                     <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">
+                            <h4 style="color: black;">Комментарий</h4>
+                        </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                            placeholder="Впечатления, пожелания, проблемы"></textarea>
+                    </div> 
+                </div> -->
+                <form action="{% url 'reviews:reviews' %}" method="post" name="rating">
+                    {% csrf_token %}
+                    <div style="margin-top: 10px;">
+                    </div>
+                    <input type="hidden" name="product" value="{{ card.id }}">
+                    <span class="rating">
+                        {% for k, v in form.rating.field.choices %}
+                        <input id="product{{card.id}}rating{{ k }}" type="radio" name="rating" value="{{ v }}">
+                        <label for="star{{ k }}" onclick="selectStar({{card.pk}}, {{v}})">{{ k }}</label>
+                        {% endfor %}
+                    </span>
+                    {{ form.description }}
+                    <div class="row button-submit">
+                        <div class="col">
+                            {# Изменить положение кнопки#}
+                            <button class="delivery_item_button_submit"
+                                style="background-color: rgb(51, 56, 124); color: white;" type="submit">Оставить
+                                отзыв
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div>
+    <h4>Отзывы</h4>
+    <div>
+        {% for review in reviews %}
+        <div class="card"
+            style="background-color: rgba(143, 143, 143, 0.2); margin: 10px; border-radius: 20px; max-width: 800px;">
+            <div class="card-body">
+                <div style="display: flex; margin-bottom: 10px;">
+                    <img src="{{ review.product.images.first.image.url }}" alt="image" width="40" height="40"
+                        style="border-radius: 10px;">
+                    <div>
+                        <h5 class="card-title" style="margin: 0;">
+                            <a href="{{ review.product.get_absolute_url }}" style="color: black;">{{ review.product.name
+                                }}</a>
+                        </h5>
+                        <!-- <p style="margin: 0; color: gray;">Shopname</p> -->
+                    </div>
+                </div>
+                <div>
+                    {% custom_range review.rating as rating %}
+                    {% for star in rating %}
+                    <i class="fa-solid fa-star fa-2xs"></i>
+                    {% endfor %}
+                    &ensp;{{ review.date|date:"d.m.Y" }}
+                    <p class="card-text">{{ review.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    function selectStar (product_id, star) {
+        const starrait = document.getElementById(`product${product_id}rating${ star }`);
+        starrait.checked = true;
+    }
+</script>
+
+{% endblock %}
