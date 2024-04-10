@@ -4,3 +4,4 @@ sqlparse==0.4.4
 tzdata==2023.4
 pytils==0.4.1
 sweetify==2.3.1
+stripe==8.10.0

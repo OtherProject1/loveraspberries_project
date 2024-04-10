@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'products',
     'users',
     'reviews',
@@ -128,3 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = '/login/'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51P3P6yP1duGM5UfbcakOPcyhpMcItRrccdxmIO5Dp5AbRcLaHxUuN6PSCghj8EfrgnHE7Z4Q6gki4CMOSPbKHPA900tw0buBcV'
+STRIPE_SECRET_KEY = 'sk_test_51P3P6yP1duGM5UfbLlYAsJwTv8AL2NTxp9WYYNk4QA0nKRYy0E8EkpJF9SNBjWmRylusA7v63wlqUyNNcR5uYhI900CH6ssGcY'
+DOMAIN_NAME = 'http://localhost:8000/'

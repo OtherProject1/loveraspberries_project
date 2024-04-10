@@ -34,10 +34,12 @@ class UserRegistrationView(CreateView):
     model = User
     template_name = 'users/registration.html'
     form_class = UserRegistrationForm
+    success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
+        response = super().form_valid(form)
         messages.success(self.request, f"Поздравляем. Вы успешно зарегистрировались!")
-        return redirect("users:login")
+        return response
 
     def form_invalid(self, form):
         response = super().form_invalid(form)
