@@ -227,7 +227,7 @@ function delete_product_from_basket(product_id) {
         }
 
     });
-}
+};
 
 function add_product_to_favorites(product_id) {
     var csrftoken = getCookie('csrftoken');
@@ -287,4 +287,5 @@ function sendNotification(type, text) {
         notificationBox.removeChild(component);
     }, 2700);
     //If you can do something more elegant than timeouts, please do, but i can't
-}
+};
+

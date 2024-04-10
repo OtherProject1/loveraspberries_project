@@ -175,7 +175,7 @@ def franchisee(request):
     return render(request, 'products/franchisee.html', context)
 
 
-def reviews(request):
-    context['is_auth'] = True
-    context['reviews'] = user_reviews
-    return render(request, 'products/reviews.html', context)
+# def reviews(request):
+#     context['is_auth'] = True
+#     context['reviews'] = user_reviews
+#     return render(request, 'products/reviews.html', context)

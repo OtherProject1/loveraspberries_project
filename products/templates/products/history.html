@@ -3,16 +3,16 @@
 {% block content %}
 
     {% if is_auth %}
-        <div class="nav_delivery">
-            <ul class="title_nav">
-                <li><a href="{% url 'products:profile' %}" class="nav"><b>Профиль</b></a></li>
-                <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и покупки</b></a>
-                </li>
-                <li><a href="{% url 'products:favourites' %}" class="nav"><b>Избранное</b></a></li>
-                <li><a href="" class="nav"><b>Отзывы</b></a></li>
-                <li><a href="" class="nav"><b>Личные данные</b></a></li>
-            </ul>
-        </div>
+    <div class="nav_content_profile">
+        <ul class="title_nav">
+            <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
+            <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
+                покупки</b></a></li>
+            <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
+            <li><a href="{% url 'reviews:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
+            <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
+        </ul>
+    </div>
         <div class="history">
             <a href="{% url 'products:delivery' %}" class="link_delivery"><b>Доставки</b></a>
             <a href="{% url 'products:history' %}" class="link_purchases"><b>Покупки</b></a>
