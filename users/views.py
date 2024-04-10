@@ -55,6 +55,7 @@ def logout(request):
 def details(request):
     if request.method == 'POST':
         form = UserProfileForm(instance=request.user, data=request.POST)
+        print(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Данные успешно изменены!")

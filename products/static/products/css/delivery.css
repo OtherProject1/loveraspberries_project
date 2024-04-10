@@ -185,20 +185,6 @@
     font-variation-settings: "wght" 550;
 }
 
-.rating:hover i.far.fa-star {
-    color: yellow;
-    font-size: 20px;
-    content: "\f005";
-    border: none;
-    background-color: white;
-}
-
-.rating {
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
 .list-group-item-action {
     width: 20px;
     text-align: inherit;
@@ -206,50 +192,38 @@
 
 /****** Style Star Rating Widget *****/
 
+/* Checkbox stars */
 .rating {
-    margin: 0;
-    padding: 0;
-    border: none;
-    float: left;
-}
-
-.rating > input {
-    display: none;
-}
-
-.rating > label:before {
-    margin: 5px;
-    font-size: 1.25em;
-    font-family: FontAwesome;
+    overflow: hidden;
+    vertical-align: bottom;
     display: inline-block;
-    content: "\f005";
-}
-
-
-.rating > .half:before {
-    content: "\f006";
-    font-size: 0;
-    position: absolute;
-}
-
-.rating > label {
-    color: #ddd;
+    width: 155px;
+    height: 30px;
+  }
+  
+  .rating > input {
+    opacity: 0;
+    margin-right: -100%;
+  }
+  
+  .rating > label {
+    position: relative;
+    display: block;
     float: right;
-}
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label {
-    color: #FFD700;
-}
-
-/* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label {
-    color: #FFED85;
-}
+    background: url('../images/star-off-big.png');
+    background-size: 30px 30px;
+  }
+  
+  .rating > label:before {
+    display: block;
+    opacity: 0;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: url('../images/star-on-big.png');
+    background-size: 30px 30px;
+    transition: opacity 0.2s linear;
+  }
+  
+  .rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
+  /* //Checkbox stars */
