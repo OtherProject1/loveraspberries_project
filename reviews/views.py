@@ -6,9 +6,10 @@ from products.models import Product, SubCategory
 from django.db.models import Avg, Count
 from orders.models import Order
 from reviews.models import Review
+from users.models import User
 from .forms import ReviewForm
 from django.shortcuts import redirect
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 
 class FeedBacks(BaseMixin, ListView):
@@ -36,7 +37,7 @@ class UsersReviews(BaseMixin, ListView):
     context_object_name = 'products'
 
     def get_queryset(self) -> QuerySet[Any]:
-        # return Order.objects.filter(initiator=self.request.user, status=Order.DELIVERED)
+        # return Order.objects.filter(initiator=self.request.user, status=Order.RECEIVED)
         return Product.objects.all() #временно эту модель сделаю, пока не сделаем модель покупок или не доработаем модель Order
     
     def get_context_data(self, **kwargs):
@@ -45,16 +46,22 @@ class UsersReviews(BaseMixin, ListView):
         context['form'] = ReviewForm()
         return context
     
+    
     def post(self, request, *args, **kwargs):
-        print(request.POST)
         form = ReviewForm(data=request.POST)
         if form.is_valid():
-            # Review.objects.update_or_create(
-            #     product
-            # )
-            #ФОРМА РАБОТАЕТ ОШИБКИ ИСПРАВЛЕНЫ ПОТОМ ДОБАВЛЮ РЕАЛИЗАЦИЮ ДОБАВЛЕНИЯ В БД
-            return HttpResponse(status=201)
+            user = User.objects.get(pk=request.user.pk)
+            try:
+                review, created = user.reviews.get_or_create(product=Product.objects.get(pk=int(request.POST.get('product'))))
+                review.rating = int(form.cleaned_data['rating'])
+                review.description = form.cleaned_data['description']
+                review.save()
+            except:
+                user.reviews.create(product=Product.objects.get(pk=int(request.POST.get('product'))),
+                                    rating=int(form.cleaned_data['rating']),
+                                    description = form.cleaned_data['description'])
+            
+            return JsonResponse({'success': True, 'form_errors': form.errors, })
         else:
-            print('провал')
-            print(form.errors)
-            return redirect('reviews:reviews')
+            print('Не прошло валидацию')
+            return JsonResponse({'success': False, 'form_errors': form.errors, })

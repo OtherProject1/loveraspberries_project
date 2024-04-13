@@ -5,16 +5,7 @@
 {% block content %}
 
 
-<div class="nav_content_profile">
-    <ul class="title_nav">
-        <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
-        <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
-                    покупки</b></a></li>
-        <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
-        <li><a href="{% url 'reviews:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
-        <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
-    </ul>
-</div>
+{% profile_menu 'Отзывы' %}
 
 <div>
     <h4>Оцените товары</h4>
@@ -69,6 +60,9 @@
                     <div style="margin-top: 10px;">
                     </div>
                     <input type="hidden" name="product" value="{{ card.id }}">
+                    {% if form.errors %}
+                    <span class="error">{{ form.errors }}</span>
+                    {% endif %}
                     <span class="rating">
                         {% for k, v in form.rating.field.choices %}
                         <input id="product{{card.id}}rating{{ k }}" type="radio" name="rating" value="{{ v }}">
@@ -103,8 +97,8 @@
                         style="border-radius: 10px;">
                     <div>
                         <h5 class="card-title" style="margin: 0;">
-                            <a href="{{ review.product.get_absolute_url }}" style="color: black;">{{ review.product.name
-                                }}</a>
+                            <a href="{{ review.product.get_absolute_url }}" style="color: black;">
+                                {{ review.product.name }}</a>
                         </h5>
                         <!-- <p style="margin: 0; color: gray;">Shopname</p> -->
                     </div>
@@ -124,10 +118,33 @@
 </div>
 
 <script>
-    function selectStar (product_id, star) {
-        const starrait = document.getElementById(`product${product_id}rating${ star }`);
+    function selectStar(product_id, star) {
+        const starrait = document.getElementById(`product${product_id}rating${star}`);
         starrait.checked = true;
     }
+
+    $('form').on('submit', function (e) { // or you can get the form by id if you set it
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        const form = $(this);
+        const url = form.attr('action');
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: form.serialize(), // serializes the forms elements.
+            success: function (data) {
+                if (data['success'] == true) {
+                    alert('Отзыв успешно опубликован!')
+                    location.reload()
+                } else {
+                    let alertMessage = data['form_errors']['rating'];
+                    alert(alertMessage);
+                }
+            }
+        });
+    });
 </script>
 
 {% endblock %}

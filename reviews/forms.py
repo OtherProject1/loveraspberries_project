@@ -6,7 +6,8 @@ class ReviewForm(forms.ModelForm):
                                                                                                     'placeholder': 'Впечатления, пожелания, проблемы',
                                                                                                     'rows': 5}))
     rating = forms.ChoiceField(label='choises', widget=forms.RadioSelect(),
-                               choices={'5': 5, '4': 4, '3': 3, '2': 2, '1': 1},)
+                               choices={'5': 5, '4': 4, '3': 3, '2': 2, '1': 1},
+                               error_messages={"required": "Оставьте рейтинг"}, )
 
     class Meta:
         model = Review
