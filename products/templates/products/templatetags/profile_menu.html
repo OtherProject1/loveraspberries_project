@@ -1,0 +1,12 @@
+<div class="nav_content_profile">
+    <ul class="title_nav">
+        {% for m in menu %}
+        {% if current_page == m.name %}
+        <li><a href="{{m.href}}" style="color: #000000; background-color: rgba(180, 180, 180, 0.25); border-radius: 5px;
+                                        padding: 5px;"><b>{{m.name}}</b></a></li>
+        {% else %}
+        <li><a href="{{m.href}}" style="color: #000000;"><b>{{m.name}}</b></a></li>
+        {% endif%}
+        {% endfor %}
+    </ul>
+</div>

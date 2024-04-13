@@ -1,19 +1,12 @@
 {% extends 'products/base.html' %}
 {% load static %}
 {% load sweetify %}
+{% load custom_tags %}
 {% sweetify %}
 {% block title %}Личные данные{% endblock %}
 {% block content %}
-<div class="nav_content_profile">
-    <ul class="title_nav">
-        <li><a href="{% url 'users:profile' %}" class="nav profile"><b>Профиль</b></a></li>
-        <li><a href="{% url 'products:delivery' %}" class="nav delivery_and_purchases"><b>Доставки и
-            покупки</b></a></li>
-        <li><a href="{% url 'basket:favorites' %}" class="nav favourite"><b>Избранное</b></a></li>
-        <li><a href="{% url 'reviews:reviews' %}" class="nav reviews"><b>Отзывы</b></a></li>
-        <li><a href="{% url 'users:details' %}" class="nav details"><b>Личные данные</b></a></li>
-    </ul>
-</div>
+
+{% profile_menu 'Личные данные' %}
     <div class="delivery">
         <a href="{% url 'users:details' %}" class="link_delivery"><b>Личные данные</b></a>
     </div>

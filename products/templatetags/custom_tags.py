@@ -1,4 +1,5 @@
 from django import template
+from django.urls import reverse
 
 from reviews.models import Review
 from basket.models import Basket, Favorites
@@ -35,3 +36,14 @@ def cards_of_products(data, user=None):
         context['basket_products'] = Basket.objects.filter(user=user)
         context['favorites_products'] = list(*list(zip(*Favorites.objects.filter(user=user).values_list('product'))))
     return context
+
+@register.inclusion_tag('products/templatetags/profile_menu.html')
+def profile_menu(current_page):
+    menu = [
+        {'name': 'Профиль', 'href': reverse('users:profile')},
+        {'name': 'Доставки и покупки', 'href': reverse('products:delivery')},
+        {'name': 'Избранное', 'href': reverse('basket:favorites')},
+        {'name': 'Отзывы', 'href': reverse('reviews:reviews')},
+        {'name': 'Личные данные', 'href': reverse('users:details')},
+    ]
+    return {'menu': menu, 'current_page': current_page}
