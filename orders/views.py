@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView
 from basket.models import Basket, Favorites
+from orders.models import Order
 from orders.forms import OrderForm
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
@@ -85,14 +86,14 @@ def my_webhook_view(request):
         session = event['data']['object']
 
         # Fulfill the purchase...
-        fulfill_order(session)
+        fulfill_order(session, request)
 
     # Passed signature verification
     return HttpResponse(status=200)
 
 
 # Логика если оплата прошла успешно
-def fulfill_order(session):
+def fulfill_order(session, request):
     order_id = int(session.metadata.order_id)
-    OrderCreateView.message_success()
-    print("Fulfilling order", order_id)
+    order = Order.objects.get(id=order_id)
+    order.update_after_payment()

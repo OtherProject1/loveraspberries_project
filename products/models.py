@@ -72,6 +72,7 @@ class Product(models.Model):
         )
         return stripe_product_price
 
+
     # Метод будет заполнять информацию для stripe_product_price_id при добавлении товара в бд
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if not self.stripe_product_price_id:

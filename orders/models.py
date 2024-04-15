@@ -1,11 +1,7 @@
-# import stripe
 from django.db import models
 from users.models import User
-from django.conf import settings
 from basket.models import Basket
 
-
-# stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class Order(models.Model):
     CREATED = 0
@@ -32,12 +28,13 @@ class Order(models.Model):
     def __str__(self):
         return f'Заказ #{self.id}. Для {self.first_name} {self.last_name}'
 
-    # def update_after_payment(self):
-    #     baskets = Basket.objects.filter(user=self.initiator)
-    #     self.status = self.PAID
-    #     self.basket_history = {
-    #         'purchased_items': [basket.de_json() for basket in baskets],
-    #         'total_sum': float(baskets.total_sum()),
-    #     }
-    #     baskets.delete()
-    #     self.save()
+    # Метод для работы с корзиной после оплаты товара
+    def update_after_payment(self):
+        basket_product = Basket.objects.filter(user=self.initiator)
+        self.status = self.PAID
+        self.basket_history = {
+            'purchased': [basket.de_basket_history_json() for basket in basket_product],
+            'total_sum': float(basket_product.total_sum()),
+        }
+        basket_product.delete()
+        self.save()
