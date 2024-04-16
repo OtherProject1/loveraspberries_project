@@ -12,9 +12,11 @@ from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from products.mixins import BaseMixin
 from django.conf import settings
+from main import STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET_KEY
 
 # Секретный ключ stripe для подключения оплаты
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = STRIPE_SECRET_KEY
+
 
 
 class CancelView(TemplateView):
@@ -72,7 +74,7 @@ def my_webhook_view(request):
 
     try:
         event = stripe.Webhook.construct_event(
-            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET_KEY
+            payload, sig_header, STRIPE_WEBHOOK_SECRET_KEY
         )
     except ValueError as e:
         # Invalid payload

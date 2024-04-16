@@ -1,10 +1,10 @@
 import pytils, stripe
 from django.db import models
-from django.conf import settings
 from django.urls import reverse
 from django.db.models import Avg
+from main import STRIPE_SECRET_KEY
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = STRIPE_SECRET_KEY
 
 
 # class SlugMixin:
@@ -71,7 +71,6 @@ class Product(models.Model):
             currency='byn',
         )
         return stripe_product_price
-
 
     # Метод будет заполнять информацию для stripe_product_price_id при добавлении товара в бд
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
