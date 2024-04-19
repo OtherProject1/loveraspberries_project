@@ -11,6 +11,8 @@ from .models import Basket, Favorites
 from products.models import Product
 from django.db.models.aggregates import Sum
 from django.db.models.expressions import F
+from django.contrib.auth.models import AnonymousUser
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 '''
 Твой вариант
@@ -51,7 +53,7 @@ from django.db.models.expressions import F
 #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
-class BasketView(BaseMixin, ListView):
+class BasketView(LoginRequiredMixin, BaseMixin, ListView):
     model = Basket
     template_name = 'basket/basket.html'
     context_object_name = 'basket_products'
@@ -213,7 +215,7 @@ def basket_products(request):
     return render(request, 'basket/basket.html', context=context)
 
 
-class FavoritesView(BaseMixin, ListView):
+class FavoritesView(LoginRequiredMixin, BaseMixin, ListView):
     model = Favorites
     template_name = 'basket/favorites.html'
     context_object_name = 'favorites_products'
@@ -225,5 +227,6 @@ class FavoritesView(BaseMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['basket_products'] = Basket.objects.filter(user=self.request.user)
+        if not isinstance(self.request.user, AnonymousUser):
+            context['basket_products'] = Basket.objects.filter(user=self.request.user)
         return context

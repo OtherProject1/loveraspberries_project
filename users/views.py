@@ -17,7 +17,7 @@ from django.db.models.base import Model as Model
 class UserLoginView(BaseMixin, LoginView):
     template_name = 'users/login.html'
     form_class = UserLoginForm
-    success_url = reverse_lazy('products:home')
+    # success_url = reverse_lazy('products:home')
 
     def form_valid(self, form):
         response = super().form_valid(form)

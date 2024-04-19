@@ -99,3 +99,5 @@ def fulfill_order(session, request):
     order_id = int(session.metadata.order_id)
     order = Order.objects.get(id=order_id)
     order.update_after_payment()
+
+str(1)
