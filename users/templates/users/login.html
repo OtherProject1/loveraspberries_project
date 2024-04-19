@@ -23,6 +23,7 @@
             <div class="modal-body">
                 <form action="{% url 'users:login' %}" method="POST">
                     {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
                     <div class="mb-3">
                         <label for="{{ form.username.id_for_label }}" class="col-form-label">Имя
                             пользователя:</label>

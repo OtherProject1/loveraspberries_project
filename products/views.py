@@ -54,7 +54,8 @@ class ProductDetail(BaseMixin, DetailView):
         context['every_counts_stars'] = context['product'].reviews.values('rating').order_by('rating').annotate(count=Count('rating'))[::-1]
         context['all_count_reviews'] = context['product'].reviews.all().count()
         context['title'] = context['product'].name
-        context['product_in_basket'] = Basket.objects.filter(user=self.request.user, product=context['product'])
+        if not isinstance(self.request.user, AnonymousUser):
+            context['product_in_basket'] = Basket.objects.filter(user=self.request.user, product=context['product'])
         return context
 
 
